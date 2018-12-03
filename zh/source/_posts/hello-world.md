@@ -1,38 +1,48 @@
 ---
-title: Hello World
+title: 你好，世界
+date: 2018-03-20
+updated: 2018-10-10
+categories:
+- 杂项
+tags:
+- 测试
 ---
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
+# 你好，世界
 
-## Quick Start
+终于搭建好属于自己的博客啦！
 
-### Create a new post
+主要分享技术和思想，偶尔也谈谈个人感想。
 
-``` bash
-$ hexo new "My New Post"
+坚持原创，不定时更新。
+
+<!-- more -->
+
+``` Java
+// Java
+class HelloWorld {
+
+    public static void main() {
+        System.out.println("Hello World!");
+    }
+}
 ```
 
-More info: [Writing](https://hexo.io/docs/writing.html)
+``` C
+// C
+#include "stdio.h"
 
-### Run server
-
-``` bash
-$ hexo server
+int main() {
+    printf("Hello World!\n");
+    return 0;
+}
 ```
 
-More info: [Server](https://hexo.io/docs/server.html)
+``` C++
+// C++
+#include "iostream"
 
-### Generate static files
-
-``` bash
-$ hexo generate
+int main() {
+    std::cout << "Hello World!" << std::endl;
+    return 0;
+}
 ```
-
-More info: [Generating](https://hexo.io/docs/generating.html)
-
-### Deploy to remote sites
-
-``` bash
-$ hexo deploy
-```
-
-More info: [Deployment](https://hexo.io/docs/deployment.html)

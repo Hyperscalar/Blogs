@@ -43,8 +43,8 @@
   {% set js_vendors.canvas_sphere  = 'three/canvas_sphere.min.js' %}
 {% endif %}
 
-{% if theme.canvas_ribbon.enable and theme.scheme === 'Pisces'%}
-  {% set js_vendors.canvas_ribbon  = 'canvas-ribbon/canvas-ribbon.js' %}
+{% if theme.canvas_ribbon.enable %}
+  {% set js_vendors.canvas_ribbon  = 'ribbon/dist/ribbon.min.js' %}
 {% endif %}
 
 {% if theme.reading_progress.enable %}

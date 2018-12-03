@@ -1,38 +1,62 @@
 ---
 title: Hello World
+date: 2018-03-20
+updated: 2018-09-10
+categories:
+- Miscellaneous
+tags:
+- Test
 ---
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
+# Hello World
 
-## Quick Start
+Finally, done with the construction.
 
-### Create a new post
+Mainly for technology sharing and discussing, and occasionally talk about other stuff. 😂
 
-``` bash
-$ hexo new "My New Post"
+Introduction:
+
+- Ideas: Inspiration sharing
+- Books: Book recommendation
+- Courses: Course collection
+
+<!-- more -->
+
+``` Java
+// Java
+class HelloWorld {
+
+    public static void main() {
+        System.out.println("Hello World!");
+    }
+}
 ```
 
-More info: [Writing](https://hexo.io/docs/writing.html)
+``` C++
+// C++
+#include "iostream"
 
-### Run server
-
-``` bash
-$ hexo server
+int main() {
+    std::cout << "Hello World!" << std::endl;
+    return 0;
+}
 ```
 
-More info: [Server](https://hexo.io/docs/server.html)
+``` C
+// C
+#include "stdio.h"
 
-### Generate static files
-
-``` bash
-$ hexo generate
+int main() {
+    printf("Hello World!\n");
+    return 0;
+}
 ```
 
-More info: [Generating](https://hexo.io/docs/generating.html)
-
-### Deploy to remote sites
-
-``` bash
-$ hexo deploy
+``` Python
+# Python
+print("Hello World!")
 ```
 
-More info: [Deployment](https://hexo.io/docs/deployment.html)
+``` JavaScript
+// JavaScript
+Console.log("Hello World!");
+```

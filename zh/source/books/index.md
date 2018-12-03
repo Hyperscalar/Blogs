@@ -1,0 +1,52 @@
+---
+title: 书籍
+date: false
+---
+
+# 书籍
+
+## 基础
+
+- 程序设计语言
+  - 《**C 程序设计语言**》（The C Programming Language），作者：Brian Kernighan，Dennis Ritchie
+  - 《**Java 编程思想**》（Thinking in Java），作者：Bruce Eckel
+  - 《**C++ Primer**》，作者：Stanley B. Lippman，Josée Lajoie，Barbara E. Moo
+- 算法与数据结构
+  - 《**算法**》（Algorithms），作者：Robert Sedgewick，Kevin Wayne
+  - 《**算法导论**》（Introduction to Algorithms），作者：Thomas H. Cormen，Charles E. Leiserson，Ronald L. Rivest，Clifford Stein
+  - 《**算法分析导论**》（An Introduction to the Analysis of Algorithms），作者：Robert Sedgewick, Philippe Flajolet
+- 数据库
+  - 《**数据库系统：全书**》（Database Systems: The Complete Book），作者：Hector Garcia-Molina，Jeff Ullman，Jennifer Widom
+  - 《**高性能 MySQL**》（High Performance MySQL: Optimization, Backups, and Replication），作者：Baron Schwartz，Peter Zaitsev，Vadim Tkachenko
+  - 《**MySQL 技术内幕：InnoDB 存储引擎**》，作者：姜承尧
+  - 《**Redis 设计与实现**》，作者：黄健宏
+- 计算机网络
+  - 《**计算机网络：自顶向下方法**》（Computer Networking: A Top-Down Approach），作者：James F. Kurose，Keith W. Ross
+  - 《**TCP/IP 详解 卷1：协议**》(TCP/IP Illustrated, Volume 1: The Protocols)，作者：W. Richard Stevens
+  - 《**TCP/IP 详解 卷2：实现**》(TCP/IP Illustrated, Volume 2: The Implementation)，作者：W. Richard Stevens
+  - 《**TCP/IP 详解 卷3：TCP 事务协议、HTTP、NNTP 和 UNIX 域协议**》（ TCP/IP Illustrated, Vol. 3: TCP for Transactions, HTTP, NNTP, and the UNIX Domain Protocols），作者：W. Richard Stevens
+  - 《**UNIX 网络编程 卷1：套接字联网 API**》（Unix Network Programming, Volume 1: The Sockets Networking API），作者：W. Richard Stevens，Bill Fenner，Andrew M. Rudof
+  - 《**UNIX 网络编程 卷2：进程间通信**》（UNIX Network Programming, Volume 2: Interprocess Communications），作者：W. Richard Stevens
+- 操作系统
+  - 《**现代操作系统**》（Modern Operating Systems），作者：Andrew S. Tanenbaum
+  - 《**UNIX 环境高级编程**》（Advanced Programming in the UNIX Environment），作者：W. Richard Stevens，Stephen A. Rago
+- 计算机体系结构
+  - 《**计算机体系结构：量化研究方法**》（Computer Architecture: A Quantitative Approach），作者：John L. Hennessy，David A. Patterson
+  - 《**计算机组成与设计：硬件、软件接口**》（Computer Organization and Design: The Hardware/Software Interface），作者：David A. Patterson，John L. Hennessy
+- 编译原理
+  - 《**编译原理**》（Compilers: Principles, Techniques, and Tools），作者：Alfred V. Aho，Monica S. Lam，Ravi Sethi，Jeffrey D. Ullman
+- 计算机科学
+  - 《**深入理解计算机系统**》（Computer Systems: A Programmer's Perspective），作者：Randal E. Bryant，David R. O'Hallaron
+
+## 进阶
+
+- 并发编程
+  - 《**Java 并发编程实战**》（Java Concurrency in Practice），作者：Brian Goetz，Tim Peierls，Joshua Bloch，Joseph Bowbeer，David Holmes，Doug Lea
+- 虚拟机
+  - 《**深入理解 Java 虚拟机：JVM 高级特性与最佳实践**》，作者：周志明
+- 分布式系统
+- 机器学习
+  - 《**机器学习**》，作者：周志华
+  - 《**统计学习方法**》，作者：李航
+
+## 兴趣
