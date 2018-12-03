@@ -10,8 +10,8 @@ branches:
 
 cache:
   directories:
-  - zh/node_modules
-  - en/node_modules
+  - zh/node_modules/
+  - en/node_modules/
 
 before_install:
 - export TZ=Asia/Shanghai
@@ -20,7 +20,7 @@ before_install:
 
 - openssl aes-256-cbc -K $encrypted_6f5786d51b36_key -iv $encrypted_6f5786d51b36_iv
     -in .travis/ssh_keys.tar.gz.enc -out .travis/ssh_keys.tar.gz -d
-- tar -xzvf .travis/ssh_keys.tar.gz -C ~/.ssh && cp .travis/ssh_config ~/.ssh/config
+- tar -xzvf .travis/ssh_keys.tar.gz -C ~/.ssh/ && cp .travis/ssh_config ~/.ssh/config
 
 - git config --global user.name "Bruce He"
 - git config --global user.email "xprtion@outlook.com"
@@ -29,9 +29,9 @@ before_install:
 - git remote add zh git@zh.bitrhythm.github.io:Bitrhythm/zh.git
 - git remote add en git@en.bitrhythm.github.io:Bitrhythm/en.git
 
-- git subtree add --prefix=root/public root master --squash
-- git subtree add --prefix=zh/public zh master --squash
-- git subtree add --prefix=en/public en master --squash
+- git subtree add --prefix=root/public/ root master --squash
+- git subtree add --prefix=zh/public/ zh master --squash
+- git subtree add --prefix=en/public/ en master --squash
 
 install:
 - npm install -g hexo-cli
@@ -46,7 +46,7 @@ install:
 
 before_script:
 - cd root
-- rm -rf public && ln -s source public
+- rm -rf public/ && cp -r source/ public/
 - cd ..
 
 - cd zh
@@ -58,12 +58,12 @@ before_script:
 - cd ..
 
 script:
-- git add root/public zh/public en/public && git commit -m "Deployed by Travis-CI at $(date +%F\ %T\ %Z)"
+- git add -f root/public/ zh/public/ en/public/ && git commit -m "Deployed by Travis-CI at $(date +%F\ %T\ %Z)"
 
-- git subtree split --prefix=root/public --branch root
-- git subtree split --prefix=zh/public --branch zh
-- git subtree split --prefix=en/public --branch en
+- git subtree split --prefix=root/public/ --branch root
+- git subtree split --prefix=zh/public/ --branch zh
+- git subtree split --prefix=en/public/ --branch en
 
-- git subtree push --prefix=root/public root master --squash
-- git subtree push --prefix=zh/public zh master --squash
-- git subtree push --prefix=en/public en master --squash
+- git subtree push --prefix=root/public/ root master --squash
+- git subtree push --prefix=zh/public/ zh master --squash
+- git subtree push --prefix=en/public/ en master --squash
