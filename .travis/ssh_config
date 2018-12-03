@@ -1,0 +1,17 @@
+Host bitrhythm.github.io
+    HostName github.com
+    Port 22
+    User git
+    IdentityFile ~/.ssh/root_rsa
+
+Host zh.bitrhythm.github.io
+    HostName github.com
+    Port 22
+    User git
+    IdentityFile ~/.ssh/zh_rsa
+
+Host en.bitrhythm.github.io
+    HostName github.com
+    Port 22
+    User git
+    IdentityFile ~/.ssh/en_rsa

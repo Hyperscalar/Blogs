@@ -1,0 +1,53 @@
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+a:link {
+  color: black;
+  text-decoration: none;
+}
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  color: #e91e63;
+  text-decoration: none;
+}
+a:active {
+  color: #c2185b;
+  text-decoration: none;
+}
+.container {
+  width: 100%;
+  position: absolute;
+  bottom: 1em;
+  left: 0%;
+  right: 0%;
+}
+.name {
+  font-family: sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: #212121;
+}
+.motto {
+  font-family: serif;
+  color: #757575;
+}
+.blog {
+  font-family: monospace;
+}
+.name,
+.motto,
+.blog {
+  margin: 1em;
+}
+.name h2,
+.motto h4,
+.blog p {
+  margin: 0%;
+  font-weight: lighter;
+}
