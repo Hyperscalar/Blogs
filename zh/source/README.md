@@ -1,1 +1,1 @@
-# [学习与探索笔记](https://bitrhythm.github.io/zh)
+# [学习与探索](https://bitrhythm.github.io/zh)
