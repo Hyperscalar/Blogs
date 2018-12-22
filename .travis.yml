@@ -22,6 +22,7 @@ before_install:
     -in .travis/ssh_keys.tar.gz.enc -out .travis/ssh_keys.tar.gz -d
 - tar -xzvf .travis/ssh_keys.tar.gz -C ~/.ssh/ && cp .travis/ssh_config ~/.ssh/config
 
+- git config --global core.quotepath off
 - git config --global user.name "Bruce He"
 - git config --global user.email "xprtion@outlook.com"
 

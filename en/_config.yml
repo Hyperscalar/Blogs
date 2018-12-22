@@ -119,7 +119,7 @@ search:
   path: search.xml
   field: all
   format: html
-  limit: false
+  limit: 1024
 
 ## Symbols count: https://www.npmjs.com/package/hexo-symbols-count-time
 symbols_count_time:
