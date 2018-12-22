@@ -3,8 +3,6 @@ title: 论文
 date: false
 ---
 
-# 论文
-
 ## 算法
 
 - [Left-Leaning Red-Black Trees](https://www.cs.princeton.edu/~rs/talks/LLRB/RedBlack.pdf)
@@ -21,4 +19,3 @@ date: false
 ## 机器学习
 
 - [YOLO](https://pjreddie.com/darknet/yolo/)
-

@@ -2,7 +2,6 @@
 title: 课程
 date: false
 ---
-# 课程
 
 ## 基础
 

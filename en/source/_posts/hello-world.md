@@ -7,17 +7,13 @@ categories:
 tags:
 - Test
 ---
-# Hello World
+## Hello World
 
-Finally, done with the construction.
+This is my personal blog.
 
-Mainly for technology sharing and discussing, and occasionally talk about other stuff. 😂
+Mainly about technology learning and thinking, but not limited to this.
 
-Introduction:
-
-- Ideas: Inspiration sharing
-- Books: Book recommendation
-- Courses: Course collection
+Insist on originality, Update aperiodically.
 
 <!-- more -->
 
@@ -31,16 +27,6 @@ class HelloWorld {
 }
 ```
 
-``` C++
-// C++
-#include "iostream"
-
-int main() {
-    std::cout << "Hello World!" << std::endl;
-    return 0;
-}
-```
-
 ``` C
 // C
 #include "stdio.h"
@@ -51,12 +37,24 @@ int main() {
 }
 ```
 
-``` Python
-# Python
-print("Hello World!")
+``` C++
+// C++
+#include "iostream"
+
+int main() {
+    std::cout << "Hello World!" << std::endl;
+    return 0;
+}
 ```
 
-``` JavaScript
-// JavaScript
-Console.log("Hello World!");
-```
+{% note default %} Hello World! {% endnote %}
+
+{% note primary %} Hello World! {% endnote %}
+
+{% note success %} Hello World! {% endnote %}
+
+{% note info %} Hello World! {% endnote %}
+
+{% note warning %} Hello World! {% endnote %}
+
+{% note danger %} Hello World! {% endnote %}

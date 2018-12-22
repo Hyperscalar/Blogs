@@ -9,9 +9,9 @@ tags:
 ---
 # 你好，世界
 
-终于搭建好属于自己的博客啦！
+这是我的个人博客。
 
-主要分享技术和思想，偶尔也谈谈个人感想。
+主要分享对于技术学习和思考，但不局限于此。
 
 坚持原创，不定时更新。
 
@@ -46,3 +46,15 @@ int main() {
     return 0;
 }
 ```
+
+{% note default %} Hello World! {% endnote %}
+
+{% note primary %} Hello World! {% endnote %}
+
+{% note success %} Hello World! {% endnote %}
+
+{% note info %} Hello World! {% endnote %}
+
+{% note warning %} Hello World! {% endnote %}
+
+{% note danger %} Hello World! {% endnote %}

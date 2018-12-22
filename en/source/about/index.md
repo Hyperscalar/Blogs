@@ -2,18 +2,10 @@
 title: About
 date: false
 ---
-<center>
-Love Computer
-Love Internet
-Love Artificial Intelligence
-</center>
 
-<center>
-Geek
-Perfectionist
-Interest and Curiosity Driven
-</center>
+<center>Love Computer, Love Internet and Love Artificial Intelligence</center>
 
-<center>
-Stay hungry, Stay foolish.
-</center>
+<center>Geek, Perfectionist and Interest and Curiosity Driven</center>
+
+<center>Stay hungry, Stay foolish.</center>
+
