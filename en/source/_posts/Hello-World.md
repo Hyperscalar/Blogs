@@ -6,6 +6,7 @@ categories:
 - Miscellaneous
 tags:
 - Test
+pdf: true
 ---
 # Hello World
 
@@ -70,4 +71,3 @@ int main() {
 ## PDF
 
 [Dummy](https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf)
-
