@@ -17,6 +17,8 @@ Insist on originality, Update aperiodically.
 
 <!-- more -->
 
+## Code
+
 ``` Java
 // Java
 class HelloWorld {
@@ -47,6 +49,8 @@ int main() {
 }
 ```
 
+## Note
+
 {% note default %} Hello World! {% endnote %}
 
 {% note primary %} Hello World! {% endnote %}
@@ -58,3 +62,12 @@ int main() {
 {% note warning %} Hello World! {% endnote %}
 
 {% note danger %} Hello World! {% endnote %}
+
+## Image
+
+{% asset_img San-Francisco.png San Francisco %}
+
+## PDF
+
+[Dummy](https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf)
+

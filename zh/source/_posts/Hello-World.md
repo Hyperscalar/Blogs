@@ -18,7 +18,7 @@ pdf: true
 
 <!-- more -->
 
-## 代码块
+## 代码
 
 ``` Java
 // Java
@@ -70,5 +70,5 @@ int main() {
 
 ## PDF
 
-[Lorem Ipsum](Lorem-Ipsum.pdf)
+[Dummy](https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf)
 
