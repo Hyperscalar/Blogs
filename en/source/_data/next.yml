@@ -492,7 +492,7 @@ pdf:
   # If you set it to false, it will load PDFObject/PDF.js srcipt EVERY PAGE.
   per_page: true
 
-  height: 512px
+  height: 768px
 
   pdfobject:
     # Use 2.1.1 as default, jsdelivr as default CDN, works everywhere even in China

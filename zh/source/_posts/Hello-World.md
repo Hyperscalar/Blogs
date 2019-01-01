@@ -6,6 +6,7 @@ categories:
 - 杂项
 tags:
 - 测试
+pdf: true
 ---
 # 你好，世界
 
@@ -16,6 +17,8 @@ tags:
 坚持原创，不定时更新。
 
 <!-- more -->
+
+## 代码块
 
 ``` Java
 // Java
@@ -47,6 +50,8 @@ int main() {
 }
 ```
 
+## 笔记
+
 {% note default %} Hello World! {% endnote %}
 
 {% note primary %} Hello World! {% endnote %}
@@ -58,3 +63,12 @@ int main() {
 {% note warning %} Hello World! {% endnote %}
 
 {% note danger %} Hello World! {% endnote %}
+
+## 图片
+
+{% asset_img San-Francisco.png San Francisco %}
+
+## PDF
+
+[Lorem Ipsum](Lorem-Ipsum.pdf)
+
