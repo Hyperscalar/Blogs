@@ -4,7 +4,7 @@ date:
 updated: 
 categories:
 - 课程
-- 数据库
+- 计算机体系结构
 tags:
 - 笔记
 - 复习

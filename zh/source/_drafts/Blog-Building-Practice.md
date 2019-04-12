@@ -1,16 +1,15 @@
 ---
-title: 博客搭建教程
+title: 博客搭建实践
 date: 
 updated: 
 categories:
+- 实践
 - 博客
 tags:
-- 笔记
-- 总结
 - 教程
 ---
 
-# 博客搭建教程
+# 博客搭建实践
 
 ## 需求
 
