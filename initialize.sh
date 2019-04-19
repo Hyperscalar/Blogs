@@ -99,6 +99,10 @@ git remote add theme-next-ribbon https://github.com/hustcc/ribbon.js.git
 git subtree add --prefix=zh/themes/next/source/lib/ribbon/ theme-next-ribbon master --squash
 git subtree add --prefix=en/themes/next/source/lib/ribbon/ theme-next-ribbon master --squash
 
+git remote add theme-next-quicklink https://github.com/theme-next/theme-next-quicklink.git
+git subtree add --prefix=zh/themes/next/source/lib/quicklink/ theme-next-quicklink master --squash
+git subtree add --prefix=en/themes/next/source/lib/quicklink/ theme-next-quicklink master --squash
+
 git remote add theme-next-han https://github.com/theme-next/theme-next-han.git
 git subtree add --prefix=zh/themes/next/source/lib/Han/ theme-next-han master --squash
 
