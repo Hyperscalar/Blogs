@@ -12,7 +12,7 @@ if [[ $@ =~ zh ]]
 then
     echo "Framework update for zh"
     cd zh
-    npm install && npm update
+    npm install && npm update && npm audit fix
     git add package.json package-lock.json && git commit -m "Framework of zh updated at $(date +%F\ %T\ %Z)"
     cd ..
 
@@ -40,6 +40,7 @@ then
     git subtree pull --prefix=zh/themes/next/source/lib/jquery_lazyload/ theme-next-jquery-lazyload master --squash -m "Plugin of zh updated at $(date +%F\ %T\ %Z)"
     git subtree pull --prefix=zh/themes/next/source/lib/fastclick/ theme-next-fastclick master --squash -m "Plugin of zh updated at $(date +%F\ %T\ %Z)"
     git subtree pull --prefix=zh/themes/next/source/lib/ribbon/ theme-next-ribbon master --squash -m "Plugin of zh updated at $(date +%F\ %T\ %Z)"
+    git subtree pull --prefix=zh/themes/next/source/lib/quicklink/ theme-next-quicklink master --squash -m "Plugin of zh updated at $(date +%F\ %T\ %Z)"
     git subtree pull --prefix=zh/themes/next/source/lib/Han/ theme-next-han master --squash -m "Plugin of zh updated at $(date +%F\ %T\ %Z)"
     git subtree pull --prefix=zh/themes/next/source/lib/pangu/ theme-next-pangu master --squash -m "Plugin of zh updated at $(date +%F\ %T\ %Z)"
 fi
@@ -48,7 +49,7 @@ if [[ $@ =~ en ]]
 then
     echo "Framework update for en"
     cd zh
-    npm install && npm update
+    npm install && npm update && npm audit fix
     git add package.json package-lock.json && git commit -m "Framework of en updated at $(date +%F\ %T\ %Z)"
     cd ..
 
@@ -76,4 +77,5 @@ then
     git subtree pull --prefix=en/themes/next/source/lib/jquery_lazyload/ theme-next-jquery-lazyload master --squash -m "Plugin of en updated at $(date +%F\ %T\ %Z)"
     git subtree pull --prefix=en/themes/next/source/lib/fastclick/ theme-next-fastclick master --squash -m "Plugin of en updated at $(date +%F\ %T\ %Z)"
     git subtree pull --prefix=en/themes/next/source/lib/ribbon/ theme-next-ribbon master --squash -m "Plugin of en updated at $(date +%F\ %T\ %Z)"
+    git subtree pull --prefix=en/themes/next/source/lib/quicklink/ theme-next-quicklink master --squash -m "Plugin of en updated at $(date +%F\ %T\ %Z)"
 fi
