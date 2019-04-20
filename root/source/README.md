@@ -1,4 +1,4 @@
-# [Bruce He / 回锅肉](https://bitrhythm.github.io/)
+# [个人主页](https://bitrhythm.github.io/)
 
 ## Contents / 内容
 
