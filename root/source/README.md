@@ -1,6 +1,1 @@
 # [个人主页](https://bitrhythm.github.io/)
-
-## Contents / 内容
-
-- Blog: [Learn & Explore](https://bitrhythm.github.io/en/)
-- 博客: [学习与探索](https://bitrhythm.github.io/zh/)
