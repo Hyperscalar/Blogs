@@ -25,6 +25,7 @@ then
     npm install hexo-generator-feed --save
     npm install hexo-generator-searchdb --save
     npm install hexo-symbols-count-time --save
+    npm install hexo-related-popular-posts --save
 
     npm install && npm update
     git add . && git commit -m "Initialize framework of zh"
@@ -42,6 +43,7 @@ then
     npm install hexo-generator-feed --save
     npm install hexo-generator-searchdb --save
     npm install hexo-symbols-count-time --save
+    npm install hexo-related-popular-posts --save
 
     npm install && npm update
     git add . && git commit -m "Initialize framework of en"

@@ -19,4 +19,4 @@ date: false
 
 <br>
 
-<center>保持饥饿，保持愚蠢。</center>
+<center>不忘初心，特立独行。</center>
