@@ -19,4 +19,4 @@ date: false
 
 <br>
 
-<center>不忘初心，特立独行。</center>
+<center>保持初心，特立独行。</center>
