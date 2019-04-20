@@ -38,11 +38,11 @@ install:
 - npm install -g hexo-cli
 
 - cd zh
-- npm install && npm update
+- npm install && npm update && npm audit fix
 - cd ..
 
 - cd en
-- npm install && npm update
+- npm install && npm update && npm audit fix
 - cd ..
 
 before_script:
