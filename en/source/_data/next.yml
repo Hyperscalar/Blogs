@@ -579,7 +579,7 @@ bookmark:
 reading_progress:
   enable: true
   color: "#E91E63"
-  height: 4px
+  height: 2px
 
 # Google Calendar
 # Share your recent schedule to others via calendar page.
