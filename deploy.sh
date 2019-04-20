@@ -35,7 +35,7 @@ then
 
     echo "Generate for zh"
     cd zh
-    npm install && npm update
+    npm install && npm update && npm audit fix
     hexo clean && hexo generate
     git add -f public/ && git commit -m "Deployed by Git at $(date +%F\ %T\ %Z)"
     cd ..
@@ -56,7 +56,7 @@ then
 
     echo "Generate for en"
     cd en
-    npm install && npm update
+    npm install && npm update && npm audit fix
     hexo clean && hexo generate
     git add -f public/ && git commit -m "Deployed by Git at $(date +%F\ %T\ %Z)"
     cd ..
