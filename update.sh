@@ -48,7 +48,7 @@ fi
 if [[ $@ =~ en ]]
 then
     echo "Framework update for en"
-    cd zh
+    cd en
     npm install && npm update && npm audit fix
     git add package.json package-lock.json && git commit -m "Framework of en updated at $(date +%F\ %T\ %Z)"
     cd ..
