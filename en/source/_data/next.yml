@@ -77,7 +77,7 @@ footer:
     version: false
 
   # Beian icp information for Chinese users. In China, every legal website should have a beian icp in website footer.
-  # http://www.miitbeian.gov.cn
+  # http://www.beian.miit.gov.cn
   beian:
     enable: false
     icp:
@@ -410,7 +410,7 @@ custom_scrollbar: true
 # Do not support Scheme Mist currently.
 custom_logo:
   enable: false
-  image:
+  image: #/uploads/custom-logo.jpg
 
 # Code Highlight theme
 # Available values: normal | night | night eighties | night blue | night bright
@@ -429,7 +429,7 @@ tagcloud:
   max: 30 # max font size in px
   start: "#ccc" # start color (hex, rgba, hsla or color keywords)
   end: "#111" # end color (hex, rgba, hsla or color keywords)
-  amount: 200 # amount of tags, chage it if you have more than 200 tags
+  amount: 200 # amount of tags, change it if you have more than 200 tags
 
 
 # ---------------------------------------------------------------
