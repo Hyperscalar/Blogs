@@ -27,11 +27,6 @@ then
     read -p "Please enter a branch or tag name: " version
     git subtree pull --prefix=zh/themes/next/ theme-next $version --squash -m "Next theme of zh updated at $(date +%F\ %T\ %Z)"
 
-    echo "Update material theme for zh..."
-    echo "Which target version should be used?"
-    read -p "Please enter a branch or tag name: " version
-    git subtree pull --prefix=zh/themes/material/ theme-material $version --squash -m "Material theme of zh updated at $(date +%F\ %T\ %Z)"
-
     echo "Plugins update for zh..."
     git subtree pull --prefix=zh/themes/next/source/lib/reading_progress/ theme-next-reading-progress master --squash -m "Plugin of zh updated at $(date +%F\ %T\ %Z)"
     git subtree pull --prefix=zh/themes/next/source/lib/bookmark/ theme-next-bookmark master --squash -m "Plugin of zh updated at $(date +%F\ %T\ %Z)"
@@ -48,7 +43,7 @@ fi
 if [[ $@ =~ en ]]
 then
     echo "Framework update for en"
-    cd zh
+    cd en
     npm install && npm update && npm audit fix
     git add package.json package-lock.json && git commit -m "Framework of en updated at $(date +%F\ %T\ %Z)"
     cd ..
@@ -63,11 +58,6 @@ then
     echo "Which target version should be used?"
     read -p "Please enter a branch or tag name: " version
     git subtree pull --prefix=en/themes/next/ theme-next $version --squash -m "Next theme of en updated at $(date +%F\ %T\ %Z)"
-
-    echo "Update material theme for en..."
-    echo "Which target version should be used?"
-    read -p "Please enter a branch or tag name: " version
-    git subtree pull --prefix=en/themes/material/ theme-material $version --squash -m "Material theme of en updated at $(date +%F\ %T\ %Z)"
 
     echo "Plugins update for en..."
     git subtree pull --prefix=en/themes/next/source/lib/reading_progress/ theme-next-reading-progress master --squash -m "Plugin of en updated at $(date +%F\ %T\ %Z)"

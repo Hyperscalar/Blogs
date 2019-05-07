@@ -65,13 +65,6 @@ git remote add theme-next https://github.com/theme-next/hexo-theme-next.git
 git subtree add --prefix=zh/themes/next/ theme-next $version --squash
 git subtree add --prefix=en/themes/next/ theme-next $version --squash
 
-echo "Initialize material theme..."
-echo "Which version should be used?"
-read -p "Please enter a branch or tag name: " version
-git remote add theme-material https://github.com/viosey/hexo-theme-material.git
-git subtree add --prefix=zh/themes/material/ theme-material $version --squash
-git subtree add --prefix=en/themes/material/ theme-material $version --squash
-
 echo "Initialize plugins..."
 git remote add theme-next-reading-progress https://github.com/theme-next/theme-next-reading-progress.git
 git subtree add --prefix=zh/themes/next/source/lib/reading_progress/ theme-next-reading-progress master --squash
