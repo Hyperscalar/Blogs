@@ -16,7 +16,7 @@ then
     echo "Generate for root"
     cd root
     rm -rf public/ && cp -r source/ public/
-    git add -f public/ && git commit -m "Deployed by Git at $(date +%F\ %T\ %Z)"
+    git add -f public/ && git commit -m "Deployed by Git"
     cd ..
 
     echo "Deploy for root..."
@@ -37,7 +37,7 @@ then
     cd zh
     npm install && npm update && npm audit fix
     hexo clean && hexo generate
-    git add -f public/ && git commit -m "Deployed by Git at $(date +%F\ %T\ %Z)"
+    git add -f public/ && git commit -m "Deployed by Git"
     cd ..
 
     echo "Deploy for zh..."
@@ -58,7 +58,7 @@ then
     cd en
     npm install && npm update && npm audit fix
     hexo clean && hexo generate
-    git add -f public/ && git commit -m "Deployed by Git at $(date +%F\ %T\ %Z)"
+    git add -f public/ && git commit -m "Deployed by Git"
     cd ..
 
     echo "Deploy for en..."

@@ -59,7 +59,7 @@ before_script:
 - cd ..
 
 script:
-- git add -f root/public/ zh/public/ en/public/ && git commit -m "Deployed by Travis-CI at $(date +%F\ %T\ %Z)"
+- git add -f root/public/ zh/public/ en/public/ && git commit -m "Deployed by Travis-CI"
 
 - git subtree split --prefix=root/public/ --branch root
 - git subtree split --prefix=zh/public/ --branch zh
