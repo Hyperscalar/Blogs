@@ -28,7 +28,7 @@ then
     npm install hexo-related-popular-posts --save
 
     npm install && npm update
-    git add . && git commit -m "Initialize framework of zh"
+    git add . && git commit -m "Initialize framework and its plugins of zh"
     cd ..
 fi
 
@@ -46,7 +46,7 @@ then
     npm install hexo-related-popular-posts --save
 
     npm install && npm update
-    git add . && git commit -m "Initialize framework of en"
+    git add . && git commit -m "Initialize framework and its plugins of en"
     cd ..
 fi
 
@@ -66,6 +66,7 @@ git subtree add --prefix=zh/themes/next/ theme-next $version --squash
 git subtree add --prefix=en/themes/next/ theme-next $version --squash
 
 echo "Initialize plugins..."
+echo "Initialize plugins of next theme..."
 git remote add theme-next-reading-progress https://github.com/theme-next/theme-next-reading-progress.git
 git subtree add --prefix=zh/themes/next/source/lib/reading_progress/ theme-next-reading-progress master --squash
 git subtree add --prefix=en/themes/next/source/lib/reading_progress/ theme-next-reading-progress master --squash

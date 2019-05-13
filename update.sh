@@ -11,61 +11,89 @@ fi
 if [[ $@ =~ zh ]]
 then
     echo "Framework update for zh"
-    cd zh
-    npm install && npm update && npm audit fix
-    git add package.json package-lock.json && git commit -m "Framework of zh updated at $(date +%F\ %T\ %Z)"
-    cd ..
+    read -p "Update hexo framework and its plugins for zh? Y/N" answer
+    if [[ $answer = "Y" ]]
+    then
+        cd zh
+        npm install && npm update && npm audit fix
+        git add package.json package-lock.json && git commit -m "Update hexo framework and its plugins for zh"
+        cd ..
+    fi
 
     echo "Theme update for zh..."
-    echo "Update landscape theme for zh..."
-    echo "Which target version should be used?"
-    read -p "Please enter a branch or tag name: " version
-    git subtree pull --prefix=zh/themes/landscape/ theme-landscape $version --squash -m "Landscape theme of zh updated at $(date +%F\ %T\ %Z)"
+    read -p "Update landscape theme for zh? Y/N" answer
+    if [[ $answer = "Y" ]]
+    then
+        echo "Which target version should be used?"
+        read -p "Please enter a branch or tag name: " version
+        git subtree pull --prefix=zh/themes/landscape/ theme-landscape $version --squash -m "Update landscape theme for zh"
+    fi
 
-    echo "Update next theme for zh..."
-    echo "Which target version should be used?"
-    read -p "Please enter a branch or tag name: " version
-    git subtree pull --prefix=zh/themes/next/ theme-next $version --squash -m "Next theme of zh updated at $(date +%F\ %T\ %Z)"
+    read -p "Update next theme for zh? Y/N" answer
+    if [[ $answer = "Y" ]]
+    then
+        echo "Which target version should be used?"
+        read -p "Please enter a branch or tag name: " version
+        git subtree pull --prefix=zh/themes/next/ theme-next $version --squash -m "Update next theme for zh"
+    fi
 
     echo "Plugins update for zh..."
-    git subtree pull --prefix=zh/themes/next/source/lib/reading_progress/ theme-next-reading-progress master --squash -m "Plugin of zh updated at $(date +%F\ %T\ %Z)"
-    git subtree pull --prefix=zh/themes/next/source/lib/bookmark/ theme-next-bookmark master --squash -m "Plugin of zh updated at $(date +%F\ %T\ %Z)"
-    git subtree pull --prefix=zh/themes/next/source/lib/fancybox/ theme-next-fancybox3 master --squash -m "Plugin of zh updated at $(date +%F\ %T\ %Z)"
-    git subtree pull --prefix=zh/themes/next/source/lib/pdf/ theme-next-pdf master --squash -m "Plugin of zh updated at $(date +%F\ %T\ %Z)"
-    git subtree pull --prefix=zh/themes/next/source/lib/jquery_lazyload/ theme-next-jquery-lazyload master --squash -m "Plugin of zh updated at $(date +%F\ %T\ %Z)"
-    git subtree pull --prefix=zh/themes/next/source/lib/fastclick/ theme-next-fastclick master --squash -m "Plugin of zh updated at $(date +%F\ %T\ %Z)"
-    git subtree pull --prefix=zh/themes/next/source/lib/ribbon/ theme-next-ribbon master --squash -m "Plugin of zh updated at $(date +%F\ %T\ %Z)"
-    git subtree pull --prefix=zh/themes/next/source/lib/quicklink/ theme-next-quicklink master --squash -m "Plugin of zh updated at $(date +%F\ %T\ %Z)"
-    git subtree pull --prefix=zh/themes/next/source/lib/Han/ theme-next-han master --squash -m "Plugin of zh updated at $(date +%F\ %T\ %Z)"
-    git subtree pull --prefix=zh/themes/next/source/lib/pangu/ theme-next-pangu master --squash -m "Plugin of zh updated at $(date +%F\ %T\ %Z)"
+    read -p "Update plugins of next theme for zh? Y/N" answer
+    if [[ $answer = "Y" ]]
+    then
+        git subtree pull --prefix=zh/themes/next/source/lib/reading_progress/ theme-next-reading-progress master --squash -m "Update plugin of next theme for zh"
+        git subtree pull --prefix=zh/themes/next/source/lib/bookmark/ theme-next-bookmark master --squash -m "Update plugin of next theme for zh"
+        git subtree pull --prefix=zh/themes/next/source/lib/fancybox/ theme-next-fancybox3 master --squash -m "Update plugin of next theme for zh"
+        git subtree pull --prefix=zh/themes/next/source/lib/pdf/ theme-next-pdf master --squash -m "Update plugin of next theme for zh"
+        git subtree pull --prefix=zh/themes/next/source/lib/jquery_lazyload/ theme-next-jquery-lazyload master --squash -m "Update plugin of next theme for zh"
+        git subtree pull --prefix=zh/themes/next/source/lib/fastclick/ theme-next-fastclick master --squash -m "Update plugin of next theme for zh"
+        git subtree pull --prefix=zh/themes/next/source/lib/ribbon/ theme-next-ribbon master --squash -m "Update plugin of next theme for zh"
+        git subtree pull --prefix=zh/themes/next/source/lib/quicklink/ theme-next-quicklink master --squash -m "Update plugin of next theme for zh"
+        git subtree pull --prefix=zh/themes/next/source/lib/Han/ theme-next-han master --squash -m "Update plugin of next theme for zh"
+        git subtree pull --prefix=zh/themes/next/source/lib/pangu/ theme-next-pangu master --squash -m "Update plugin of next theme for zh"
+    fi
 fi
 
 if [[ $@ =~ en ]]
 then
     echo "Framework update for en"
-    cd en
-    npm install && npm update && npm audit fix
-    git add package.json package-lock.json && git commit -m "Framework of en updated at $(date +%F\ %T\ %Z)"
-    cd ..
+    read -p "Update hexo framework and its plugins for en? Y/N" answer
+    if [[ $answer = "Y" ]]
+    then
+        cd en
+        npm install && npm update && npm audit fix
+        git add package.json package-lock.json && git commit -m "Update hexo framework and its plugins for en"
+        cd ..
+    fi
 
     echo "Theme update for en..."
-    echo "Update landscape theme for en..."
-    echo "Which target version should be used?"
-    read -p "Please enter a branch or tag name: " version
-    git subtree pull --prefix=en/themes/landscape/ theme-landscape $version --squash -m "Landscape theme of en updated at $(date +%F\ %T\ %Z)"
+    read -p "Update landscape theme for en? Y/N" answer
+    if [[ $answer = "Y" ]]
+    then
+        echo "Which target version should be used?"
+        read -p "Please enter a branch or tag name: " version
+        git subtree pull --prefix=en/themes/landscape/ theme-landscape $version --squash -m "Update landscape theme for en"
+    fi
 
-    echo "Update next theme for en..."
-    echo "Which target version should be used?"
-    read -p "Please enter a branch or tag name: " version
-    git subtree pull --prefix=en/themes/next/ theme-next $version --squash -m "Next theme of en updated at $(date +%F\ %T\ %Z)"
+    read -p "Update next theme for en? Y/N" answer
+    if [[ $answer = "Y" ]]
+    then
+        echo "Which target version should be used?"
+        read -p "Please enter a branch or tag name: " version
+        git subtree pull --prefix=en/themes/next/ theme-next $version --squash -m "Update next theme for en"
+    fi
 
     echo "Plugins update for en..."
-    git subtree pull --prefix=en/themes/next/source/lib/reading_progress/ theme-next-reading-progress master --squash -m "Plugin of en updated at $(date +%F\ %T\ %Z)"
-    git subtree pull --prefix=en/themes/next/source/lib/bookmark/ theme-next-bookmark master --squash -m "Plugin of en updated at $(date +%F\ %T\ %Z)"
-    git subtree pull --prefix=en/themes/next/source/lib/fancybox/ theme-next-fancybox3 master --squash -m "Plugin of en updated at $(date +%F\ %T\ %Z)"
-    git subtree pull --prefix=en/themes/next/source/lib/pdf/ theme-next-pdf master --squash -m "Plugin of zh updated at $(date +%F\ %T\ %Z)"
-    git subtree pull --prefix=en/themes/next/source/lib/jquery_lazyload/ theme-next-jquery-lazyload master --squash -m "Plugin of en updated at $(date +%F\ %T\ %Z)"
-    git subtree pull --prefix=en/themes/next/source/lib/fastclick/ theme-next-fastclick master --squash -m "Plugin of en updated at $(date +%F\ %T\ %Z)"
-    git subtree pull --prefix=en/themes/next/source/lib/ribbon/ theme-next-ribbon master --squash -m "Plugin of en updated at $(date +%F\ %T\ %Z)"
-    git subtree pull --prefix=en/themes/next/source/lib/quicklink/ theme-next-quicklink master --squash -m "Plugin of en updated at $(date +%F\ %T\ %Z)"
+    read -p "Update plugins of next theme for en? Y/N" answer
+    if [[ $answer = "Y" ]]
+    then
+        git subtree pull --prefix=en/themes/next/source/lib/reading_progress/ theme-next-reading-progress master --squash -m "Update plugin of next theme for en"
+        git subtree pull --prefix=en/themes/next/source/lib/bookmark/ theme-next-bookmark master --squash -m "Update plugin of next theme for en"
+        git subtree pull --prefix=en/themes/next/source/lib/fancybox/ theme-next-fancybox3 master --squash -m "Update plugin of next theme for en"
+        git subtree pull --prefix=en/themes/next/source/lib/pdf/ theme-next-pdf master --squash -m "Update plugin of next theme for en"
+        git subtree pull --prefix=en/themes/next/source/lib/jquery_lazyload/ theme-next-jquery-lazyload master --squash -m "Update plugin of next theme for en"
+        git subtree pull --prefix=en/themes/next/source/lib/fastclick/ theme-next-fastclick master --squash -m "Update plugin of next theme for en"
+        git subtree pull --prefix=en/themes/next/source/lib/ribbon/ theme-next-ribbon master --squash -m "Update plugin of next theme for en"
+        git subtree pull --prefix=en/themes/next/source/lib/quicklink/ theme-next-quicklink master --squash -m "Update plugin of next theme for en"
+    fi
 fi
