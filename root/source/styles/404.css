@@ -46,10 +46,11 @@ a:active {
   margin: 1em;
 }
 .code h1,
-.name h2,
+.name h3,
 .link p {
   margin: 0.125em;
 }
-.code h1 {
+.code h1,
+.name h3 {
   font-weight: lighter;
 }

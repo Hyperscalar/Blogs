@@ -50,6 +50,7 @@ a:active {
 .blog p {
   margin: 0.125em;
 }
-.name h2 {
+.name h2,
+.motto h4 {
   font-weight: lighter;
 }
