@@ -1,4 +1,6 @@
 User-agent: *
 
+Disallow:
+
 Sitemap: https://bitrhythm.github.io/zh/sitemap.xml
 Sitemap: https://bitrhythm.github.io/en/sitemap.xml
