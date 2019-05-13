@@ -27,29 +27,29 @@ a:active {
   left: 0%;
   right: 0%;
 }
-.name {
+.code {
   font-family: sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.25em;
   color: #212121;
 }
-.motto {
+.name {
   font-family: serif;
   color: #757575;
 }
-.blog {
+.link {
   font-family: monospace;
 }
+.code,
 .name,
-.motto,
-.blog {
+.link {
   margin: 1em;
 }
+.code h1,
 .name h2,
-.motto h4,
-.blog p {
+.link p {
   margin: 0.125em;
 }
-.name h2 {
+.code h1 {
   font-weight: lighter;
 }
