@@ -11,7 +11,7 @@ fi
 if [[ $@ =~ zh ]]
 then
     echo "Framework update for zh"
-    read -p "Update hexo framework and its plugins for zh? Y/N" answer
+    read -p "Update hexo framework and its plugins for zh? Y/N " answer
     if [[ $answer = "Y" ]]
     then
         cd zh
@@ -21,7 +21,7 @@ then
     fi
 
     echo "Theme update for zh..."
-    read -p "Update landscape theme for zh? Y/N" answer
+    read -p "Update landscape theme for zh? Y/N " answer
     if [[ $answer = "Y" ]]
     then
         echo "Which target version should be used?"
@@ -29,7 +29,7 @@ then
         git subtree pull --prefix=zh/themes/landscape/ theme-landscape $version --squash -m "Update landscape theme for zh"
     fi
 
-    read -p "Update next theme for zh? Y/N" answer
+    read -p "Update next theme for zh? Y/N " answer
     if [[ $answer = "Y" ]]
     then
         echo "Which target version should be used?"
@@ -38,7 +38,7 @@ then
     fi
 
     echo "Plugins update for zh..."
-    read -p "Update plugins of next theme for zh? Y/N" answer
+    read -p "Update plugins of next theme for zh? Y/N " answer
     if [[ $answer = "Y" ]]
     then
         git subtree pull --prefix=zh/themes/next/source/lib/reading_progress/ theme-next-reading-progress master --squash -m "Update plugin of next theme for zh"
@@ -57,7 +57,7 @@ fi
 if [[ $@ =~ en ]]
 then
     echo "Framework update for en"
-    read -p "Update hexo framework and its plugins for en? Y/N" answer
+    read -p "Update hexo framework and its plugins for en? Y/N " answer
     if [[ $answer = "Y" ]]
     then
         cd en
@@ -67,7 +67,7 @@ then
     fi
 
     echo "Theme update for en..."
-    read -p "Update landscape theme for en? Y/N" answer
+    read -p "Update landscape theme for en? Y/N " answer
     if [[ $answer = "Y" ]]
     then
         echo "Which target version should be used?"
@@ -75,7 +75,7 @@ then
         git subtree pull --prefix=en/themes/landscape/ theme-landscape $version --squash -m "Update landscape theme for en"
     fi
 
-    read -p "Update next theme for en? Y/N" answer
+    read -p "Update next theme for en? Y/N " answer
     if [[ $answer = "Y" ]]
     then
         echo "Which target version should be used?"
@@ -84,7 +84,7 @@ then
     fi
 
     echo "Plugins update for en..."
-    read -p "Update plugins of next theme for en? Y/N" answer
+    read -p "Update plugins of next theme for en? Y/N " answer
     if [[ $answer = "Y" ]]
     then
         git subtree pull --prefix=en/themes/next/source/lib/reading_progress/ theme-next-reading-progress master --squash -m "Update plugin of next theme for en"
