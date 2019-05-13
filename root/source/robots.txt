@@ -1,13 +1,4 @@
 User-agent: *
 
-Disallow: /scripts
-Disallow: /styles
-Disallow: /zh/js
-Disallow: /zh/css
-Disallow: /zh/lib
-Disallow: /en/js
-Disallow: /en/css
-Disallow: /en/lib
-
 Sitemap: https://bitrhythm.github.io/zh/sitemap.xml
 Sitemap: https://bitrhythm.github.io/en/sitemap.xml
