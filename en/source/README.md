@@ -1,1 +1,1 @@
-# [Learn & Explore](https://bitrhythm.github.io/en)
+# [Blog](https://bitrhythm.github.io/en)
