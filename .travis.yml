@@ -9,14 +9,13 @@ branches:
   - master
 
 cache:
+  npm: true
   directories:
   - zh/node_modules/
   - en/node_modules/
 
 before_install:
 - export TZ=Asia/Shanghai
-
-- npm install -g npm@latest
 
 - openssl aes-256-cbc -K $encrypted_6f5786d51b36_key -iv $encrypted_6f5786d51b36_iv
     -in .travis/ssh_keys.tar.gz.enc -out .travis/ssh_keys.tar.gz -d
@@ -36,6 +35,7 @@ before_install:
 - git subtree add --prefix=en/public/ en master --squash
 
 install:
+- npm install -g npm@latest
 - npm install -g hexo-cli
 
 - cd zh
@@ -60,14 +60,13 @@ before_script:
 - cd ..
 
 script:
-- git add -f root/public/ && git commit -m "Deployed by Travis-CI"
+- git add -f root/public/ zh/public/ en/public/ && git commit -m "Deployed by Travis-CI"
+
 - git subtree split --prefix=root/public/ --branch root
 - git subtree push --prefix=root/public/ root master --squash
 
-- git add -f zh/public/ && git commit -m "Deployed by Travis-CI"
 - git subtree split --prefix=zh/public/ --branch zh
 - git subtree push --prefix=zh/public/ zh master --squash
 
-- git add -f en/public/ && git commit -m "Deployed by Travis-CI"
 - git subtree split --prefix=en/public/ --branch en
 - git subtree push --prefix=en/public/ en master --squash
