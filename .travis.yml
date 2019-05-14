@@ -39,7 +39,8 @@ script:
 - rm -rf public/ && cp -r source/ public/
 - cd ..
 
-- git add -f root/public/ && git commit -m "Deployed by Travis-CI"
+- git add -f root/public/
+- git commit --allow-empty -m "Deployed by Travis-CI"
 - git subtree split --prefix=root/public/ --branch root
 - git subtree push --prefix=root/public/ root master --squash
 
@@ -52,7 +53,8 @@ script:
 - hexo clean && hexo generate
 - cd ..
 
-- git add -f zh/public/ && git commit -m "Deployed by Travis-CI"
+- git add -f zh/public/
+- git commit --allow-empty -m "Deployed by Travis-CI"
 - git subtree split --prefix=zh/public/ --branch zh
 - git subtree push --prefix=zh/public/ zh master --squash
 
@@ -65,6 +67,7 @@ script:
 - hexo clean && hexo generate
 - cd ..
 
-- git add -f en/public/ && git commit -m "Deployed by Travis-CI"
+- git add -f en/public/
+- git commit --allow-empty -m "Deployed by Travis-CI"
 - git subtree split --prefix=en/public/ --branch en
 - git subtree push --prefix=en/public/ en master --squash
