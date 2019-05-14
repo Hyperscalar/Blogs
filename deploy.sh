@@ -9,62 +9,74 @@ fi
 
 if [[ $@ =~ root ]]
 then
+    echo ""
     echo "Prepare for root..."
     HEAD=$(git rev-parse HEAD)
     git subtree add --prefix=root/public/ root master --squash
 
-    echo "Generate for root"
+    echo ""
+    echo "Generate for root..."
     cd root
     rm -rf public/ && cp -r source/ public/
     git add -f public/ && git commit -m "Deployed by Git"
     cd ..
 
+    echo ""
     echo "Deploy for root..."
     git subtree split --prefix=root/public/ --branch root
     git subtree push --prefix=root/public/ root master --squash
 
+    echo ""
     echo "Cleanup for root"
     git reset --hard $HEAD
 fi
 
 if [[ $@ =~ zh ]]
 then
+    echo ""
     echo "Prepare for zh..."
     HEAD=$(git rev-parse HEAD)
     git subtree add --prefix=zh/public/ zh master --squash
 
-    echo "Generate for zh"
+    echo ""
+    echo "Generate for zh..."
     cd zh
     npm install && npm update && npm audit fix
     hexo clean && hexo generate
     git add -f public/ && git commit -m "Deployed by Git"
     cd ..
 
+    echo ""
     echo "Deploy for zh..."
     git subtree split --prefix=zh/public/ --branch zh
     git subtree push --prefix=zh/public/ zh master --squash
 
+    echo ""
     echo "Cleanup for zh"
     git reset --hard $HEAD
 fi
 
 if [[ $@ =~ en ]]
 then
+    echo ""
     echo "Prepare for en..."
     HEAD=$(git rev-parse HEAD)
     git subtree add --prefix=en/public/ en master --squash
 
-    echo "Generate for en"
+    echo ""
+    echo "Generate for en..."
     cd en
     npm install && npm update && npm audit fix
     hexo clean && hexo generate
     git add -f public/ && git commit -m "Deployed by Git"
     cd ..
 
+    echo ""
     echo "Deploy for en..."
     git subtree split --prefix=en/public/ --branch en
     git subtree push --prefix=en/public/ en master --squash
 
+    echo ""
     echo "Cleanup for en"
     git reset --hard $HEAD
 fi
