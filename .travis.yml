@@ -1,5 +1,5 @@
 language: node_js
-node_js: lts/*
+node_js: lts/* --latest-npm
 
 git:
   depth: 1
@@ -32,6 +32,8 @@ install:
 
 script:
 # Deploy root
+- git status
+
 - git remote add root git@bitrhythm.github.io:Bitrhythm/bitrhythm.github.io.git
 - git subtree add --prefix=root/public/ root master --squash
 
@@ -45,6 +47,8 @@ script:
 - git subtree push --prefix=root/public/ root master --squash
 
 # Deploy zh
+- git status
+
 - git remote add zh git@zh.bitrhythm.github.io:Bitrhythm/zh.git
 - git subtree add --prefix=zh/public/ zh master --squash
 
@@ -59,6 +63,8 @@ script:
 - git subtree push --prefix=zh/public/ zh master --squash
 
 # Deploy en
+- git status
+
 - git remote add en git@en.bitrhythm.github.io:Bitrhythm/en.git
 - git subtree add --prefix=en/public/ en master --squash
 
