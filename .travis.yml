@@ -27,11 +27,12 @@ before_install:
 - git config --global user.email "xprtion@outlook.com"
 
 - git remote add root git@bitrhythm.github.io:Bitrhythm/bitrhythm.github.io.git
-- git remote add zh git@zh.bitrhythm.github.io:Bitrhythm/zh.git
-- git remote add en git@en.bitrhythm.github.io:Bitrhythm/en.git
-
 - git subtree add --prefix=root/public/ root master --squash
+
+- git remote add zh git@zh.bitrhythm.github.io:Bitrhythm/zh.git
 - git subtree add --prefix=zh/public/ zh master --squash
+
+- git remote add en git@en.bitrhythm.github.io:Bitrhythm/en.git
 - git subtree add --prefix=en/public/ en master --squash
 
 install:
@@ -59,12 +60,14 @@ before_script:
 - cd ..
 
 script:
-- git add -f root/public/ zh/public/ en/public/ && git commit -m "Deployed by Travis-CI"
-
+- git add -f root/public/ && git commit -m "Deployed by Travis-CI"
 - git subtree split --prefix=root/public/ --branch root
-- git subtree split --prefix=zh/public/ --branch zh
-- git subtree split --prefix=en/public/ --branch en
-
 - git subtree push --prefix=root/public/ root master --squash
+
+- git add -f zh/public/ && git commit -m "Deployed by Travis-CI"
+- git subtree split --prefix=zh/public/ --branch zh
 - git subtree push --prefix=zh/public/ zh master --squash
+
+- git add -f en/public/ && git commit -m "Deployed by Travis-CI"
+- git subtree split --prefix=en/public/ --branch en
 - git subtree push --prefix=en/public/ en master --squash
