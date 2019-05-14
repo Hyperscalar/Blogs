@@ -9,6 +9,7 @@ branches:
   - master
 
 cache:
+  npm: true
   directories:
   - zh/node_modules/
   - en/node_modules/
@@ -16,55 +17,65 @@ cache:
 before_install:
 - export TZ=Asia/Shanghai
 
-- npm install -g npm@latest
-
 - openssl aes-256-cbc -K $encrypted_6f5786d51b36_key -iv $encrypted_6f5786d51b36_iv
     -in .travis/ssh_keys.tar.gz.enc -out .travis/ssh_keys.tar.gz -d
 - tar -xzvf .travis/ssh_keys.tar.gz -C ~/.ssh/ && cp .travis/ssh_config ~/.ssh/config
+- rm -f .travis/ssh_keys.tar.gz
 
 - git config --global core.quotepath off
 - git config --global user.name "Bruce He"
 - git config --global user.email "xprtion@outlook.com"
 
-- git remote add root git@bitrhythm.github.io:Bitrhythm/bitrhythm.github.io.git
-- git remote add zh git@zh.bitrhythm.github.io:Bitrhythm/zh.git
-- git remote add en git@en.bitrhythm.github.io:Bitrhythm/en.git
-
-- git subtree add --prefix=root/public/ root master --squash
-- git subtree add --prefix=zh/public/ zh master --squash
-- git subtree add --prefix=en/public/ en master --squash
-
 install:
+- npm install -g npm@latest
 - npm install -g hexo-cli
 
-- cd zh
-- npm install && npm update && npm audit fix
-- cd ..
+script:
+# Deploy root
+- git status
 
-- cd en
-- npm install && npm update && npm audit fix
-- cd ..
+- git remote add root git@bitrhythm.github.io:Bitrhythm/bitrhythm.github.io.git
+- git subtree add --prefix=root/public/ root master --squash
 
-before_script:
 - cd root
 - rm -rf public/ && cp -r source/ public/
 - cd ..
 
+- git add -f root/public/
+- git commit --allow-empty -m "Deployed by Travis-CI"
+- git subtree split --prefix=root/public/ --branch root
+- git subtree push --prefix=root/public/ root master --squash
+
+# Deploy zh
+- git status
+
+- git remote add zh git@zh.bitrhythm.github.io:Bitrhythm/zh.git
+- git subtree add --prefix=zh/public/ zh master --squash
+
 - cd zh
+- npm install && npm update && npm audit fix
 - hexo clean && hexo generate
 - cd ..
+
+- git add zh/package.json zh/package-lock.json
+- git add -f zh/public/
+- git commit --allow-empty -m "Deployed by Travis-CI"
+- git subtree split --prefix=zh/public/ --branch zh
+- git subtree push --prefix=zh/public/ zh master --squash
+
+# Deploy en
+- git status
+
+- git remote add en git@en.bitrhythm.github.io:Bitrhythm/en.git
+- git subtree add --prefix=en/public/ en master --squash
 
 - cd en
+- npm install && npm update && npm audit fix
 - hexo clean && hexo generate
 - cd ..
 
-script:
-- git add -f root/public/ zh/public/ en/public/ && git commit -m "Deployed by Travis-CI"
-
-- git subtree split --prefix=root/public/ --branch root
-- git subtree split --prefix=zh/public/ --branch zh
+- git add en/package.json en/package-lock.json
+- git add -f en/public/
+- git commit --allow-empty -m "Deployed by Travis-CI"
 - git subtree split --prefix=en/public/ --branch en
-
-- git subtree push --prefix=root/public/ root master --squash
-- git subtree push --prefix=zh/public/ zh master --squash
 - git subtree push --prefix=en/public/ en master --squash
