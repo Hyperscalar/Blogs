@@ -1,5 +1,5 @@
 language: node_js
-node_js: lts/* --latest-npm
+node_js: lts/*
 
 git:
   depth: 1
@@ -57,6 +57,7 @@ script:
 - hexo clean && hexo generate
 - cd ..
 
+- git add zh/package.json zh/package-lock.json
 - git add -f zh/public/
 - git commit --allow-empty -m "Deployed by Travis-CI"
 - git subtree split --prefix=zh/public/ --branch zh
@@ -73,6 +74,7 @@ script:
 - hexo clean && hexo generate
 - cd ..
 
+- git add en/package.json en/package-lock.json
 - git add -f en/public/
 - git commit --allow-empty -m "Deployed by Travis-CI"
 - git subtree split --prefix=en/public/ --branch en
