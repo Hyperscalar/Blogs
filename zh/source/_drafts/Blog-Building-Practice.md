@@ -1,7 +1,7 @@
 ---
 title: 博客搭建实践
-date: 
-updated: 
+date:
+updated:
 categories:
 - 实践
 - 博客
@@ -15,27 +15,32 @@ tags:
 
 ## 技术选型
 
+### Git 和 Bash 简介
+
+### GitHub 和 GitHub Pages 简介
+
+### Hexo 框架和 Next 主题简介
+
 ## 设计思路
+
+### 痛点
+
+### 解决方案
 
 ## 实现
 
-### Git
+### 初始化脚本
 
+### 更新脚本
 
+### 部署脚本
 
-### GitHub 和 GitHub Pages
+### 自动部署
 
-
-
-### Hexo 框架和 Next 主题
-
-
-
-### Bash 脚本和 Travis-CI 自动部署
-
-
+### 工作流
 
 ## 优化
 
 ## 总结
 
+## 后续

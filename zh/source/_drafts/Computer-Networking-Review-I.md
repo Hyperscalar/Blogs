@@ -1,7 +1,7 @@
 ---
 title: 计算机网络复习（一）：互联网以及 IP 协议
-date: 
-updated: 
+date:
+updated:
 categories:
 - 课程
 - 计算机网络
@@ -11,4 +11,3 @@ tags:
 ---
 
 # 互联网以及 IP 协议
-
