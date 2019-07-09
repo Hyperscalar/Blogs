@@ -45,9 +45,8 @@ then
         git subtree pull --prefix=zh/themes/next/source/lib/pdf/ theme-next-pdf master --squash -m "Update plugin of next theme for zh"
         git subtree pull --prefix=zh/themes/next/source/lib/jquery_lazyload/ theme-next-jquery-lazyload master --squash -m "Update plugin of next theme for zh"
         git subtree pull --prefix=zh/themes/next/source/lib/fastclick/ theme-next-fastclick master --squash -m "Update plugin of next theme for zh"
-        git subtree pull --prefix=zh/themes/next/source/lib/ribbon/ theme-next-ribbon master --squash -m "Update plugin of next theme for zh"
+        git subtree pull --prefix=zh/themes/next/source/lib/canvas-ribbon/ theme-next-canvas-ribbon master --squash -m "Update plugin of next theme for zh"
         git subtree pull --prefix=zh/themes/next/source/lib/quicklink/ theme-next-quicklink master --squash -m "Update plugin of next theme for zh"
-        git subtree pull --prefix=zh/themes/next/source/lib/Han/ theme-next-han master --squash -m "Update plugin of next theme for zh"
         git subtree pull --prefix=zh/themes/next/source/lib/pangu/ theme-next-pangu master --squash -m "Update plugin of next theme for zh"
     fi
 fi
@@ -89,7 +88,7 @@ then
         git subtree pull --prefix=en/themes/next/source/lib/pdf/ theme-next-pdf master --squash -m "Update plugin of next theme for en"
         git subtree pull --prefix=en/themes/next/source/lib/jquery_lazyload/ theme-next-jquery-lazyload master --squash -m "Update plugin of next theme for en"
         git subtree pull --prefix=en/themes/next/source/lib/fastclick/ theme-next-fastclick master --squash -m "Update plugin of next theme for en"
-        git subtree pull --prefix=en/themes/next/source/lib/ribbon/ theme-next-ribbon master --squash -m "Update plugin of next theme for en"
+        git subtree pull --prefix=en/themes/next/source/lib/canvas-ribbon/ theme-next-canvas-ribbon master --squash -m "Update plugin of next theme for en"
         git subtree pull --prefix=en/themes/next/source/lib/quicklink/ theme-next-quicklink master --squash -m "Update plugin of next theme for en"
     fi
 fi

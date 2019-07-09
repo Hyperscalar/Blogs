@@ -37,9 +37,8 @@ then
     git remote add theme-next-pdf https://github.com/theme-next/theme-next-pdf.git
     git remote add theme-next-jquery-lazyload https://github.com/theme-next/theme-next-jquery-lazyload.git
     git remote add theme-next-fastclick https://github.com/theme-next/theme-next-fastclick.git
-    git remote add theme-next-ribbon https://github.com/hustcc/ribbon.js.git
+    git remote add theme-next-canvas-ribbon https://github.com/theme-next/theme-next-canvas-ribbon.git
     git remote add theme-next-quicklink https://github.com/theme-next/theme-next-quicklink.git
-    git remote add theme-next-han https://github.com/theme-next/theme-next-han.git
     git remote add theme-next-pangu https://github.com/theme-next/theme-next-pangu.git
 fi
 
@@ -127,9 +126,8 @@ then
             git subtree add --prefix=zh/themes/next/source/lib/pdf/ theme-next-pdf master --squash
             git subtree add --prefix=zh/themes/next/source/lib/jquery_lazyload/ theme-next-jquery-lazyload master --squash
             git subtree add --prefix=zh/themes/next/source/lib/fastclick/ theme-next-fastclick master --squash
-            git subtree add --prefix=zh/themes/next/source/lib/ribbon/ theme-next-ribbon master --squash
+            git subtree add --prefix=zh/themes/next/source/lib/canvas-ribbon/ theme-next-canvas-ribbon master --squash
             git subtree add --prefix=zh/themes/next/source/lib/quicklink/ theme-next-quicklink master --squash
-            git subtree add --prefix=zh/themes/next/source/lib/Han/ theme-next-han master --squash
             git subtree add --prefix=zh/themes/next/source/lib/pangu/ theme-next-pangu master --squash
         fi
     fi
@@ -161,7 +159,7 @@ then
             git subtree add --prefix=en/themes/next/source/lib/pdf/ theme-next-pdf master --squash
             git subtree add --prefix=en/themes/next/source/lib/jquery_lazyload/ theme-next-jquery-lazyload master --squash
             git subtree add --prefix=en/themes/next/source/lib/fastclick/ theme-next-fastclick master --squash
-            git subtree add --prefix=en/themes/next/source/lib/ribbon/ theme-next-ribbon master --squash
+            git subtree add --prefix=en/themes/next/source/lib/canvas-ribbon/ theme-next-canvas-ribbon master --squash
             git subtree add --prefix=en/themes/next/source/lib/quicklink/ theme-next-quicklink master --squash
         fi
     fi

@@ -7,7 +7,7 @@
 </script>
 
 {% set js_vendors = {} %}
-{% set js_vendors.jquery = 'jquery/index.js?v=2.1.3' %}
+{% set js_vendors.jquery = 'jquery/index.js?v=3.4.1' %}
 
 {% if theme.fastclick %}
   {% set js_vendors.fastclick = 'fastclick/lib/fastclick.min.js?v=1.0.6' %}
@@ -55,7 +55,7 @@
 {% endif %}
 
 {% if theme.canvas_ribbon.enable %}
-  {% set canvas_ribbon_uri = url_for(theme.vendors._internal + '/ribbon/dist/ribbon.min.js') %}
+  {% set canvas_ribbon_uri = url_for(theme.vendors._internal + '/canvas-ribbon/canvas-ribbon.js') %}
   {% if theme.vendors.canvas_ribbon %}
     {% set canvas_ribbon_uri = theme.vendors.canvas_ribbon %}
   {% endif %}
