@@ -6,12 +6,15 @@ date: false
 ## 基础
 
 - 算法与数据结构
-  - [Algorithms, Part I](https://www.coursera.org/learn/algorithms-part1)
+  - Algorithms, [Part I](https://www.coursera.org/learn/algorithms-part1), [Part II](https://www.coursera.org/learn/algorithms-part2)
     - 导师：Robert Sedgewick、Kevin Wayne
+    - 教材：
     - 机构：Princeton University
     - 平台：Coursera
-  - [Algorithms, Part II](https://www.coursera.org/learn/algorithms-part2)
-    - 导师：Robert Sedgewick、Kevin Wayne
+    - 备注：
+  - [Analysis of Algorithms](https://www.coursera.org/learn/analysis-of-algorithms)
+    - 导师：Robert Sedgewick
+    - 教材：
     - 机构：Princeton University
     - 平台：Coursera
   - [6.006: Introduction to Algorithms](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/)
@@ -22,12 +25,8 @@ date: false
     - 导师：Erik Demaine、Srinivas Devadas、Nancy Lynch
     - 机构：MIT
     - 平台：MIT OpenCourseWare
-  - [Analysis of Algorithms](https://www.coursera.org/learn/analysis-of-algorithms)
-    - 导师：Robert Sedgewick
-    - 机构：Princeton University
-    - 平台：Coursera
 - 数据库
-  - [Databases Mini-courses & Introduction to Databases](https://lagunita.stanford.edu/courses/Home/Databases/Engineering/about)
+  - [Databases Mini-courses, Introduction to Databases](https://lagunita.stanford.edu/courses/Home/Databases/Engineering/about)
     - 导师：Jennifer Widom
     - 机构：Stanford University
     - 平台：Stanford Lagunita
@@ -51,6 +50,9 @@ date: false
     - 导师：Alex Aiken
     - 机构：Stanford University
     - 平台：Stanford Lagunita
+- 数学
+  - [Introduction to Mathematical Thinking](https://www.coursera.org/learn/mathematical-thinking)
+  - [Introduction to Logic](https://www.coursera.org/learn/logic-introduction)
 
 ## 进阶
 
@@ -64,6 +66,10 @@ date: false
     - 导师：Andrew Ng
     - 机构：Stanford University
     - 平台：Coursera
+  - [Statistical Learning](https://lagunita.stanford.edu/courses/HumanitiesSciences/StatLearning/Winter2016/about)
+    - 导师：Trevor Hastie、Rob Tibshirani
+    - 机构：Stanford University
+    - 平台：Stanford Lagunita
   - [Deep Learning Specialization](https://www.coursera.org/specializations/deep-learning)
     - 导师：Andrew Ng
     - 机构：deeplearning.ai
@@ -80,13 +86,13 @@ date: false
     - 导师：Sergey Levine
     - 机构：UC Berkeley
     - 平台：UC Berkeley
+- 密码学
+  - Cryptography, [I](https://www.coursera.org/learn/crypto), [II](https://www.coursera.org/learn/crypto2)
+- 博弈论
+  - Game Theory, [I](https://www.coursera.org/learn/game-theory-1), [II](https://www.coursera.org/learn/game-theory-2)
 - 数学
   - [Convex Optimization](https://lagunita.stanford.edu/courses/Engineering/CVX101/Winter2014/about)
     - 导师：Stephen Boyd、Henryk Blasinski、Neal Parikh、Ernest Ryu、Madeleine Udell
-    - 机构：Stanford University
-    - 平台：Stanford Lagunita
-  - [Statistical Learning](https://lagunita.stanford.edu/courses/HumanitiesSciences/StatLearning/Winter2016/about)
-    - 导师：Trevor Hastie、Rob Tibshirani
     - 机构：Stanford University
     - 平台：Stanford Lagunita
 
@@ -97,3 +103,5 @@ date: false
     - 导师：Dan Grossman
     - 机构：University of Washington
     - 平台：Coursera
+- UNIX
+  - [The Unix Workbench](https://www.coursera.org/learn/unix)
