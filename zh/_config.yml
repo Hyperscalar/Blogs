@@ -54,6 +54,25 @@ index_generator:
   path: ''
   per_page: 10
   order_by: -date
+  pagination_dir: page
+
+category_generator:
+  per_page: 10
+  order_by: -date
+
+tag_generator:
+  per_page: 10
+  order_by: -date
+
+archive_generator:
+  enabled: true
+  per_page: 10
+  yearly: true
+  monthly: true
+  daily: false
+  order_by: -date
+
+alias:
 
 # Category & Tag
 default_category: uncategorized
@@ -72,8 +91,21 @@ time_format: HH:mm:ss
 per_page: 10
 pagination_dir: page
 
-# Markdown-it config
-## Docs: https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki/
+# Server: https://github.com/hexojs/hexo-server
+server:
+  port: 4040
+  log: true
+  ip: 127.0.0.1
+  compress: false
+  header: true
+  serveStatic:
+    extensions:
+    - html
+
+# Extensions
+## Plugins: https://hexo.io/plugins/
+
+## Markdown-it: https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki/
 markdown:
   render:
     html: true
@@ -83,11 +115,12 @@ markdown:
     typographer: true
     quotes: '“”‘’'
   plugins:
-    - markdown-it-abbr
-    - markdown-it-footnote
-    - markdown-it-ins
-    - markdown-it-sub
-    - markdown-it-sup
+    - 'markdown-it-abbr'
+    - 'markdown-it-footnote'
+    - 'markdown-it-ins'
+    - 'markdown-it-sub'
+    - 'markdown-it-sup'
+    - '@iktakahiro/markdown-it-katex'
   anchors:
     level: 2
     collisionSuffix: 'v'
@@ -95,40 +128,53 @@ markdown:
     permalinkClass: header-anchor
     permalinkSymbol: " ¶ "
 
-# Sitemap
-## Docs: https://www.npmjs.com/package/hexo-generator-sitemap
-sitemap:
-  path: sitemap.xml
-  template: sitemap-template.xml
+## Stylus: https://github.com/hexojs/hexo-renderer-stylus
+stylus:
+  compress: false
+  sourcemaps:
+    comment: true
+    inline: true
+    sourceRoot: ''
+    basePath: .
+  plugins: 'nib'
 
-# Feed
-## Docs: https://github.com/hexojs/hexo-generator-feed
-feed:
-  type: atom
-  path: atom.xml
-  limit: false
-  hub:
-  content: true
-  content_limit:
-  content_limit_delim:
-  order_by: -date
-
-# Extensions
-## Plugins: https://hexo.io/plugins/
 ## Search: https://www.npmjs.com/package/hexo-generator-searchdb
 search:
   path: search.xml
   field: all
   format: html
-  limit: 1024
+  limit: 8192
 
-## Symbols count: https://www.npmjs.com/package/hexo-symbols-count-time
+## Sitemap: https://github.com/hexojs/hexo-generator-sitemap
+sitemap:
+    path: sitemap.xml
+    template: ./sitemap-template.xml
+
+## Feed: https://github.com/hexojs/hexo-generator-feed
+feed:
+  type: atom
+  path: atom.xml
+  limit: false
+  hub:
+  content:
+  content_limit:
+  content_limit_delim:
+  order_by: -date
+  icon:
+
+## Symbols count: https://github.com/theme-next/hexo-symbols-count-time
 symbols_count_time:
   symbols: true
   time: true
   total_symbols: false
   total_time: false
   exclude_codeblock: false
+
+## Nofollow: https://github.com/hexojs/hexo-filter-nofollow
+nofollow:
+  enable: true
+  field: site
+  exclude:
 
 ## Themes: https://hexo.io/themes/
 theme: next
