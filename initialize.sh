@@ -31,15 +31,9 @@ then
 
     echo ""
     echo "Initialize remote repository for theme plugins"
-    git remote add theme-next-reading-progress https://github.com/theme-next/theme-next-reading-progress.git
-    git remote add theme-next-bookmark https://github.com/theme-next/theme-next-bookmark.git
-    git remote add theme-next-fancybox3 https://github.com/theme-next/theme-next-fancybox3.git
+    git remote add theme-next-pjax https://github.com/theme-next/theme-next-pjax.git
     git remote add theme-next-pdf https://github.com/theme-next/theme-next-pdf.git
-    git remote add theme-next-jquery-lazyload https://github.com/theme-next/theme-next-jquery-lazyload.git
-    git remote add theme-next-fastclick https://github.com/theme-next/theme-next-fastclick.git
     git remote add theme-next-canvas-ribbon https://github.com/theme-next/theme-next-canvas-ribbon.git
-    git remote add theme-next-quicklink https://github.com/theme-next/theme-next-quicklink.git
-    git remote add theme-next-pangu https://github.com/theme-next/theme-next-pangu.git
 fi
 
 if [[ $@ =~ framework ]]
@@ -55,11 +49,29 @@ then
 
             echo "Initialize plugins of hexo framework for zh..."
             cd zh
-            npm uninstall hexo-renderer-marked --save && npm install hexo-renderer-markdown-it --save
+            npm uninstall hexo-renderer-marked --save \
+                && npm install hexo-renderer-markdown-it --save \
+                && npm install @iktakahiro/markdown-it-katex --save
+
+            npm install hexo --save
+            npm install hexo-server --save
+
             npm install hexo-generator-alias --save
-            npm install hexo-generator-sitemap --save
+            npm install hexo-generator-archive --save
+            npm install hexo-generator-category --save
             npm install hexo-generator-feed --save
-            npm install hexo-generator-searchdb --save
+            npm install hexo-generator-index --save
+            npm install hexo-generator-search --save
+            npm install hexo-generator-sitemap --save
+            npm install hexo-generator-tag --save
+
+            npm install hexo-renderer-ejs --save
+            npm install hexo-renderer-markdown-it --save
+            npm install hexo-renderer-stylus --save
+
+            npm install hexo-filter-auto-spacing --save
+            npm install hexo-filter-nofollow
+
             npm install hexo-symbols-count-time --save
             npm install hexo-related-popular-posts --save
 
@@ -81,11 +93,29 @@ then
 
             echo "Initialize plugins of hexo framework for en..."
             cd en
-            npm uninstall hexo-renderer-marked --save && npm install hexo-renderer-markdown-it --save
+            npm uninstall hexo-renderer-marked --save \
+                && npm install hexo-renderer-markdown-it --save \
+                && npm install @iktakahiro/markdown-it-katex --save
+
+            npm install hexo --save
+            npm install hexo-server --save
+
             npm install hexo-generator-alias --save
-            npm install hexo-generator-sitemap --save
+            npm install hexo-generator-archive --save
+            npm install hexo-generator-category --save
             npm install hexo-generator-feed --save
-            npm install hexo-generator-searchdb --save
+            npm install hexo-generator-index --save
+            npm install hexo-generator-search --save
+            npm install hexo-generator-sitemap --save
+            npm install hexo-generator-tag --save
+
+            npm install hexo-renderer-ejs --save
+            npm install hexo-renderer-markdown-it --save
+            npm install hexo-renderer-stylus --save
+
+            npm install hexo-filter-auto-spacing --save
+            npm install hexo-filter-nofollow
+
             npm install hexo-symbols-count-time --save
             npm install hexo-related-popular-posts --save
 
@@ -120,15 +150,9 @@ then
             git subtree add --prefix=zh/themes/next/ theme-next $version --squash
 
             echo "Initialize plugins of next theme for zh"
-            git subtree add --prefix=zh/themes/next/source/lib/reading_progress/ theme-next-reading-progress master --squash
-            git subtree add --prefix=zh/themes/next/source/lib/bookmark/ theme-next-bookmark master --squash
-            git subtree add --prefix=zh/themes/next/source/lib/fancybox/ theme-next-fancybox3 master --squash
+            git subtree add --prefix=zh/themes/next/source/lib/pjax theme-next-pjax master --squash
             git subtree add --prefix=zh/themes/next/source/lib/pdf/ theme-next-pdf master --squash
-            git subtree add --prefix=zh/themes/next/source/lib/jquery_lazyload/ theme-next-jquery-lazyload master --squash
-            git subtree add --prefix=zh/themes/next/source/lib/fastclick/ theme-next-fastclick master --squash
             git subtree add --prefix=zh/themes/next/source/lib/canvas-ribbon/ theme-next-canvas-ribbon master --squash
-            git subtree add --prefix=zh/themes/next/source/lib/quicklink/ theme-next-quicklink master --squash
-            git subtree add --prefix=zh/themes/next/source/lib/pangu/ theme-next-pangu master --squash
         fi
     fi
 
@@ -153,14 +177,9 @@ then
             git subtree add --prefix=en/themes/next/ theme-next $version --squash
 
             echo "Initialize plugins of next theme for en"
-            git subtree add --prefix=en/themes/next/source/lib/reading_progress/ theme-next-reading-progress master --squash
-            git subtree add --prefix=en/themes/next/source/lib/bookmark/ theme-next-bookmark master --squash
-            git subtree add --prefix=en/themes/next/source/lib/fancybox/ theme-next-fancybox3 master --squash
+            git subtree add --prefix=en/themes/next/source/lib/pjax theme-next-pjax master --squash
             git subtree add --prefix=en/themes/next/source/lib/pdf/ theme-next-pdf master --squash
-            git subtree add --prefix=en/themes/next/source/lib/jquery_lazyload/ theme-next-jquery-lazyload master --squash
-            git subtree add --prefix=en/themes/next/source/lib/fastclick/ theme-next-fastclick master --squash
             git subtree add --prefix=en/themes/next/source/lib/canvas-ribbon/ theme-next-canvas-ribbon master --squash
-            git subtree add --prefix=en/themes/next/source/lib/quicklink/ theme-next-quicklink master --squash
         fi
     fi
 fi
