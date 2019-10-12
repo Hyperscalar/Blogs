@@ -66,7 +66,6 @@ then
             npm install hexo-generator-tag --save
 
             npm install hexo-renderer-ejs --save
-            npm install hexo-renderer-markdown-it --save
             npm install hexo-renderer-stylus --save
 
             npm install hexo-filter-auto-spacing --save
@@ -110,7 +109,6 @@ then
             npm install hexo-generator-tag --save
 
             npm install hexo-renderer-ejs --save
-            npm install hexo-renderer-markdown-it --save
             npm install hexo-renderer-stylus --save
 
             npm install hexo-filter-auto-spacing --save
