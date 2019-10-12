@@ -6,6 +6,7 @@ categories:
 - Miscellaneous
 tags:
 - Test
+mathjax: true
 pdf: true
 ---
 # Hello World
@@ -49,6 +50,10 @@ int main() {
     return 0;
 }
 ```
+
+## Equation
+
+$E=mc^2$
 
 ## Note
 

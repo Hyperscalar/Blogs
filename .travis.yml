@@ -23,7 +23,7 @@ before_install:
 - rm -f .travis/ssh_keys.tar.gz
 
 - git config --global core.quotepath off
-- git config --global user.name "Bruce He"
+- git config --global user.name "Jialin He"
 - git config --global user.email "xprtion@outlook.com"
 
 install:

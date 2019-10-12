@@ -39,15 +39,9 @@ then
         git subtree pull --prefix=zh/themes/next/ theme-next $version --squash -m "Update next theme for zh"
 
         echo "Update plugins of next theme for zh"
-        git subtree pull --prefix=zh/themes/next/source/lib/reading_progress/ theme-next-reading-progress master --squash -m "Update plugin of next theme for zh"
-        git subtree pull --prefix=zh/themes/next/source/lib/bookmark/ theme-next-bookmark master --squash -m "Update plugin of next theme for zh"
-        git subtree pull --prefix=zh/themes/next/source/lib/fancybox/ theme-next-fancybox3 master --squash -m "Update plugin of next theme for zh"
+        git subtree pull --prefix=zh/themes/next/source/lib/pjax/ theme-next-pjax master --squash -m "Update plugin of next theme for zh"
         git subtree pull --prefix=zh/themes/next/source/lib/pdf/ theme-next-pdf master --squash -m "Update plugin of next theme for zh"
-        git subtree pull --prefix=zh/themes/next/source/lib/jquery_lazyload/ theme-next-jquery-lazyload master --squash -m "Update plugin of next theme for zh"
-        git subtree pull --prefix=zh/themes/next/source/lib/fastclick/ theme-next-fastclick master --squash -m "Update plugin of next theme for zh"
         git subtree pull --prefix=zh/themes/next/source/lib/canvas-ribbon/ theme-next-canvas-ribbon master --squash -m "Update plugin of next theme for zh"
-        git subtree pull --prefix=zh/themes/next/source/lib/quicklink/ theme-next-quicklink master --squash -m "Update plugin of next theme for zh"
-        git subtree pull --prefix=zh/themes/next/source/lib/pangu/ theme-next-pangu master --squash -m "Update plugin of next theme for zh"
     fi
 fi
 
@@ -82,13 +76,8 @@ then
         git subtree pull --prefix=en/themes/next/ theme-next $version --squash -m "Update next theme for en"
 
         echo "Update plugins of next theme for en"
-        git subtree pull --prefix=en/themes/next/source/lib/reading_progress/ theme-next-reading-progress master --squash -m "Update plugin of next theme for en"
-        git subtree pull --prefix=en/themes/next/source/lib/bookmark/ theme-next-bookmark master --squash -m "Update plugin of next theme for en"
-        git subtree pull --prefix=en/themes/next/source/lib/fancybox/ theme-next-fancybox3 master --squash -m "Update plugin of next theme for en"
+        git subtree pull --prefix=en/themes/next/source/lib/pjax/ theme-next-pjax master --squash -m "Update plugin of next theme for en"
         git subtree pull --prefix=en/themes/next/source/lib/pdf/ theme-next-pdf master --squash -m "Update plugin of next theme for en"
-        git subtree pull --prefix=en/themes/next/source/lib/jquery_lazyload/ theme-next-jquery-lazyload master --squash -m "Update plugin of next theme for en"
-        git subtree pull --prefix=en/themes/next/source/lib/fastclick/ theme-next-fastclick master --squash -m "Update plugin of next theme for en"
         git subtree pull --prefix=en/themes/next/source/lib/canvas-ribbon/ theme-next-canvas-ribbon master --squash -m "Update plugin of next theme for en"
-        git subtree pull --prefix=en/themes/next/source/lib/quicklink/ theme-next-quicklink master --squash -m "Update plugin of next theme for en"
     fi
 fi
