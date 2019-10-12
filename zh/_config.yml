@@ -105,13 +105,13 @@ server:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 
-## Markdown-it: https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki/
+## Markdown-it: https://github.com/hexojs/hexo-renderer-markdown-it/
 markdown:
   render:
     html: true
     xhtmlOut: false
-    breaks: false
-    linkify: false
+    breaks: true
+    linkify: true
     typographer: true
     quotes: '“”‘’'
   plugins:
@@ -122,11 +122,11 @@ markdown:
     - 'markdown-it-sup'
     - '@iktakahiro/markdown-it-katex'
   anchors:
-    level: 2
+    level: 1
     collisionSuffix: 'v'
-    permalink: true
+    permalink: false
     permalinkClass: header-anchor
-    permalinkSymbol: " ¶ "
+    permalinkSymbol: ¶
 
 ## Stylus: https://github.com/hexojs/hexo-renderer-stylus
 stylus:
