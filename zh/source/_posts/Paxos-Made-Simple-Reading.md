@@ -3,29 +3,21 @@ title: Paxos Made Simple 翻译及总结
 date: 2018-09-27
 updated: 2018-09-30
 categories:
-- 论文
-- 分布式
+- 分布式系统
 tags:
-- 一致性算法
-- 翻译
-- 总结
+- 论文翻译
 mathjax: true
 ---
-
-# Paxos Made Simple 翻译及总结
 
 ## Warm-up / 预热
 
 The Paxos algorithm, when presented in plain English, is very simple.
 
 <p align="right">Paxos Made Simple, by Leslie Lamport</p>
-
 The Fast Paxos algorithm, when presented in plain English, is still quite hard to understand for those like us — people who don't have the brain of Leslie Lamport.
 
 <p align="right">A Simpler Proof for Paxos and Fast Paxos, by Keith Marzullo, Alessandro Mei and Hein Meling</p>
-
 <center style="font-size: 2em;">😂</center>
-
 <!-- more -->
 
 ## The Problem / 问题
@@ -204,11 +196,11 @@ Therefore, if an acceptor ignores a prepare or accept request because it has alr
 
 ## Learning a Chosen Value / 了解已通过的值
 
-To learn that a value has been chosen, a learner must find out that a proposal has been accepted by a majority of acceptors. The obvious algorithm is to have each acceptor, whenever it accepts a proposal, respond to all learners, sending them the proposal. This allows learners to find out about a chosen value as soon as possible, but it requires each acceptor to respond to each learner—a number of responses equal to the product of the number of acceptors and the number of learners. / 为了使听众了解已经被通过的值，听众必须得知道被多数议员赞成的议案的内容。最直观的算法就是，每当议员赞成某个提案时，就通知所有的听众，向他们发送该议案。这样可以保证及时性，但是复杂度太高，达到了 $O(n * m)​$ ，这里 n 是议员个数，m 是听众个数。
+To learn that a value has been chosen, a learner must find out that a proposal has been accepted by a majority of acceptors. The obvious algorithm is to have each acceptor, whenever it accepts a proposal, respond to all learners, sending them the proposal. This allows learners to find out about a chosen value as soon as possible, but it requires each acceptor to respond to each learner—a number of responses equal to the product of the number of acceptors and the number of learners. / 为了使听众了解已经被通过的值，听众必须得知道被多数议员赞成的议案的内容。最直观的算法就是，每当议员赞成某个提案时，就通知所有的听众，向他们发送该议案。这样可以保证及时性，但是复杂度太高，达到了 $O(n * m)$ ，这里 n 是议员个数，m 是听众个数。
 
-The assumption of non-Byzantine failures makes it easy for one learner to find out from another learner that a value has been accepted. We can have the acceptors respond with their acceptances to a distinguished learner, which in turn informs the other learners when a value has been chosen. This approach requires an extra round for all the learners to discover the chosen value. It is also less reliable, since the distinguished learner could fail. But it requires a number of responses equal only to the sum of the number of acceptors and the number of learners. / 回顾前面的非拜占庭假设，我们发现听众可以通过其他听众来准确的了解已被赞成的议案。这样一来，议员就只需要通知某个特定的听众了，剩下的通知工作就可以由听众之间的相互传递来完成。于是，复杂度降低到了 $O(n + m)​$ 。但是，这样的话这位特定的听众就成了单点，会导致可靠性下降很多。
+The assumption of non-Byzantine failures makes it easy for one learner to find out from another learner that a value has been accepted. We can have the acceptors respond with their acceptances to a distinguished learner, which in turn informs the other learners when a value has been chosen. This approach requires an extra round for all the learners to discover the chosen value. It is also less reliable, since the distinguished learner could fail. But it requires a number of responses equal only to the sum of the number of acceptors and the number of learners. / 回顾前面的非拜占庭假设，我们发现听众可以通过其他听众来准确的了解已被赞成的议案。这样一来，议员就只需要通知某个特定的听众了，剩下的通知工作就可以由听众之间的相互传递来完成。于是，复杂度降低到了 $O(n + m)$ 。但是，这样的话这位特定的听众就成了单点，会导致可靠性下降很多。
 
-> 复杂度好像还可以更低，如果听众之间用 P2P 通信，应该可以降到 $O(n + log_2 m)​$
+> 复杂度好像还可以更低，如果听众之间用 P2P 通信，应该可以降到 $O(n + log_2 m)$
 
 More generally, the acceptors could respond with their acceptances to some set of distinguished learners, each of which can then inform all the learners when a value has been chosen. Using a larger set of distinguished learners provides greater reliability at the cost of greater communication complexity. / 介于以上两种策略都有致命的缺陷，一种复杂度太高，另一种可靠性太低，于是我们取两者的折中方案。将第二种方法中的特定听众由一位扩展到一组。以此提高可靠性，但是会以复杂度的提升为代价，需要根据具体场景做权衡。
 

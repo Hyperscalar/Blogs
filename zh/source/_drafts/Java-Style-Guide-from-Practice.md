@@ -4,10 +4,8 @@ date:
 updated:
 categories:
 - 实践
-- 代码风格
 tags:
-- 指南
 - Java
+- 代码风格
 ---
 
-# Java 代码风格实践

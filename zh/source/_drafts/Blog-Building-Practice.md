@@ -4,12 +4,10 @@ date:
 updated:
 categories:
 - 实践
-- 博客
 tags:
+- 博客
 - 教程
 ---
-
-# 博客搭建实践
 
 ## 需求
 
