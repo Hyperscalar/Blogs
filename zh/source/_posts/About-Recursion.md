@@ -11,11 +11,13 @@ tags:
 mathjax: true
 ---
 
+# 浅谈递归
+
 递归是指在编程中函数在函数体中调用自身的过程，体现的是分而治之的思想。
 
 用一张图来说明：
 
-{% asset_img Recursion-Google.png 不过这个递归好像会导致 StackOverflow 😂 %}
+{% asset_img Recursion-Google.png 不过这个递归好像会导致栈区溢出 😂 %}
 
 <!-- more -->
 
@@ -47,7 +49,7 @@ public class Iteration {
         while (other != 0) {
             int remainder = either % other;
             either = other;
-            other = remainder; 
+            other = remainder;
         }
         return either;
     }
@@ -259,7 +261,7 @@ public class Iteration {
         while (other != 0) {
             int remainder = either % other;
             either = other;
-            other = remainder; 
+            other = remainder;
         }
         return either;
     }
@@ -276,7 +278,7 @@ public class Iteration {
 // 下面的代码仅用于说明概念，其作用已经不再是辗转相除法求最大公约数
 // 递归
 public class Recursion {
-    
+
     private static final CONSTANT = 2;
 
     public static int gcd(int either, int other) {
@@ -289,7 +291,7 @@ public class Recursion {
 
 // 循环
 public class Iteration {
-    
+
     private static final CONSTANT = 2;
 
     public static int gcd(int either, int other) {
@@ -298,7 +300,7 @@ public class Iteration {
             int remainder = either % other;
             either = other;
             other = remainder;
-            
+
             sum += CONSTANT;
         }
         return either + sum;
@@ -332,7 +334,7 @@ public class Iteration {
         int sum = 0;
         while (other != 0) {
             sum += other;
-            
+
             int remainder = either % other;
             either = other;
             other = remainder;
@@ -349,7 +351,7 @@ public class Iteration {
 
 // 二叉树节点
 public class Node<Item> {
-    
+
     Item item;
     Node<Item> left;
     Node<Item> right;
@@ -429,4 +431,3 @@ public class Iteration {
 > 本文的目的在于尝试提供一种相对简单的判别方法用于在将一个递归函数真正改写为循环之前判断其需不需要栈的辅助。
 >
 > 如果你发现了文章中的问题，或者有更好的思路，记得在下方评论哦。😊
-

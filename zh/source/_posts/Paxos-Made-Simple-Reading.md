@@ -9,6 +9,8 @@ tags:
 mathjax: true
 ---
 
+# Paxos Made Simple 翻译及总结
+
 ## Warm-up / 预热
 
 The Paxos algorithm, when presented in plain English, is very simple.
@@ -119,7 +121,7 @@ Learning about proposals already accepted is easy enough; predicting future acce
 
 This leads to the following algorithm for issuing proposals. / 这样，我们就得到了发起议案的算法:
 
-1. A proposer chooses a new proposal number n and sends a request to each member of some set of acceptors, asking it to respond with / 一位议长通过一个新的议案序号 n，然后向某个集合（应该是‘多数’议员）的全部议员发起请求，并要求对方回复以下两方面的内容:  
+1. A proposer chooses a new proposal number n and sends a request to each member of some set of acceptors, asking it to respond with / 一位议长通过一个新的议案序号 n，然后向某个集合（应该是‘多数’议员）的全部议员发起请求，并要求对方回复以下两方面的内容:
 
    (a) A promise never again to accept a proposal numbered less than n, and / 要求对方作出承诺，保证不再赞成任何序号小于 n 的议案
 
