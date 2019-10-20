@@ -6,6 +6,7 @@
     "version": "3.9.0"
   },
   "dependencies": {
+    "@iktakahiro/markdown-it-katex": "^3.1.0",
     "hexo": "^3.9.0",
     "hexo-filter-auto-spacing": "^0.2.1",
     "hexo-filter-nofollow": "^2.0.2",

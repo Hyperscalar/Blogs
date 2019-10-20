@@ -120,6 +120,7 @@ markdown:
     - 'markdown-it-ins'
     - 'markdown-it-sub'
     - 'markdown-it-sup'
+    - '@iktakahiro/markdown-it-katex'
   anchors:
     level: 1
     collisionSuffix: 'v'
