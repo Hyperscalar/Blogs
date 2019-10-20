@@ -6,6 +6,7 @@ categories:
 - 杂项
 tags:
 - 测试
+mathjax: true
 pdf: true
 ---
 # 你好，世界
@@ -67,6 +68,10 @@ int main() {
 ## 图片
 
 {% asset_img San-Francisco.png San Francisco %}
+
+## 公式
+
+$E = mc^2$
 
 ## PDF
 
