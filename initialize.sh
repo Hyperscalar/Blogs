@@ -61,7 +61,7 @@ then
             npm install hexo-generator-category --save
             npm install hexo-generator-feed --save
             npm install hexo-generator-index --save
-            npm install hexo-generator-search --save
+            npm install hexo-generator-searchdb --save
             npm install hexo-generator-sitemap --save
             npm install hexo-generator-tag --save
 
@@ -104,7 +104,7 @@ then
             npm install hexo-generator-category --save
             npm install hexo-generator-feed --save
             npm install hexo-generator-index --save
-            npm install hexo-generator-search --save
+            npm install hexo-generator-searchdb --save
             npm install hexo-generator-sitemap --save
             npm install hexo-generator-tag --save
 
