@@ -120,7 +120,6 @@ markdown:
     - 'markdown-it-ins'
     - 'markdown-it-sub'
     - 'markdown-it-sup'
-    - '@iktakahiro/markdown-it-katex'
   anchors:
     level: 1
     collisionSuffix: 'v'
@@ -138,12 +137,12 @@ stylus:
     basePath: .
   plugins: 'nib'
 
-## Search: https://www.npmjs.com/package/hexo-generator-searchdb
+## Search: https://github.com/theme-next/hexo-generator-searchdb
 search:
   path: search.xml
   field: all
+  content: true
   format: html
-  limit: 8192
 
 ## Sitemap: https://github.com/hexojs/hexo-generator-sitemap
 sitemap:
