@@ -29,8 +29,6 @@ date: true
 
   导师：Robert Sedgewick
 
-  教材：
-
   机构：Princeton University
 
   平台：Coursera
