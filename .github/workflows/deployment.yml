@@ -51,10 +51,14 @@ jobs:
     needs: initialize
     steps:
       - name: status
-        run: git status
+        run: |
+          pwd
+          ls
+          git status
 
       - name: pull
         run: |
+          cd Blogs
           git remote add root git@bitrhythm.github.io:Bitrhythm/bitrhythm.github.io.git
           git subtree add --prefix=root/public/ root master --squash
 
@@ -77,10 +81,14 @@ jobs:
     needs: initialize
     steps:
       - name: status
-        run: git status
+        run: |
+          pwd
+          ls
+          git status
 
       - name: pull
         run: |
+          cd Blogs
           git remote add en git@en.bitrhythm.github.io:Bitrhythm/en.git
           git subtree add --prefix=en/public/ en master --squash
 
@@ -105,10 +113,14 @@ jobs:
     needs: initialize
     steps:
       - name: status
-        run: git status
+        run: |
+          pwd
+          ls
+          git status
 
       - name: pull
         run: |
+          cd Blogs
           git remote add zh git@zh.bitrhythm.github.io:Bitrhythm/zh.git
           git subtree add --prefix=zh/public/ zh master --squash
 
