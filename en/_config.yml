@@ -115,17 +115,18 @@ markdown:
     typographer: true
     quotes: '“”‘’'
   plugins:
-    - 'markdown-it-abbr'
-    - 'markdown-it-footnote'
-    - 'markdown-it-ins'
-    - 'markdown-it-sub'
-    - 'markdown-it-sup'
+    - markdown-it-abbr
+    - markdown-it-footnote
+    - markdown-it-ins
+    - markdown-it-sub
+    - markdown-it-sup
     - '@iktakahiro/markdown-it-katex'
   anchors:
     level: 1
     collisionSuffix: 'v'
-    permalink: false
+    permalink: true
     permalinkClass: header-anchor
+    permalinkSide: 'left'
     permalinkSymbol: ¶
 
 ## Stylus: https://github.com/hexojs/hexo-renderer-stylus
@@ -170,7 +171,7 @@ symbols_count_time:
   total_symbols: true
   total_time: true
   exclude_codeblock: false
-  awl: 4
+  awl: 5
   wpm: 275
   suffix: "mins."
 
