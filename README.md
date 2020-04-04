@@ -1,6 +1,6 @@
 # Blogs
 
-[![Deployment Status / 部署状态](https://github.com/Bitrhythm/Blogs/workflows/.github/workflows/deployment.yml/badge.svg)](https://github.com/Bitrhythm/Blogs/blob/master/.github/workflows/deployment.yml)
+[![Deployment Status / 部署状态](https://github.com/Bitrhythm/Blogs/workflows/Continuous%20Deployment/badge.svg)](https://github.com/Bitrhythm/Blogs/blob/master/.github/workflows/deployment.yml)
 
 ## The Workspace of Blogs / 博客工作台
 
