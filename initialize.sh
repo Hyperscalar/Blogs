@@ -15,13 +15,13 @@ then
     echo "Initialize remote repository for deployments"
     if [[ $(git remote get-url origin) =~ ^https ]]
     then
-        git remote add root https://github.com/Bitrhythm/bitrhythm.github.io.git
-        git remote add zh https://github.com/Bitrhythm/zh.git
-        git remote add en https://github.com/Bitrhythm/en.git
+        git remote add root https://github.com/CacheCoherence/cachecoherence.github.io.git
+        git remote add zh https://github.com/CacheCoherence/zh.git
+        git remote add en https://github.com/CacheCoherence/en.git
     else
-        git remote add root git@github.com:Bitrhythm/bitrhythm.github.io.git
-        git remote add zh git@github.com:Bitrhythm/zh.git
-        git remote add en git@github.com:Bitrhythm/en.git
+        git remote add root git@github.com:CacheCoherence/cachecoherence.github.io.git
+        git remote add zh git@github.com:CacheCoherence/zh.git
+        git remote add en git@github.com:CacheCoherence/en.git
     fi
 
     echo ""
