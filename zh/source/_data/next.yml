@@ -181,7 +181,7 @@ site_state: true
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
-  GitHub: https://github.com/CacheCoherence || github
+  GitHub: https://github.com/Bitrhythm || github
   #Weibo: https://weibo.com/yourname || weibo
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
@@ -300,7 +300,7 @@ related_posts:
 # Dependencies: https://github.com/hexojs/hexo-deployer-git
 post_edit:
   enable: true
-  url: https://github.com/CacheCoherence/Blogs/blob/master/zh/source/ # Link for view source
+  url: https://github.com/Bitrhythm/Blogs/blob/master/zh/source/ # Link for view source
   #url: https://github.com/user-name/repo-name/edit/branch-name/subdirectory-name # Link for fork & edit
 
 # Show previous post and next post in post footer if exists
@@ -394,7 +394,7 @@ bookmark:
 # `Follow me on GitHub` banner in the top-right corner.
 github_banner:
   enable: true
-  permalink: https://github.com/CacheCoherence
+  permalink: https://github.com/Bitrhythm
   title: GitHub
 
 
@@ -586,7 +586,7 @@ comments:
 # Disqus
 disqus:
   enable: true
-  shortname: cachecoherence-zh
+  shortname: bitrhythm-zh
   count: true
   #post_meta_order: 0
 

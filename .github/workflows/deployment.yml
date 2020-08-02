@@ -36,7 +36,7 @@ jobs:
 
       - name: pull
         run: |
-          git remote add root git@cachecoherence.github.io:CacheCoherence/cachecoherence.github.io.git
+          git remote add root git@bitrhythm.github.io:Bitrhythm/bitrhythm.github.io.git
           git subtree add --prefix=root/public/ root master --squash
 
       - name: generate
@@ -92,7 +92,7 @@ jobs:
 
       - name: pull
         run: |
-          git remote add zh git@zh.cachecoherence.github.io:CacheCoherence/zh.git
+          git remote add zh git@zh.bitrhythm.github.io:Bitrhythm/zh.git
           git subtree add --prefix=zh/public/ zh master --squash
 
       - name: generate
@@ -150,7 +150,7 @@ jobs:
 
       - name: pull
         run: |
-          git remote add en git@en.cachecoherence.github.io:CacheCoherence/en.git
+          git remote add en git@en.bitrhythm.github.io:Bitrhythm/en.git
           git subtree add --prefix=en/public/ en master --squash
 
       - name: generate

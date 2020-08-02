@@ -2,5 +2,5 @@ User-agent: *
 
 Disallow:
 
-Sitemap: https://cachecoherence.github.io/zh/sitemap.xml
-Sitemap: https://cachecoherence.github.io/en/sitemap.xml
+Sitemap: https://bitrhythm.github.io/zh/sitemap.xml
+Sitemap: https://bitrhythm.github.io/en/sitemap.xml
