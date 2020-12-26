@@ -1,1 +1,1 @@
-# [博客](https://bitrhythm.github.io/zh)
+# [博客](https://arhythmetic.github.io/zh)

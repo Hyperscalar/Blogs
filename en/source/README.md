@@ -1,1 +1,1 @@
-# [Blog](https://bitrhythm.github.io/en)
+# [Blog](https://arhythmetic.github.io/en)

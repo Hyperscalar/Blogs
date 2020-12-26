@@ -2,5 +2,5 @@ User-agent: *
 
 Disallow:
 
-Sitemap: https://bitrhythm.github.io/zh/sitemap.xml
-Sitemap: https://bitrhythm.github.io/en/sitemap.xml
+Sitemap: https://arhythmetic.github.io/zh/sitemap.xml
+Sitemap: https://arhythmetic.github.io/en/sitemap.xml
