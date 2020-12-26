@@ -12,12 +12,19 @@ jobs:
     steps:
       - name: decrypt
         env:
-          root_config: ${{ secrets.root_config }}
           root_rsa: ${{ secrets.root_rsa }}
         run: |
           mkdir ~/.ssh && chmod 700 ~/.ssh
-          echo "$root_config" > ~/.ssh/config && chmod 644 ~/.ssh/config
-          echo "$root_rsa" > ~/.ssh/root_rsa && chmod 600 ~/.ssh/root_rsa
+          echo "$root_rsa" > ~/.ssh/root_rsa
+          chmod 600 ~/.ssh/root_rsa
+          cat <<EOF > ~/.ssh/config
+          Host arhythmetic.github.io
+              HostName github.com
+              Port 22
+              User git
+              IdentityFile ~/.ssh/root_rsa
+          EOF
+          chmod 644 ~/.ssh/config
 
       - name: clone
         uses: actions/checkout@v2
@@ -58,12 +65,19 @@ jobs:
     steps:
       - name: decrypt
         env:
-          zh_config: ${{ secrets.zh_config }}
           zh_rsa: ${{ secrets.zh_rsa }}
         run: |
           mkdir ~/.ssh && chmod 700 ~/.ssh
-          echo "$zh_config" > ~/.ssh/config && chmod 644 ~/.ssh/config
-          echo "$zh_rsa" > ~/.ssh/zh_rsa && chmod 600 ~/.ssh/zh_rsa
+          echo "$zh_rsa" > ~/.ssh/zh_rsa
+          chmod 600 ~/.ssh/zh_rsa
+          cat <<EOF > ~/.ssh/config
+          Host zh.arhythmetic.github.io
+              HostName github.com
+              Port 22
+              User git
+              IdentityFile ~/.ssh/zh_rsa
+          EOF
+          chmod 644 ~/.ssh/config
 
       - name: clone
         uses: actions/checkout@v2
@@ -116,12 +130,19 @@ jobs:
     steps:
       - name: decrypt
         env:
-          en_config: ${{ secrets.en_config }}
           en_rsa: ${{ secrets.en_rsa }}
         run: |
           mkdir ~/.ssh && chmod 700 ~/.ssh
-          echo "$en_config" > ~/.ssh/config && chmod 644 ~/.ssh/config
-          echo "$en_rsa" > ~/.ssh/en_rsa && chmod 600 ~/.ssh/en_rsa
+          echo "$en_rsa" > ~/.ssh/en_rsa
+          chmod 600 ~/.ssh/en_rsa
+          cat <<EOF > ~/.ssh/config
+          Host en.arhythmetic.github.io
+              HostName github.com
+              Port 22
+              User git
+              IdentityFile ~/.ssh/en_rsa
+          EOF
+          chmod 644 ~/.ssh/config
 
       - name: clone
         uses: actions/checkout@v2
