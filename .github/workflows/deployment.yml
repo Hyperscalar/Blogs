@@ -17,7 +17,7 @@ jobs:
           mkdir ~/.ssh && chmod 700 ~/.ssh
           echo "$root_rsa" > ~/.ssh/root_rsa
           chmod 600 ~/.ssh/root_rsa
-          cat <<EOF > ~/.ssh/config
+          cat > ~/.ssh/config <<EOF
           Host arhythmetic.github.io
               HostName github.com
               Port 22
@@ -70,7 +70,7 @@ jobs:
           mkdir ~/.ssh && chmod 700 ~/.ssh
           echo "$zh_rsa" > ~/.ssh/zh_rsa
           chmod 600 ~/.ssh/zh_rsa
-          cat <<EOF > ~/.ssh/config
+          cat > ~/.ssh/config <<EOF
           Host zh.arhythmetic.github.io
               HostName github.com
               Port 22
@@ -135,7 +135,7 @@ jobs:
           mkdir ~/.ssh && chmod 700 ~/.ssh
           echo "$en_rsa" > ~/.ssh/en_rsa
           chmod 600 ~/.ssh/en_rsa
-          cat <<EOF > ~/.ssh/config
+          cat > ~/.ssh/config <<EOF
           Host en.arhythmetic.github.io
               HostName github.com
               Port 22
