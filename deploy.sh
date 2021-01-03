@@ -41,7 +41,7 @@ then
     echo ""
     echo "Generate for zh..."
     cd zh
-    npm install && npm update && npm audit fix
+    npm install && npm update
     hexo clean && hexo generate
     git add -f public/ && git commit -m "Deployed by Git"
     cd ..
@@ -66,7 +66,7 @@ then
     echo ""
     echo "Generate for en..."
     cd en
-    npm install && npm update && npm audit fix
+    npm install && npm update
     hexo clean && hexo generate
     git add -f public/ && git commit -m "Deployed by Git"
     cd ..

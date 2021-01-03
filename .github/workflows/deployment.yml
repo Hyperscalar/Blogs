@@ -112,7 +112,7 @@ jobs:
       - name: generate
         run: |
           cd zh
-          npm install && npm update && npm audit fix
+          npm install && npm update
           hexo clean && hexo generate
           cd ..
 
@@ -177,7 +177,7 @@ jobs:
       - name: generate
         run: |
           cd en
-          npm install && npm update && npm audit fix
+          npm install && npm update
           hexo clean && hexo generate
           cd ..
 

@@ -74,7 +74,7 @@ then
             npm install hexo-symbols-count-time --save
             npm install hexo-related-popular-posts --save
 
-            npm install && npm update && npm audit fix
+            npm install && npm update
 
             git add . && git commit -m "Initialize framework and its plugins for zh"
             cd ..
@@ -117,7 +117,7 @@ then
             npm install hexo-symbols-count-time --save
             npm install hexo-related-popular-posts --save
 
-            npm install && npm update && npm audit fix
+            npm install && npm update
 
             git add . && git commit -m "Initialize framework and its plugins for en"
             cd ..

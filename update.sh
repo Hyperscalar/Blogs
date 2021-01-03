@@ -15,7 +15,7 @@ then
     if [[ $answer = "Y" ]]
     then
         cd zh
-        npm install && npm update && npm audit fix
+        npm install && npm update
         git add package.json package-lock.json && git commit -m "Update framework and its plugins for zh"
         cd ..
     fi
@@ -52,7 +52,7 @@ then
     if [[ $answer = "Y" ]]
     then
         cd en
-        npm install && npm update && npm audit fix
+        npm install && npm update
         git add package.json package-lock.json && git commit -m "Update framework and its plugins for en"
         cd ..
     fi
