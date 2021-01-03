@@ -53,7 +53,9 @@ int main() {
 
 ## Equation
 
-$E=mc^2$
+{% katex %}
+E = mc^2
+{% endkatex %}
 
 ## Note
 
