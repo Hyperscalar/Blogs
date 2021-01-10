@@ -53,9 +53,9 @@ int main() {
 
 ## Equation
 
-{% katex %}
+{% mathjax %}
 E = mc^2
-{% endkatex %}
+{% endmathjax %}
 
 ## Note
 

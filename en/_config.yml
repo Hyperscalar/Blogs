@@ -170,14 +170,14 @@ markdown:
 
 ## Math: https://github.com/hexojs/hexo-math
 math:
-  katex:
-    options:
-      displayMode: false
-      throwOnError: false
   mathjax:
     options:
       conversion:
         display: false
+  katex:
+    options:
+      displayMode: false
+      throwOnError: false
 
 ## Stylus: https://github.com/hexojs/hexo-renderer-stylus
 stylus:
