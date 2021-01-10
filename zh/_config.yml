@@ -3,8 +3,8 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 学习与探索
-subtitle: 计算机，自行车，还有音乐
+title: 回锅录
+subtitle: 学习 & 探索
 description: 不变初心，特立独行。
 keywords:
 author: 回锅肉
@@ -34,7 +34,8 @@ skip_render:
 new_post_name: :title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
-external_link: true # Open external links in new tab
+external_link:
+  enable: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
 post_asset_folder: true
@@ -88,8 +89,32 @@ time_format: HH:mm:ss
 
 # Pagination
 ## Set per_page to 0 to disable pagination
-per_page: 10
+per_page: 8
 pagination_dir: page
+
+## Feed: https://github.com/hexojs/hexo-generator-feed
+feed:
+  type: atom
+  path: atom.xml
+  limit: false
+  hub:
+  content:
+  content_limit:
+  content_limit_delim:
+  order_by: -date
+  icon:
+
+## Sitemap: https://github.com/hexojs/hexo-generator-sitemap
+sitemap:
+    path: sitemap.xml
+    template: ./sitemap-template.xml
+    rel: false
+
+## Nofollow: https://github.com/hexojs/hexo-filter-nofollow
+nofollow:
+  enable: true
+  field: site
+  exclude:
 
 # Server: https://github.com/hexojs/hexo-server
 server:
@@ -114,20 +139,45 @@ markdown:
     linkify: true
     typographer: true
     quotes: '“”‘’'
+  anchors:
+    # Minimum level for ID creation. (Ex. h2 to h6)
+    level: 1
+    # A suffix that is prepended to the number given if the ID is repeated.
+    collisionSuffix: ''
+    # If `true`, creates an anchor tag with a permalink besides the heading.
+    permalink: true
+    # Class used for the permalink anchor tag.
+    permalinkClass: header-anchor
+    # Set to 'right' to add permalink after heading
+    permalinkSide: 'left'
+    # The symbol used to make the permalink
+    permalinkSymbol: ¶
+    # Transform anchor to (1) lower case; (2) upper case
+    case: 0
+    # Replace space with a character
+    separator: '-'
   plugins:
     - markdown-it-abbr
+    - markdown-it-cjk-breaks
+    - markdown-it-container
+    - markdown-it-deflist
+    - markdown-it-emoji
     - markdown-it-footnote
     - markdown-it-ins
+    - markdown-it-mark
     - markdown-it-sub
     - markdown-it-sup
-    - '@iktakahiro/markdown-it-katex'
-  anchors:
-    level: 1
-    collisionSuffix: 'v'
-    permalink: true
-    permalinkClass: header-anchor
-    permalinkSide: 'left'
-    permalinkSymbol: ¶
+
+## Math: https://github.com/hexojs/hexo-math
+math:
+  mathjax:
+    options:
+      conversion:
+        display: false
+  katex:
+    options:
+      displayMode: false
+      throwOnError: false
 
 ## Stylus: https://github.com/hexojs/hexo-renderer-stylus
 stylus:
@@ -146,24 +196,6 @@ search:
   content: true
   format: html
 
-## Sitemap: https://github.com/hexojs/hexo-generator-sitemap
-sitemap:
-    path: sitemap.xml
-    template: ./sitemap-template.xml
-    rel: false
-
-## Feed: https://github.com/hexojs/hexo-generator-feed
-feed:
-  type: atom
-  path: atom.xml
-  limit: false
-  hub:
-  content:
-  content_limit:
-  content_limit_delim:
-  order_by: -date
-  icon:
-
 ## Symbols count: https://github.com/theme-next/hexo-symbols-count-time
 symbols_count_time:
   symbols: true
@@ -171,15 +203,9 @@ symbols_count_time:
   total_symbols: true
   total_time: true
   exclude_codeblock: false
-  awl: 4
-  wpm: 275
+  awl: 2
+  wpm: 300
   suffix: "mins."
-
-## Nofollow: https://github.com/hexojs/hexo-filter-nofollow
-nofollow:
-  enable: true
-  field: site
-  exclude:
 
 ## Themes: https://hexo.io/themes/
 theme: next
