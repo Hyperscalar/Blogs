@@ -1,5 +1,5 @@
 ---
-title: 博客搭建实践
+title: 本博客的搭建教程
 date:
 updated:
 categories:
