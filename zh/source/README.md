@@ -1,1 +1,1 @@
-# [博客](https://arhythmetic.github.io/zh)
+# [博客](https://hyperscalar.github.io/zh)

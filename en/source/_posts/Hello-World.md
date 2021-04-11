@@ -53,9 +53,9 @@ int main() {
 
 ## Equation
 
-{% mathjax %}
+$$
 E = mc^2
-{% endmathjax %}
+$$
 
 ## Note
 

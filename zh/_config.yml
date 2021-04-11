@@ -13,7 +13,7 @@ timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://arhythmetic.github.io/zh
+url: https://hyperscalar.github.io/zh
 root: /zh/
 permalink: posts/:title/
 permalink_defaults:
