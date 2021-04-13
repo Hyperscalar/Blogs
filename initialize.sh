@@ -56,7 +56,6 @@ then
             npm uninstall hexo-renderer-marked --save && npm install hexo-renderer-markdown-it --save
             npm install hexo-renderer-ejs --save
             npm install hexo-renderer-stylus --save
-            npm install hexo-renderer-nunjucks --save
 
             npm install && npm update
 
