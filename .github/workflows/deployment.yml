@@ -85,12 +85,14 @@ jobs:
           lfs: true
 
       - name: setup
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
-          node-version: '12.x'
+          node-version: '14'
+          check-latest: true
 
       - name: install
         run: |
+          sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
           npm install -g npm@latest
           npm install -g hexo-cli
 
@@ -150,12 +152,14 @@ jobs:
           lfs: true
 
       - name: setup
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
-          node-version: '12.x'
+          node-version: '14'
+          check-latest: true
 
       - name: install
         run: |
+          sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
           npm install -g npm@latest
           npm install -g hexo-cli
 
