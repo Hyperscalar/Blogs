@@ -114,6 +114,7 @@ jobs:
       - name: generate
         run: |
           cd zh
+          rm -rf node_modules/ && rm -f package-lock.json
           npm install && npm update
           hexo clean && hexo generate
           cd ..
@@ -181,6 +182,7 @@ jobs:
       - name: generate
         run: |
           cd en
+          rm -rf node_modules/ && rm -f package-lock.json
           npm install && npm update
           hexo clean && hexo generate
           cd ..
