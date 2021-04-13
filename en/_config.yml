@@ -88,7 +88,7 @@ alias:
 
 sitemap:
   path: sitemap.xml
-  template: ./sitemap_template.xml
+  template: ./sitemap-template.xml
   rel: false
   tags: true
   categories: true
@@ -101,7 +101,7 @@ feed:
   content: true
   order_by: -date
   autodiscovery: true
-  template: ./feed_template.xml
+  template: ./feed-template.xml
 
 # Category & Tag
 default_category: uncategorized
@@ -213,7 +213,7 @@ symbols_count_time:
 
 ## Optimize: https://github.com/next-theme/hexo-optimize
 filter_optimize:
-  enable: true
+  enable: false
   # remove the surrounding comments in each of the bundled files
   remove_comments: true
   css:
