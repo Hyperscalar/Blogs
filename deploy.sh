@@ -7,76 +7,51 @@ then
     echo "For example: 'bash deploy.sh root zh' will deploy both root and zh"
 fi
 
-if [[ $@ =~ root ]]
-then
-    echo ""
-    echo "Prepare for root..."
-    HEAD=$(git rev-parse HEAD)
-    git subtree add --prefix=root/public/ root master --squash
+for directory in "$@"
+do
+    if [[ $directory = "root" ]]
+    then
+        echo ""
+        echo "Prepare for $directory..."
+        HEAD=$(git rev-parse HEAD)
+        git subtree add --prefix=$directory/public/ $directory master --squash
 
-    echo ""
-    echo "Generate for root..."
-    cd root
-    rm -rf public/ && cp -r source/ public/
-    git add -f public/ && git commit -m "Deployed by Git"
-    cd ..
+        echo ""
+        echo "Generate for $directory..."
+        cd $directory
+        rm -rf public/ && cp -r source/ public/
+        git add -f public/ && git commit -m "Deployed by Git"
+        cd ..
 
-    echo ""
-    echo "Deploy for root..."
-    git subtree split --prefix=root/public/ --branch root
-    git subtree push --prefix=root/public/ root master --squash
+        echo ""
+        echo "Deploy for $directory..."
+        git subtree split --prefix=$directory/public/ --branch $directory
+        git subtree push --prefix=$directory/public/ $directory master --squash
 
-    echo ""
-    echo "Cleanup for root"
-    git reset --hard $HEAD
-fi
+        echo ""
+        echo "Cleanup for $directory"
+        git reset --hard $HEAD
+    else
+        echo ""
+        echo "Prepare for $directory..."
+        HEAD=$(git rev-parse HEAD)
+        git subtree add --prefix=$directory/public/ $directory master --squash
 
-if [[ $@ =~ zh ]]
-then
-    echo ""
-    echo "Prepare for zh..."
-    HEAD=$(git rev-parse HEAD)
-    git subtree add --prefix=zh/public/ zh master --squash
+        echo ""
+        echo "Generate for $directory..."
+        cd $directory
+        npm install && npm update
+        hexo clean && hexo generate
+        git add -f public/ && git commit -m "Deployed by Git"
+        cd ..
 
-    echo ""
-    echo "Generate for zh..."
-    cd zh
-    npm install && npm update
-    hexo clean && hexo generate
-    git add -f public/ && git commit -m "Deployed by Git"
-    cd ..
+        echo ""
+        echo "Deploy for $directory..."
+        git subtree split --prefix=$directory/public/ --branch $directory
+        git subtree push --prefix=$directory/public/ $directory master --squash
 
-    echo ""
-    echo "Deploy for zh..."
-    git subtree split --prefix=zh/public/ --branch zh
-    git subtree push --prefix=zh/public/ zh master --squash
-
-    echo ""
-    echo "Cleanup for zh"
-    git reset --hard $HEAD
-fi
-
-if [[ $@ =~ en ]]
-then
-    echo ""
-    echo "Prepare for en..."
-    HEAD=$(git rev-parse HEAD)
-    git subtree add --prefix=en/public/ en master --squash
-
-    echo ""
-    echo "Generate for en..."
-    cd en
-    npm install && npm update
-    hexo clean && hexo generate
-    git add -f public/ && git commit -m "Deployed by Git"
-    cd ..
-
-    echo ""
-    echo "Deploy for en..."
-    git subtree split --prefix=en/public/ --branch en
-    git subtree push --prefix=en/public/ en master --squash
-
-    echo ""
-    echo "Cleanup for en"
-    git reset --hard $HEAD
-fi
+        echo ""
+        echo "Cleanup for $directory"
+        git reset --hard $HEAD
+    fi
+done
