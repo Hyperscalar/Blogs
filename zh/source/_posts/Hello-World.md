@@ -72,9 +72,9 @@ int main() {
 
 ## 公式
 
-{% mathjax %}
+$$
 E = mc^2
-{% endmathjax %}
+$$
 
 ## PDF
 
