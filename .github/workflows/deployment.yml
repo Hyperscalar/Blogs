@@ -58,7 +58,7 @@ jobs:
           git add -f root/public/
           git commit --allow-empty -m "Deployed by GitHub Actions"
           git subtree split --prefix=root/public/ --branch root
-          git subtree push --prefix=root/public/ root master --squash
+          git subtree push --prefix=root/public/ root master
 
   zh:
     name: Deploy zh
@@ -127,7 +127,7 @@ jobs:
           git add -f zh/public/
           git commit --allow-empty -m "Deployed by GitHub Actions"
           git subtree split --prefix=zh/public/ --branch zh
-          git subtree push --prefix=zh/public/ zh master --squash
+          git subtree push --prefix=zh/public/ zh master
 
   en:
     name: Deploy en
@@ -196,4 +196,4 @@ jobs:
           git add -f en/public/
           git commit --allow-empty -m "Deployed by GitHub Actions"
           git subtree split --prefix=en/public/ --branch en
-          git subtree push --prefix=en/public/ en master --squash
+          git subtree push --prefix=en/public/ en master
