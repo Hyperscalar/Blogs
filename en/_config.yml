@@ -127,7 +127,7 @@ feed:
   content: true
   order_by: -date
   autodiscovery: true
-  template: ./feed-template.xml
+  template: ./feed_template.xml
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
