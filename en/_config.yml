@@ -200,6 +200,22 @@ symbols_count_time:
   wpm: 275
   suffix: "mins."
 
+## Related posts: https://github.com/sergeyzwezdin/hexo-related-posts
+related_posts:
+  enabled: true
+  filter_threshold: 0.3
+  related_count: 3
+  weight:
+      title: 0.05
+      description: 0.05
+      keywords: 0.01
+      tags: 0.005
+      categories: 0.005
+      text: 1
+  stemmers:
+    - en
+  reserved:
+
 # Themes: https://hexo.io/themes/
 theme: next
 
