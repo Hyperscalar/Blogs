@@ -53,6 +53,7 @@ highlight:
   line_threshold: 0
   tab_replace: '    '
   exclude_languages:
+    - mermaid
   wrap: true
   hljs: false
 prismjs:
@@ -62,10 +63,24 @@ prismjs:
   line_threshold: 0
   tab_replace: '    '
 
+# Home page setting
+# path: Root path for your blogs index page. (default = '')
+# per_page: Posts displayed per page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
+index_generator:
+  path: ''
+  per_page: 8
+  order_by: -date
+  pagination_dir: page
+
 # Category & Tag
 default_category: uncategorized
 category_map:
 tag_map:
+
+# Metadata elements
+## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
+meta_generator: true
 
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
@@ -80,16 +95,6 @@ updated_option: 'mtime'
 ## Set per_page to 0 to disable pagination
 per_page: 8
 pagination_dir: page
-
-# Home page setting
-# path: Root path for your blogs index page. (default = '')
-# per_page: Posts displayed per page. (0 = disable pagination)
-# order_by: Posts order. (Order by date descending by default)
-index_generator:
-  path: ''
-  per_page: 8
-  order_by: -date
-  pagination_dir: page
 
 category_generator:
   per_page: 8
@@ -106,8 +111,6 @@ archive_generator:
   monthly: true
   daily: true
   order_by: -date
-
-alias:
 
 sitemap:
   path:
@@ -129,6 +132,14 @@ feed:
   autodiscovery: true
   template: ./feed_template.xml
 
+alias:
+
+# Include / Exclude file(s)
+## include:/exclude: options only apply to the 'source/' folder
+include:
+exclude:
+ignore:
+
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Markdown-it: https://github.com/hexojs/hexo-renderer-markdown-it/
@@ -145,16 +156,17 @@ markdown:
   enable_rules:
   disable_rules:
   plugins:
-    - markdown-it-abbr
-    - markdown-it-cjk-breaks
-    - markdown-it-container
-    - markdown-it-deflist
-    - markdown-it-emoji
-    - markdown-it-footnote
-    - markdown-it-ins
-    - markdown-it-mark
-    - markdown-it-sub
-    - markdown-it-sup
+    - 'markdown-it-abbr'
+    - 'markdown-it-attrs'
+    - 'markdown-it-cjk-breaks'
+    - 'markdown-it-container'
+    - 'markdown-it-deflist'
+    - 'markdown-it-emoji'
+    - 'markdown-it-footnote'
+    - 'markdown-it-ins'
+    - 'markdown-it-mark'
+    - 'markdown-it-sub'
+    - 'markdown-it-sup'
   anchors:
     # Minimum level for ID creation. (Ex. h2 to h6)
     level: 1
@@ -167,18 +179,16 @@ markdown:
     # Set to 'right' to add permalink after heading
     permalinkSide: 'left'
     # The symbol used to make the permalink
-    permalinkSymbol: ¶
+    permalinkSymbol: '¶'
     # Transform anchor to (1) lower case; (2) upper case
     case: 0
     # Replace space with a character
     separator: '-'
-
-## Search: https://github.com/next-theme/hexo-generator-searchdb
-search:
-  path: search.xml
-  field: all
-  content: true
-  format: html
+  images:
+    lazyload: false
+    prepend_root: false
+    post_asset: false
+  inline: false  # https://markdown-it.github.io/markdown-it/#MarkdownIt.renderInline
 
 ## MathJax: https://github.com/next-theme/hexo-filter-mathjax
 mathjax:
@@ -189,6 +199,12 @@ mathjax:
   append_css: true # add CSS to pages rendered by MathJax
   every_page: false # if true, every page will be rendered by MathJax regardless the `mathjax` setting in Front-matter
 
+## No follow: https://github.com/hexojs/hexo-filter-nofollow
+nofollow:
+  enable: true
+  field: site
+  exclude:
+
 ## Word counter: https://github.com/next-theme/hexo-word-counter
 symbols_count_time:
   symbols: true
@@ -196,9 +212,15 @@ symbols_count_time:
   total_symbols: true
   total_time: true
   exclude_codeblock: false
-  awl: 5
   wpm: 275
   suffix: "mins."
+
+## Search: https://github.com/next-theme/hexo-generator-searchdb
+search:
+  path: search.xml
+  field: all
+  content: true
+  format: html
 
 ## Related posts: https://github.com/sergeyzwezdin/hexo-related-posts
 related_posts:
@@ -218,16 +240,6 @@ related_posts:
 
 # Themes: https://hexo.io/themes/
 theme: next
-
-# Metadata elements
-## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
-meta_generator: true
-
-# Include / Exclude file(s)
-## include:/exclude: options only apply to the 'source/' folder
-include:
-exclude:
-ignore:
 
 # Server
 server:
