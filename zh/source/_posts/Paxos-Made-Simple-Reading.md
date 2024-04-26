@@ -9,17 +9,18 @@ tags:
 mathjax: true
 ---
 
-# Paxos Made Simple 翻译及总结
-
 ## Warm-up / 预热
 
-The Paxos algorithm, when presented in plain English, is very simple.
+> The Paxos algorithm, when presented in plain English, is very simple.
+>
+> **Leslie Lamport** — Paxos Made Simple
 
-<p align="right">Paxos Made Simple, by Leslie Lamport</p>
-The Fast Paxos algorithm, when presented in plain English, is still quite hard to understand for those like us — people who don't have the brain of Leslie Lamport.
+> The Fast Paxos algorithm, when presented in plain English, is still quite hard to understand for those like us — people who don't have the brain of Leslie Lamport.
+>
+> **Keith Marzullo, Alessandro Mei, and Hein Meling** — A Simpler Proof for Paxos and Fast Paxos
 
-<p align="right">A Simpler Proof for Paxos and Fast Paxos, by Keith Marzullo, Alessandro Mei and Hein Meling</p>
-<center style="font-size: 2em;">😂</center>
+😂
+
 <!-- more -->
 
 ## The Problem / 问题

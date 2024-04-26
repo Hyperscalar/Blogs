@@ -10,8 +10,6 @@ mathjax: true
 pdf: true
 ---
 
-# 你好，世界
-
 这是我的个人博客。
 
 主要分享对于技术学习和思考，但不局限于此。
@@ -42,15 +40,27 @@ int main() {
 }
 ```
 
-``` C++
-// C++
-#include "iostream"
+## 图表
 
-int main() {
-    std::cout << "Hello World!" << std::endl;
-    return 0;
-}
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
 ```
+
+
+
+## 图片
+
+{% asset_img San-Francisco.png San Francisco %}
+
+## 公式
+
+$$
+E = mc^2
+$$
 
 ## 笔记
 
@@ -65,16 +75,6 @@ int main() {
 {% note warning %} Hello World! {% endnote %}
 
 {% note danger %} Hello World! {% endnote %}
-
-## 图片
-
-{% asset_img San-Francisco.png San Francisco %}
-
-## 公式
-
-$$
-E = mc^2
-$$
 
 ## PDF
 
