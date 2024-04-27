@@ -7,7 +7,6 @@ categories:
 tags:
 - 测试
 mathjax: true
-pdf: true
 ---
 
 这是我的个人博客。
@@ -40,6 +39,12 @@ int main() {
 }
 ```
 
+## 公式
+
+$$
+E = mc^2
+$$
+
 ## 图表
 
 ```mermaid
@@ -50,17 +55,9 @@ graph TD;
     C-->D;
 ```
 
-
-
 ## 图片
 
 {% asset_img San-Francisco.png San Francisco %}
-
-## 公式
-
-$$
-E = mc^2
-$$
 
 ## 笔记
 
@@ -75,7 +72,3 @@ $$
 {% note warning %} Hello World! {% endnote %}
 
 {% note danger %} Hello World! {% endnote %}
-
-## PDF
-
-{% pdf https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf %}
