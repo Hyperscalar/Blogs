@@ -57,6 +57,8 @@ then
             npm install hexo-renderer-ejs --save
             npm install hexo-renderer-stylus --save
 
+            npm install hexo-filter-nofollow --save
+
             npm install && npm update
 
             cd ..
