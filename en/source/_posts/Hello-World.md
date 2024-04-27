@@ -9,7 +9,6 @@ tags:
 mathjax: true
 pdf: true
 ---
-# Hello World
 
 This is my personal blog.
 
@@ -21,7 +20,7 @@ Insist on originality, Update aperiodically.
 
 ## Code
 
-``` Java
+```java
 // Java
 class HelloWorld {
 
@@ -31,22 +30,12 @@ class HelloWorld {
 }
 ```
 
-``` C
+```c
 // C
 #include "stdio.h"
 
 int main() {
     printf("Hello World!\n");
-    return 0;
-}
-```
-
-``` C++
-// C++
-#include "iostream"
-
-int main() {
-    std::cout << "Hello World!" << std::endl;
     return 0;
 }
 ```
@@ -67,6 +56,10 @@ C -->|One| D[Result 1]
 C -->|Two| E[Result 2]
 ```
 
+## Image
+
+{% asset_img San-Francisco.png San Francisco %}
+
 ## Note
 
 {% note default %} Hello World! {% endnote %}
@@ -80,11 +73,3 @@ C -->|Two| E[Result 2]
 {% note warning %} Hello World! {% endnote %}
 
 {% note danger %} Hello World! {% endnote %}
-
-## Image
-
-{% asset_img San-Francisco.png San Francisco %}
-
-## PDF
-
-{% pdf https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf %}

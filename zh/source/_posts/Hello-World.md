@@ -19,7 +19,7 @@ mathjax: true
 
 ## 代码
 
-``` Java
+```java
 // Java
 class HelloWorld {
 
@@ -29,7 +29,7 @@ class HelloWorld {
 }
 ```
 
-``` C
+```c
 // C
 #include "stdio.h"
 
