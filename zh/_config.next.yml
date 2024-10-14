@@ -98,12 +98,12 @@ open_graph:
 menu:
   home: / || fa fa-home
   about: /about/ || fa fa-user
-  categories: /categories/ || fa fa-th
-  tags: /tags/ || fa fa-tags
-  archives: /archives/ || fa fa-archive
   courses: /courses/ || fa fa-university
   books: /books/ || fa fa-book
   papers: /papers/ || fa fa-paper-plane
+  categories: /categories/ || fa fa-th
+  tags: /tags/ || fa fa-tags
+  archives: /archives/ || fa fa-archive
   #schedule: /schedule/ || fa fa-calendar
   #sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
@@ -120,16 +120,18 @@ menu_settings:
 # ---------------------------------------------------------------
 
 sidebar:
-  # Sidebar Position.
+  # Sidebar position. Available values: left | right
   position: left
-  #position: right
 
-  # Manual define the sidebar width. If commented, will be default for:
-  # Muse | Mist: 320
-  # Pisces | Gemini: 240
-  #width: 300
+  # Sidebar width.
+  # Applicable to Muse | Mist and mobile of Pisces | Gemini.
+  width_expanded: 320
+  # Applicable to desktop of Pisces | Gemini.
+  width_dual_column: 240
 
-  # Sidebar Display (only for Muse | Mist), available values:
+  # Sidebar display.
+  # Applicable to Muse | Mist and mobile of Pisces | Gemini.
+  # Available values:
   #  - post    expand on posts automatically. Default.
   #  - always  expand for all pages automatically.
   #  - hide    expand only when click on the sidebar toggle icon.
@@ -180,7 +182,7 @@ links_settings:
   layout: block
 
 links:
-  主页: https://hyperscalar.github.io
+  首页: https://hyperscalar.github.io
   "English blog": https://hyperscalar.github.io/en
 
 # Table of Contents in the Sidebar
@@ -222,7 +224,7 @@ footer:
   copyright:
 
   # Powered by Hexo & NexT
-  powered: false
+  powered: true
 
   # Beian ICP and gongan information for Chinese users. See: https://beian.miit.gov.cn, https://beian.mps.gov.cn
   beian:
@@ -528,7 +530,7 @@ tabs:
 # So, you have to install the dependency of pdf.js if you want to use pdf tag and make it available to all browsers.
 # Dependencies: https://github.com/next-theme/theme-next-pdf
 pdf:
-  enable: true
+  enable: false
   # Default height
   height: 768px
 
