@@ -6,9 +6,9 @@
 
 ## Contents / 内容
 
-- [Personal Homepage / 个人主页](https://hyperscalar.github.io/)
-- [Blog / 英文博客](https://hyperscalar.github.io/en/)
-- [博客 / 中文博客](https://hyperscalar.github.io/zh/)
+- [Home / 首页](https://hyperscalar.github.io/)
+- [English blog](https://hyperscalar.github.io/en/)
+- [中文博客](https://hyperscalar.github.io/zh/)
 
 ## Introduction / 简介
 
@@ -21,13 +21,13 @@
 
 - root/
   - -> Deployed on / 部署于 [Hyperscalar/hyperscalar.github.io](https://github.com/Hyperscalar/hyperscalar.github.io)
-  - -> Servicing / 服务于 [Personal Homepage / 个人主页](https://hyperscalar.github.io/)
+  - -> Servicing / 服务于 [Home / 首页](https://hyperscalar.github.io/)
 - en/
   - -> Deployed on / 部署于 [Hyperscalar/en](https://github.com/Hyperscalar/en)
-  - -> Servicing / 服务于 [Blog](https://hyperscalar.github.io/en/)
+  - -> Servicing / 服务于 [English blog](https://hyperscalar.github.io/en/)
 - zh/
   - -> Deployed on / 部署于 [Hyperscalar/zh](https://github.com/Hyperscalar/zh)
-  - -> Servicing / 服务于 [博客](https://hyperscalar.github.io/zh/)
+  - -> Servicing / 服务于 [中文博客](https://hyperscalar.github.io/zh/)
 
 - initialize.sh -> For the initialization of frameworks, themes and plugins  / 用于框架，主题和插件的初始化
 - update.sh -> For the update of frameworks, themes and plugins / 用于框架，主题和插件的更新

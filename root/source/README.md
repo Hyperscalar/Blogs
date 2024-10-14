@@ -1,1 +1,1 @@
-# [个人主页 / Personal Homepage](https://hyperscalar.github.io/)
+# [首页 / Home](https://hyperscalar.github.io/)
