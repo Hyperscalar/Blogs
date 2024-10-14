@@ -1,6 +1,6 @@
 {
   "name": "hyperscalar-english-blog",
-  "version": "6.0.0",
+  "version": "7.0.0",
   "private": true,
   "repository": {
     "type": "git",
@@ -14,18 +14,18 @@
     "server": "hexo server"
   },
   "hexo": {
-    "version": "7.2.0"
+    "version": "7.3.0"
   },
   "dependencies": {
-    "@next-theme/plugins": "^8.19.2",
-    "hexo": "^7.2.0",
+    "@next-theme/plugins": "^8.21.0",
+    "hexo": "^7.3.0",
     "hexo-filter-mathjax": "^0.9.0",
     "hexo-filter-nofollow": "^2.0.2",
     "hexo-generator-alias": "^1.0.0",
     "hexo-generator-archive": "^2.0.0",
     "hexo-generator-category": "^2.0.0",
     "hexo-generator-feed": "^3.0.0",
-    "hexo-generator-index": "^3.0.0",
+    "hexo-generator-index": "^4.0.0",
     "hexo-generator-searchdb": "^1.4.1",
     "hexo-generator-sitemap": "^3.0.1",
     "hexo-generator-tag": "^2.0.0",
@@ -35,8 +35,7 @@
     "hexo-renderer-markdown-it": "^7.1.1",
     "hexo-renderer-stylus": "^3.0.1",
     "hexo-server": "^3.0.0",
-    "hexo-theme-landscape": "^1.0.0",
-    "hexo-theme-next": "^8.19.2",
+    "hexo-theme-next": "^8.21.0",
     "hexo-word-counter": "^0.2.0"
   }
 }

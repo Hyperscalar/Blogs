@@ -46,8 +46,8 @@ render_drafts: false
 post_asset_folder: true
 relative_link: false
 future: false
+syntax_highlighter: highlight.js
 highlight:
-  enable: true
   auto_detect: false
   line_number: true
   line_threshold: 0
@@ -57,7 +57,6 @@ highlight:
   wrap: true
   hljs: false
 prismjs:
-  enable: false
   preprocess: true
   line_number: true
   line_threshold: 0
@@ -72,6 +71,7 @@ index_generator:
   per_page: 8
   order_by: -date
   pagination_dir: page
+  layout: ['index', 'archive']
 
 # Category & Tag
 default_category: uncategorized
@@ -213,7 +213,7 @@ symbols_count_time:
   total_time: true
   exclude_codeblock: false
   wpm: 275
-  suffix: "mins."
+  suffix: 'mins.'
 
 ## Search: https://github.com/next-theme/hexo-generator-searchdb
 search:
