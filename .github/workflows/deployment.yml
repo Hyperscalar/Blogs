@@ -61,6 +61,7 @@ jobs:
       - name: root
         run: |
           cd root
+          rm -rf public/
           cp -r source public/
           cd ..
 
@@ -141,6 +142,7 @@ jobs:
         run: |
           cd en
           npm install
+          npm run clean
           npm run build
           cd ..
 
@@ -205,6 +207,7 @@ jobs:
         run: |
           cd zh
           npm install
+          npm run clean
           npm run build
           cd ..
 
