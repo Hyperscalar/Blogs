@@ -6,8 +6,8 @@ on:
       - main
 
 jobs:
-  deploy:
-    name: Deploy
+  root:
+    name: Deploy root
     runs-on: ubuntu-latest
     environment: production
     steps:
@@ -86,3 +86,131 @@ jobs:
           git commit --allow-empty -m "Deployed by GitHub Actions"
           git subtree split --prefix=root/public/ --branch root
           git subtree push --prefix=root/public/ root master
+
+  en:
+    name: Deploy en
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: decrypt
+        env:
+          EN_ED25519: ${{ secrets.EN_ED25519 }}
+        run: |
+          mkdir ~/.ssh && chmod 700 ~/.ssh
+          echo "$EN_ED25519" > ~/.ssh/en_ed25519
+          chmod 600 ~/.ssh/en_ed25519
+          cat > ~/.ssh/config <<EOF
+          Host en.hyperscalar.github.io
+              HostName github.com
+              Port 22
+              User git
+              IdentityFile ~/.ssh/en_ed25519
+          EOF
+          chmod 644 ~/.ssh/config
+
+      - name: config
+        run: |
+          export TZ=Asia/Shanghai
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git config --global core.quotepath off
+
+      - name: clone
+        uses: actions/checkout@v4
+
+      - name: status
+        run: git status
+
+      - name: pull
+        run: |
+          git remote add en git@en.hyperscalar.github.io:hyperscalar/en.git
+          git subtree add --prefix=en/public/ en master --squash
+
+      - name: setup
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          check-latest: true
+          cache: 'npm'
+          cache-dependency-path: 'en/package-lock.json'
+
+      - name: install
+        run: npm install -g npm@latest
+
+      - name: generate
+        run: |
+          cd en
+          npm install
+          npm run build
+          cd ..
+
+      - name: push
+        run: |
+          git add -f en/public/
+          git commit --allow-empty -m "Deployed by GitHub Actions"
+          git subtree split --prefix=en/public/ --branch en
+          git subtree push --prefix=en/public/ en master
+
+  zh:
+    name: Deploy zh
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: decrypt
+        env:
+          ZH_ED25519: ${{ secrets.ZH_ED25519 }}
+        run: |
+          mkdir ~/.ssh && chmod 700 ~/.ssh
+          echo "$ZH_ED25519" > ~/.ssh/zh_ed25519
+          chmod 600 ~/.ssh/zh_ed25519
+          cat > ~/.ssh/config <<EOF
+          Host zh.hyperscalar.github.io
+              HostName github.com
+              Port 22
+              User git
+              IdentityFile ~/.ssh/zh_ed25519
+          EOF
+          chmod 644 ~/.ssh/config
+
+      - name: config
+        run: |
+          export TZ=Asia/Shanghai
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git config --global core.quotepath off
+
+      - name: clone
+        uses: actions/checkout@v4
+
+      - name: status
+        run: git status
+
+      - name: pull
+        run: |
+          git remote add zh git@zh.hyperscalar.github.io:hyperscalar/zh.git
+          git subtree add --prefix=zh/public/ zh master --squash
+
+      - name: setup
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          check-latest: true
+          cache: 'npm'
+          cache-dependency-path: 'zh/package-lock.json'
+
+      - name: install
+        run: npm install -g npm@latest
+
+      - name: generate
+        run: |
+          cd zh
+          npm install
+          npm run build
+          cd ..
+
+      - name: push
+        run: |
+          git add -f zh/public/
+          git commit --allow-empty -m "Deployed by GitHub Actions"
+          git subtree split --prefix=zh/public/ --branch zh
+          git subtree push --prefix=zh/public/ zh master
