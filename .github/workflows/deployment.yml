@@ -6,8 +6,8 @@ on:
       - main
 
 jobs:
-  root:
-    name: Deploy root
+  deploy:
+    name: Deploy
     runs-on: ubuntu-latest
     environment: production
     steps:
@@ -27,15 +27,15 @@ jobs:
           EOF
           chmod 644 ~/.ssh/config
 
-      - name: clone
-        uses: actions/checkout@v4
-
       - name: config
         run: |
           export TZ=Asia/Shanghai
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           git config --global core.quotepath off
+
+      - name: clone
+        uses: actions/checkout@v4
 
       - name: status
         run: git status
@@ -45,10 +45,39 @@ jobs:
           git remote add root git@hyperscalar.github.io:hyperscalar/hyperscalar.github.io.git
           git subtree add --prefix=root/public/ root master --squash
 
-      - name: generate
+      - name: setup
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          check-latest: true
+          cache: 'npm'
+          cache-dependency-path: |
+            en/package-lock.json
+            zh/package-lock.json
+
+      - name: install
+        run: npm install -g npm@latest
+
+      - name: root
         run: |
           cd root
-          rm -rf public/ && cp -r source/ public/
+          cp -r source public/
+          cd ..
+
+      - name: en
+        run: |
+          cd en
+          npm install
+          npm run build
+          mv public ../root/public/en/
+          cd ..
+
+      - name: zh
+        run: |
+          cd zh
+          npm install
+          npm run build
+          mv public ../root/public/zh/
           cd ..
 
       - name: push
@@ -57,135 +86,3 @@ jobs:
           git commit --allow-empty -m "Deployed by GitHub Actions"
           git subtree split --prefix=root/public/ --branch root
           git subtree push --prefix=root/public/ root master
-
-  zh:
-    name: Deploy zh
-    runs-on: ubuntu-latest
-    environment: production
-    steps:
-      - name: decrypt
-        env:
-          ZH_ED25519: ${{ secrets.ZH_ED25519 }}
-        run: |
-          mkdir ~/.ssh && chmod 700 ~/.ssh
-          echo "$ZH_ED25519" > ~/.ssh/zh_ed25519
-          chmod 600 ~/.ssh/zh_ed25519
-          cat > ~/.ssh/config <<EOF
-          Host zh.hyperscalar.github.io
-              HostName github.com
-              Port 22
-              User git
-              IdentityFile ~/.ssh/zh_ed25519
-          EOF
-          chmod 644 ~/.ssh/config
-
-      - name: clone
-        uses: actions/checkout@v4
-
-      - name: setup
-        uses: actions/setup-node@v4
-        with:
-          node-version: 'lts/*'
-          check-latest: true
-
-      - name: install
-        run: |
-          sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
-          npm install -g npm@latest
-
-      - name: config
-        run: |
-          export TZ=Asia/Shanghai
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          git config --global core.quotepath off
-
-      - name: status
-        run: git status
-
-      - name: pull
-        run: |
-          git remote add zh git@zh.hyperscalar.github.io:hyperscalar/zh.git
-          git subtree add --prefix=zh/public/ zh master --squash
-
-      - name: generate
-        run: |
-          cd zh
-          rm -rf node_modules/ && rm -f package-lock.json
-          npm install && npm update
-          npm run clean && npm run build
-          cd ..
-
-      - name: push
-        run: |
-          git add zh/package.json zh/package-lock.json
-          git add -f zh/public/
-          git commit --allow-empty -m "Deployed by GitHub Actions"
-          git subtree split --prefix=zh/public/ --branch zh
-          git subtree push --prefix=zh/public/ zh master
-
-  en:
-    name: Deploy en
-    runs-on: ubuntu-latest
-    environment: production
-    steps:
-      - name: decrypt
-        env:
-          EN_ED25519: ${{ secrets.EN_ED25519 }}
-        run: |
-          mkdir ~/.ssh && chmod 700 ~/.ssh
-          echo "$EN_ED25519" > ~/.ssh/en_ed25519
-          chmod 600 ~/.ssh/en_ed25519
-          cat > ~/.ssh/config <<EOF
-          Host en.hyperscalar.github.io
-              HostName github.com
-              Port 22
-              User git
-              IdentityFile ~/.ssh/en_ed25519
-          EOF
-          chmod 644 ~/.ssh/config
-
-      - name: clone
-        uses: actions/checkout@v4
-
-      - name: setup
-        uses: actions/setup-node@v4
-        with:
-          node-version: 'lts/*'
-          check-latest: true
-
-      - name: install
-        run: |
-          sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
-          npm install -g npm@latest
-
-      - name: config
-        run: |
-          export TZ=Asia/Shanghai
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          git config --global core.quotepath off
-
-      - name: status
-        run: git status
-
-      - name: pull
-        run: |
-          git remote add en git@en.hyperscalar.github.io:hyperscalar/en.git
-          git subtree add --prefix=en/public/ en master --squash
-
-      - name: generate
-        run: |
-          cd en
-          rm -rf node_modules/ && rm -f package-lock.json
-          npm install && npm update
-          npm run clean && npm run build
-          cd ..
-
-      - name: push
-        run: |
-          git add en/package.json en/package-lock.json
-          git add -f en/public/
-          git commit --allow-empty -m "Deployed by GitHub Actions"
-          git subtree split --prefix=en/public/ --branch en
-          git subtree push --prefix=en/public/ en master
