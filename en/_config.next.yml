@@ -182,8 +182,8 @@ links_settings:
   layout: block
 
 links:
-  Home: https://hyperscalar.github.io
-  中文博客: https://hyperscalar.github.io/zh
+  Home: /
+  中文博客: /zh/
 
 # Table of Contents in the Sidebar
 # Front-matter variable (nonsupport wrap expand_all).
@@ -224,7 +224,7 @@ footer:
   copyright:
 
   # Powered by Hexo & NexT
-  powered: true
+  powered: false
 
   # Beian ICP and gongan information for Chinese users. See: https://beian.miit.gov.cn, https://beian.mps.gov.cn
   beian:
