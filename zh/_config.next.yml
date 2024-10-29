@@ -182,8 +182,8 @@ links_settings:
   layout: block
 
 links:
-  首页: /
-  "English blog": /en/
+  首页: /../
+  "English blog": /../en/
 
 # Table of Contents in the Sidebar
 # Front-matter variable (nonsupport wrap expand_all).

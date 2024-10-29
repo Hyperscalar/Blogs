@@ -182,8 +182,8 @@ links_settings:
   layout: block
 
 links:
-  Home: /
-  中文博客: /zh/
+  Home: /../
+  中文博客: /../zh/
 
 # Table of Contents in the Sidebar
 # Front-matter variable (nonsupport wrap expand_all).
