@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+Sitemap: ${host}/zh/sitemap.xml
+Sitemap: ${host}/en/sitemap.xml

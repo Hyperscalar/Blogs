@@ -1,1 +1,1 @@
-# [首页 / Home](https://hyperscalar.github.io/)
+# [首页 / Home](${host})

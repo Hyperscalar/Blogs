@@ -182,7 +182,7 @@ links_settings:
   layout: block
 
 links:
-  首页: /../
+  首页: ${host}
 
 # Table of Contents in the Sidebar
 # Front-matter variable (nonsupport wrap expand_all).

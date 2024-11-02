@@ -1,0 +1,94 @@
+name: Continuous Deployment to Cloudflare Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  all:
+    name: Deploy all
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: decrypt
+        env:
+          CLOUDFLARE_ED25519: ${{ secrets.CLOUDFLARE_ED25519 }}
+        run: |
+          mkdir ~/.ssh && chmod 700 ~/.ssh
+          echo "$CLOUDFLARE_ED25519" > ~/.ssh/cloudflare_ed25519
+          chmod 600 ~/.ssh/cloudflare_ed25519
+          cat > ~/.ssh/config <<EOF
+          Host hyperscalar.pages.dev
+              HostName github.com
+              Port 22
+              User git
+              IdentityFile ~/.ssh/cloudflare_ed25519
+          EOF
+          chmod 644 ~/.ssh/config
+
+      - name: config
+        run: |
+          export TZ=Asia/Shanghai
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git config --global core.quotepath off
+
+      - name: clone
+        uses: actions/checkout@v4
+
+      - name: status
+        run: git status
+
+      - name: pull
+        run: |
+          git remote add cloudflare git@hyperscalar.pages.dev:hyperscalar/hyperscalar.pages.dev.git
+          git subtree add --prefix=root/public/ cloudflare master --squash
+
+      - name: setup
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          check-latest: true
+          cache: 'npm'
+          cache-dependency-path: |
+            en/package-lock.json
+            zh/package-lock.json
+
+      - name: install
+        run: npm install -g npm@latest
+
+      - name: root
+        run: |
+          cd root
+          rm -rf public/
+          cp -r source public/
+          cd public
+          sed -i 's|\${host}|https://hyperscalar.pages.dev|g' robots.txt README.md
+          cd ..
+          cd ..
+
+      - name: en
+        run: |
+          cd en
+          sed -i 's|\${host}|https://hyperscalar.pages.dev|g' _config.yml _config.next.yml source/README.md
+          npm install
+          npm run build
+          mv public ../root/public/en/
+          cd ..
+
+      - name: zh
+        run: |
+          cd zh
+          sed -i 's|\${host}|https://hyperscalar.pages.dev|g' _config.yml _config.next.yml source/README.md
+          npm install
+          npm run build
+          mv public ../root/public/zh/
+          cd ..
+
+      - name: push
+        run: |
+          git add -f root/public/
+          git commit --allow-empty -m "Deployed by GitHub Actions"
+          git subtree split --prefix=root/public/ --branch cloudflare
+          git subtree push --prefix=root/public/ cloudflare master

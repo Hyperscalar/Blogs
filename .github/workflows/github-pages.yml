@@ -1,4 +1,4 @@
-name: Continuous Deployment
+name: Continuous Deployment to GitHub Pages
 
 on:
   push:
@@ -45,40 +45,14 @@ jobs:
           git remote add root git@hyperscalar.github.io:hyperscalar/hyperscalar.github.io.git
           git subtree add --prefix=root/public/ root master --squash
 
-      - name: setup
-        uses: actions/setup-node@v4
-        with:
-          node-version: 'lts/*'
-          check-latest: true
-          cache: 'npm'
-          cache-dependency-path: |
-            en/package-lock.json
-            zh/package-lock.json
-
-      - name: install
-        run: npm install -g npm@latest
-
-      - name: root
+      - name: generate
         run: |
           cd root
           rm -rf public/
           cp -r source public/
+          cd public
+          sed -i 's|\${host}|https://hyperscalar.github.io|g' robots.txt README.md
           cd ..
-
-      - name: en
-        run: |
-          cd en
-          npm install
-          npm run build
-          mv public ../root/public/en/
-          cd ..
-
-      - name: zh
-        run: |
-          cd zh
-          npm install
-          npm run build
-          mv public ../root/public/zh/
           cd ..
 
       - name: push
@@ -141,6 +115,7 @@ jobs:
       - name: generate
         run: |
           cd en
+          sed -i 's|\${host}|https://hyperscalar.github.io|g' _config.yml _config.next.yml source/README.md
           npm install
           npm run clean
           npm run build
@@ -206,6 +181,7 @@ jobs:
       - name: generate
         run: |
           cd zh
+          sed -i 's|\${host}|https://hyperscalar.github.io|g' _config.yml _config.next.yml source/README.md
           npm install
           npm run clean
           npm run build
