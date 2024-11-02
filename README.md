@@ -34,4 +34,4 @@ Cloudflare Pages
 
 - /
   - -> Deployed on / 部署于 [Hyperscalar/hyperscalar.pages.dev](https://github.com/Hyperscalar/hyperscalar.pages.dev)
-  - -> Servicing / 服务于 [Home / 首页](https://hyperscalar.pages.dev/)
+  - -> Servicing / 服务于 [Home / 首页](https://hyperscalar.pages.dev/)、[English blog](https://hyperscalar.pages.dev/en/)、[中文博客](https://hyperscalar.pages.dev/zh/)
