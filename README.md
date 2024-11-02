@@ -1,8 +1,6 @@
 # Blogs
 
-[![GitHub Pages Deployment Status / GitHub Pages 部署状态](https://github.com/Hyperscalar/Blogs/workflows/Continuous%20Deployment%20to%20GitHub%20Pages/badge.svg)](https://github.com/Hyperscalar/Blogs/blob/master/.github/workflows/github-pages.yml)
-
-[![Cloudflare Pages Deployment Status / Cloudflare Pages 部署状态](https://github.com/Hyperscalar/Blogs/workflows/Continuous%20Deployment%20to%20Cloudflare%20Pages/badge.svg)](https://github.com/Hyperscalar/Blogs/blob/master/.github/workflows/cloudflare-pages.yml)
+[![GitHub Pages Deployment Status / GitHub Pages 部署状态](https://github.com/Hyperscalar/Blogs/workflows/Continuous%20Deployment%20to%20GitHub%20Pages/badge.svg)](https://github.com/Hyperscalar/Blogs/blob/master/.github/workflows/github-pages.yml) [![Cloudflare Pages Deployment Status / Cloudflare Pages 部署状态](https://github.com/Hyperscalar/Blogs/workflows/Continuous%20Deployment%20to%20Cloudflare%20Pages/badge.svg)](https://github.com/Hyperscalar/Blogs/blob/master/.github/workflows/cloudflare-pages.yml)
 
 ## The Workspace of Blogs / 博客工作台
 
