@@ -232,7 +232,7 @@ related_posts:
 filter_optimize:
   enable: true
   # static resource versioning
-  versioning: false
+  versioning: true
   css:
     # minify all css files
     minify: true
@@ -250,7 +250,7 @@ filter_optimize:
     minify: true
     excludes:
     # remove the comments in each of the js files
-    remove_comments: false
+    remove_comments: true
   html:
     # minify all html files
     minify: true

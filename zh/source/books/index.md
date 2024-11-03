@@ -1,5 +1,5 @@
 ---
-permalink: /books/
+permalink: books/
 title: 书籍
 date: true
 ---

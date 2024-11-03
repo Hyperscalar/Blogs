@@ -1,5 +1,5 @@
 ---
-permalink: /courses/
+permalink: courses/
 title: Courses
 date: true
 ---

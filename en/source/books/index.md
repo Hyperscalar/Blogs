@@ -1,5 +1,5 @@
 ---
-permalink: /books/
+permalink: books/
 title: Books
 date: true
 ---
