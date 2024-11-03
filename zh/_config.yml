@@ -118,19 +118,9 @@ sitemap:
     - sitemap.txt
   template: ./sitemap_template.xml
   template_txt: ./sitemap_template.txt
-  rel: true
-  tags: true
-  categories: true
-
-feed:
-  enable: true
-  type: atom
-  path: atom.xml
-  limit: false
-  content: true
-  order_by: -date
-  autodiscovery: true
-  template: ./feed_template.xml
+  rel: false
+  tags: false
+  categories: false
 
 alias:
 
