@@ -1,4 +1,10 @@
 User-agent: *
 Allow: /
+Allow: /zh/
+Allow: /zh/posts/
+Allow: /zh/about/
+Allow: /en/
+Allow: /en/posts/
+Allow: /en/about/
 Sitemap: ${host}/zh/sitemap.xml
 Sitemap: ${host}/en/sitemap.xml
