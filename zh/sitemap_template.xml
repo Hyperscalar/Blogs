@@ -12,7 +12,7 @@
   {% endfor %}
 
   <url>
-    <loc>{{ config.url | uriencode }}</loc>
+    <loc>{{ config.url + '/' | uriencode }}</loc>
     <lastmod>{{ sNow | formatDate }}</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
