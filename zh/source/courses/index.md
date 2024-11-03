@@ -1,4 +1,5 @@
 ---
+permalink: /courses/
 title: 课程
 date: true
 ---

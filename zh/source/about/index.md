@@ -1,4 +1,5 @@
 ---
+permalink: /about/
 title: 关于
 date: false
 ---

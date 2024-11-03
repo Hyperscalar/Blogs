@@ -7,7 +7,6 @@ categories:
 tags:
 - Test
 mathjax: true
-pdf: true
 ---
 
 This is my personal blog.

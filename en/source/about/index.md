@@ -1,6 +1,7 @@
 ---
+permalink: /about/
 title: About
-date: false
+date: true
 ---
 
 <center>Love Computer</center>
@@ -20,4 +21,3 @@ date: false
 <br>
 
 <center>Stay hungry, Stay foolish.</center>
-

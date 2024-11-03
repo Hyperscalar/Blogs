@@ -1,4 +1,5 @@
 ---
+permalink: /papers/
 title: Papers
-date: false
+date: true
 ---
