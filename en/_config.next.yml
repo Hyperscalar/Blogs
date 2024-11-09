@@ -182,7 +182,7 @@ links_settings:
   layout: block
 
 links:
-  Home: ${host}
+  Home: https://hyperscalar.github.io
 
 # Table of Contents in the Sidebar
 # Front-matter variable (nonsupport wrap expand_all).

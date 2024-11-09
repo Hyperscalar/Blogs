@@ -1,1 +1,1 @@
-# [Blog](${host}/en)
+# [Blog](https://hyperscalar.github.io/en/)

@@ -1,1 +1,1 @@
-# [博客](${host}/zh)
+# [博客](https://hyperscalar.github.io/zh/)

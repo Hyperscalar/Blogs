@@ -10,5 +10,5 @@ Disallow: /zh/images/
 Disallow: /zh/css/
 Disallow: /zh/js/
 Disallow: /zh/lib/
-Sitemap: ${host}/en/sitemap.xml
-Sitemap: ${host}/zh/sitemap.xml
+Sitemap: https://hyperscalar.github.io/en/sitemap.xml
+Sitemap: https://hyperscalar.github.io/zh/sitemap.xml

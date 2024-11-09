@@ -64,14 +64,14 @@ jobs:
           rm -rf public/
           cp -r source public/
           cd public
-          sed -i 's|\${host}|https://hyperscalar.pages.dev|g' robots.txt README.md
+          sed -i 's|https://hyperscalar.github.io|https://hyperscalar.pages.dev|g' robots.txt README.md
           cd ..
           cd ..
 
       - name: en
         run: |
           cd en
-          sed -i 's|\${host}|https://hyperscalar.pages.dev|g' _config.yml _config.next.yml source/README.md
+          sed -i 's|https://hyperscalar.github.io|https://hyperscalar.pages.dev|g' _config.yml _config.next.yml source/README.md
           npm install
           npm run build
           mv public ../root/public/en/
@@ -80,7 +80,7 @@ jobs:
       - name: zh
         run: |
           cd zh
-          sed -i 's|\${host}|https://hyperscalar.pages.dev|g' _config.yml _config.next.yml source/README.md
+          sed -i 's|https://hyperscalar.github.io|https://hyperscalar.pages.dev|g' _config.yml _config.next.yml source/README.md
           npm install
           npm run build
           mv public ../root/public/zh/

@@ -50,9 +50,6 @@ jobs:
           cd root
           rm -rf public/
           cp -r source public/
-          cd public
-          sed -i 's|\${host}|https://hyperscalar.github.io|g' robots.txt README.md
-          cd ..
           cd ..
 
       - name: push
@@ -115,7 +112,6 @@ jobs:
       - name: generate
         run: |
           cd en
-          sed -i 's|\${host}|https://hyperscalar.github.io|g' _config.yml _config.next.yml source/README.md
           npm install
           npm run clean
           npm run build
@@ -181,7 +177,6 @@ jobs:
       - name: generate
         run: |
           cd zh
-          sed -i 's|\${host}|https://hyperscalar.github.io|g' _config.yml _config.next.yml source/README.md
           npm install
           npm run clean
           npm run build
