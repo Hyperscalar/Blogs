@@ -7,7 +7,7 @@ categories:
 tags:
 - Performance Engineering
 - Computer Architecture
-- Distributed System
+- Distributed Systems
 - Practical Experience
 mathjax: true
 ---
