@@ -72,6 +72,8 @@ jobs:
         run: |
           cd en
           sed -i 's|https://hyperscalar.github.io|https://hyperscalar.pages.dev|g' _config.yml _config.next.yml source/README.md
+          sed -i 's|Ov23liWoexYmK0wyIrMq|Ov23liO8ymYEEB5J8ImW|g' _config.next.yml
+          sed -i 's|e97273e536b143c7d3d15293e19239f18d86929c|97b9cf715c6cf1783615ee31dc5b04116e857eca|g' _config.next.yml
           npm install
           npm run build
           mv public ../root/public/en/
@@ -81,6 +83,8 @@ jobs:
         run: |
           cd zh
           sed -i 's|https://hyperscalar.github.io|https://hyperscalar.pages.dev|g' _config.yml _config.next.yml source/README.md
+          sed -i 's|Ov23liPbXqUqmpgi6LQU|Ov23li5LC4fjn6mD8omR|g' _config.next.yml
+          sed -i 's|1b7a6b5074e104496a902cf5279e1e1e1b2e6fbc|4da5bc4d6ebae49e5fd9a9e39f0df9e7bd5b91b8|g' _config.next.yml
           npm install
           npm run build
           mv public ../root/public/zh/
