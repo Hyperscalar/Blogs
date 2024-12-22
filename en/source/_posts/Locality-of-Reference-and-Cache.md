@@ -20,6 +20,8 @@ mathjax: true
 
 The locality of reference in programs refers to the tendency of a program to execute a small, localized portion of its code at any given time. Similarly, the memory accessed during execution is limited to a small region of the computer's memory.
 
+
+
 The locality of reference can be divided into:
 
 - **Temporal Locality**: Refers to the likelihood that recently accessed data or instructions will be accessed again soon. For example, function parameters or local variables used in a function are likely to be reused shortly.
@@ -102,6 +104,7 @@ For example, the Apple M1 processor features an extensive multi-level on-chip ca
     </tr>
 </table>
 
+
 Key characteristics:
 
 1. **Separation of Instructions and Data**: In L1 cache, instructions and data are kept separate to avoid filling up the cache with data, ensuring high cache hit rates for instructions.
@@ -116,6 +119,8 @@ Let us explore how to apply the above strategies to distributed system clusters:
 1. **Multi-level caching strategy**: Employ a hierarchical caching approach, incorporating both single-machine caches and distributed caches.
 1. **Combination of exclusivity and sharing**: Use exclusive local caches on single machines and shared distributed caches across clusters.
 
+
+
 By effectively employing these caching strategies, we can maximize the exploitation of temporal locality in programs while balancing the differences among caches in terms of speed, capacity, and cost.
 
 
@@ -127,6 +132,8 @@ Before delving into how to leverage spatial locality in distributed systems, let
 
 
 As is well known, the smallest unit of addressing in memory (RAM) is a byte. This means that a byte is the atomic unit of memory and cannot be subdivided further. This is also why a boolean type, which only contains a single bit of information, is typically stored in memory as one byte.
+
+
 
 Now, are the L1, L2, and other CPU caches also atomic units of bytes?
 
@@ -150,7 +157,9 @@ The reasons for this design are roughly as follows:
 
 As we can see, the design of cache lines is largely aimed at exploiting spatial locality in programs to improve performance. In other words, this design encourages spatial locality: programs with strong spatial locality will benefit from improved performance under this mechanism, while programs with weak spatial locality will suffer performance penalties, much like how quicksort and heapsort were discussed earlier.
 
-Therefore, the key to utilizing spatial locality is: when loading cache data, we should not only load the data currently needed, but also load some "adjacent" data as well. In other words, the granularity of cache data loading should be greater than the granularity of cache data querying.
+
+
+Therefore, the key to utilizing spatial locality is: when loading cache data, we should not only load the data currently needed, but also load some "adjacent" data as well. In other words, **the granularity of cache data loading should be greater than the granularity of cache data querying**.
 
 
 
@@ -158,6 +167,8 @@ However, when trying to apply this concept in distributed systems, we face two m
 
 - **How to define "adjacency"**: In memory, adjacency is easily defined as physically contiguous addresses. But for data in databases, the situation is much more complex. Even within the same table, the definition of "adjacency" may vary depending on the usage scenario.
 - **How to determine the minimum data unit for cache loading**: Similar to the cache line size in CPU caches. If this value is too small, it limits the utilization of spatial locality. If it is too large, it puts considerable pressure on cache loading overhead and space utilization.
+
+
 
 There is no universal answer to these two problems; they need to be balanced based on the specific context. Below, I will illustrate this with a real-world example.
 
@@ -171,7 +182,7 @@ The project I am responsible for is a no-code development platform aimed at the 
 
 
 
-In addition to utilizing the complex DAG model, another key feature of the Strategy Platform is the stateful nature of its models. Specifically, the platform records the state information of each user, such as the vertex they occupy in each directed acyclic graph. This statefulness enhances the model’s expressiveness, enabling it to support a wide range of more complex real-world business scenarios.
+In addition to utilizing the complex directed acyclic graph model, another key feature of the Strategy Platform is the stateful nature of its models. Specifically, the platform records the state information of each user, such as the vertex they occupy in each directed acyclic graph. This statefulness enhances the model’s expressiveness, enabling it to support a wide range of more complex real-world business scenarios.
 
 
 
@@ -185,25 +196,23 @@ However, there is no such thing as a free lunch. Storing, writing, and querying 
 
 ### Mitigation Measures
 
-#### Addressing the Issue of Large Data Volumes
+Addressing the Issue of Large Data Volumes:
 
 - During the database selection phase, Lindorm (a modified version of HBase by Alibaba Cloud) was chosen to support massive data volumes. Additionally, its table-level and row-level TTL (Time to Live) mechanisms allow for easy automatic cleanup of historical data.
 - To reduce costs, a shared cluster was selected, which charges based on actual storage, write, and query usage. However, shared clusters can face "noisy neighbor" issues, which may lead to occasional performance fluctuations. Therefore, fault tolerance measures are necessary.
 
 
 
-#### Addressing the Issue of High Write Volumes
+Addressing the Issue of High Write Volumes:
 
 - Lindorm (HBase) is based on the LSM Tree data structure, and all write operations are sequential. Whether using SSDs or HDDs, sequential writes are several times faster than random writes, thus offering significant write performance.
 - State data is written in batches after undergoing some merging. This reduces the Write Transactions Per Second (TPS) and increases throughput.
-- State data pruning: Before writing, the state data is filtered to retain only the states of vertices in the directed acyclic graph (DAG) that are relied upon by other vertices, rather than storing the state of all vertices involved in the execution. This approach has been proven to significantly reduce the data volume for storage, writing, and querying.
+- State data pruning: Before writing, the state data is filtered to retain only the states of vertices in the directed acyclic graph that are relied upon by other vertices, rather than storing the state of all vertices involved in the execution. This approach has been proven to significantly reduce the data volume for storage, writing, and querying.
 - To address occasional performance fluctuations in the shared cluster, fault tolerance during database writes is achieved by retrying through message queue. Additionally, the timestamp-based multi-version feature in Lindorm is used to handle data consistency issues that may arise from retry-induced write reordering.
 
 
 
-#### The Biggest Challenge: High Query Volumes
-
-The most significant challenge, without a doubt, is handling a large volume of query requests. Relying solely on common caching strategies that focus on temporal locality of reference is not very effective for this problem, for the following reasons:
+The most significant challenge, without a doubt, is handling a large volume of query requests. Relying solely on common caching strategies that focus on temporal locality is not very effective for this problem, for the following reasons:
 
 - In the processing of a single request, repeatedly accessing the same vertex state is rare, so the cache hit rate is expected to be low.
 - Introducing a multi-level cache strategy would only distribute part of the query load to stores like Redis, leading to additional costs and increased system dependencies, which may cause a drop in SLA (Service Level Agreement).
@@ -213,7 +222,7 @@ The most significant challenge, without a doubt, is handling a large volume of q
 As a result, a different approach must be taken, focusing on two ideas:
 
 1. During data writes, we adopt a batching strategy to combine multiple individual write requests into a single batch to reduce TPS and improve throughput. What corresponding strategy can be applied during query processing?
-1. Queries are usually user-specific, meaning each request typically involves multiple DAG executions, and each DAG execution involves several vertices. This creates a clear amplification effect: the query load for the state database = request volume × average number of DAGs per request × average number of vertices per DAG.
+1. Queries are usually user-specific, meaning each request typically involves multiple graph executions, and each graph execution involves several vertices. This creates a clear amplification effect: the query load for the state database = request volume × average number of graphs per request × average number of vertices per graph.
 
 > If Idea 1 goes off course, it could result in a strategy where a single data query request is first blocked, waiting to accumulate a certain number of requests or until a specific time threshold is reached before issuing a batch query. While this could indeed achieve batching, it will undoubtedly increase request latency deterministically, and it’s uncertain how many requests can be accumulated, meaning the cost is guaranteed but the effectiveness is not assured. Additionally, requests aggregated in this way are usually for different users, meaning that their physical distribution in the database will be relatively dispersed. Whether batching these requests for a query improves or harms the query performance is uncertain… at least the indexing overhead probably won’t be significantly reduced compared to querying a batch of adjacent data.
 
@@ -223,8 +232,6 @@ Ultimately, both approaches lead to the same conclusion: **the granularity of ca
 
 
 
-##### State Table Key Structure and Caching Strategy
-
 In the Lindorm database, the primary key for the state table (equivalent to the Rowkey in HBase) is composed of: (userId, graphId, vertexId). Additionally, like HBase, Lindorm supports range queries with leftmost prefix matching.
 
 
@@ -232,9 +239,11 @@ In the Lindorm database, the primary key for the state table (equivalent to the 
 To implement the idea that "the granularity of cache data loading should be greater than the granularity of cache data querying," there are two choices:
 
 1. **Cache Loading Granularity: (userId, graphId)**
-   Querying the state data for a specific vertex in a DAG for a user triggers loading all state data for that user’s vertices in the same DAG into the cache.
+   Querying the state data for a specific vertex in a graph for a user triggers loading all state data for that user’s vertices in the same graph into the cache.
 1. **Cache Loading Granularity: (userId)**
-   Querying the state data for a specific vertex in a DAG for a user triggers loading all state data for that user’s vertices across all DAGs into the cache.
+   Querying the state data for a specific vertex in a graph for a user triggers loading all state data for that user’s vertices across all graphs into the cache.
+
+
 
 The cache query granularity depends on the use case, but the (userId, graphId, vertexId) key structure must remain unchanged.
 
@@ -379,6 +388,8 @@ So, how are these two challenges addressed in the case described above?
 
 
 Of course, this specific case has some unique features. Overall, the distribution of state data is relatively sparse, especially for the pruned state data. In more typical scenarios, we still recommend setting a hard limit on the amount of data to be loaded into the cache. For example, when loading in batches, a maximum of N rows should be loaded. While this may not fully exploit spatial locality to its maximum, it effectively controls memory pressure and is suitable for a broader range of scenarios, such as when the amount of data under a single user exceeds the memory limits. This approach is more akin to the cache line strategy in CPUs.
+
+
 
 Additionally, when loading data into the cache, a placeholder empty object must be set for values that do not exist in the database to prevent cache penetration. This anti-penetration effect is also enhanced as the granularity of cache loading increases.
 

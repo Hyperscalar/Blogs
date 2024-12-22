@@ -139,7 +139,7 @@ markdown:
     html: true
     xhtmlOut: false
     langPrefix: 'language-'
-    breaks: false
+    breaks: true
     linkify: true
     typographer: true
     quotes: '“”‘’'
