@@ -720,7 +720,7 @@ livere_uid: # <your_uid>
 # Gitalk
 # For more information: https://gitalk.github.io
 gitalk:
-  enable: false
+  enable: true
   github_id: hyperscalar # GitHub repo owner
   repo: zh # Repository name to store issues
   client_id: Ov23liPbXqUqmpgi6LQU # GitHub Application Client ID
