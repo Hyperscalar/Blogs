@@ -238,10 +238,8 @@ In the Lindorm database, the primary key for the state table (equivalent to the 
 
 To implement the idea that "the granularity of cache data loading should be greater than the granularity of cache data querying," there are two choices:
 
-1. **Cache Loading Granularity: (userId, graphId)**
-   Querying the state data for a specific vertex in a graph for a user triggers loading all state data for that user’s vertices in the same graph into the cache.
-1. **Cache Loading Granularity: (userId)**
-   Querying the state data for a specific vertex in a graph for a user triggers loading all state data for that user’s vertices across all graphs into the cache.
+1. **Cache Loading Granularity: (userId, graphId)**. Querying the state data for a specific vertex in a graph for a user triggers loading all state data for that user’s vertices in the same graph into the cache.
+1. **Cache Loading Granularity: (userId)**. Querying the state data for a specific vertex in a graph for a user triggers loading all state data for that user’s vertices across all graphs into the cache.
 
 
 
@@ -269,8 +267,8 @@ After the (userId, graphId) scheme was launched, the following metrics were obse
 
 | Cache Loading Granularity   | Cache Query Volume | Cache Load Volume | Cache Load Time per Request | Amortized Cache Query Time* |
 | --------------------------- | ------------------ | ----------------- | --------------------------- | --------------------------- |
-| (userId, graphId, vertexId) | 68,000/sec         | 68,000/sec        | 1 ms/request                | 1 ms/request                |
-| (userId, graphId)           | 68,000/sec         | 16,000/sec        | 1.5 ms/request              | 0.35 ms/request             |
+| (userId, graphId, vertexId) | 68,000/s           | 68,000/s          | 1 ms/request                | 1 ms/request                |
+| (userId, graphId)           | 68,000/s           | 16,000/s          | 1.5 ms/request              | 0.35 ms/request             |
 
 *Amortized Cache Query Time*: This refers to distributing the total cache load time across the total cache query volume. In other words: Cache Load Time per Request × Cache Load Volume ÷ Cache Query Volume.
 
@@ -294,9 +292,9 @@ Thus, we decided to push the scheme to its limit—by setting the cache loading 
 
 | Cache Loading Granularity   | Cache Query Volume | Cache Load Volume | Cache Load Time per Request | Amortized Cache Query Time |
 | --------------------------- | ------------------ | ----------------- | --------------------------- | -------------------------- |
-| (userId, graphId, vertexId) | 68,000/sec         | 68,000/sec        | 1 ms/request                | 1 ms/request               |
-| (userId, graphId)           | 68,000/sec         | 16,000/sec        | 1.5 ms/request              | 0.35 ms/request            |
-| (userId)                    | 68,000/sec         | 2,800/sec         | 3.9 ms/request              | 0.16 ms/request            |
+| (userId, graphId, vertexId) | 68,000/s           | 68,000/s          | 1 ms/request                | 1 ms/request               |
+| (userId, graphId)           | 68,000/s           | 16,000/s          | 1.5 ms/request              | 0.35 ms/request            |
+| (userId)                    | 68,000/s           | 2,800/s           | 3.9 ms/request              | 0.16 ms/request            |
 
 
 
@@ -314,8 +312,8 @@ After a longer period of platform development, the query volume for state cache 
 
 | Time Point | Cache Loading Granularity | Cache Query Volume | Cache Load Volume | Cache Load Time per Request | Amortized Cache Query Time* |
 | ---------- | ------------------------- | ------------------ | ----------------- | --------------------------- | --------------------------- |
-| Launch     | (userId)                  | 68,000/sec         | 2,800/sec         | 3.9 ms/request              | 0.16 ms/request             |
-| Current    | (userId)                  | 717,000/sec        | 14,000/sec        | 1.17 ms/request             | 0.02 ms/request             |
+| Launch     | (userId)                  | 68,000/s           | 2,800/s           | 3.9 ms/request              | 0.16 ms/request             |
+| Current    | (userId)                  | 717,000/s          | 14,000/s          | 1.17 ms/request             | 0.02 ms/request             |
 
 
 
