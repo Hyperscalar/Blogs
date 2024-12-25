@@ -249,11 +249,11 @@ The cache query granularity depends on the use case, but the (userId, graphId, v
 
 Here’s a comparison of the various cache loading strategies:
 
-| Cache Loading Granularity   | Number of Data Rows Loaded | Data Volume Loaded | Load Latency | Spatial Locality | Storage Pressure |
+| Cache Loading Granularity   | Number of Data Rows Loaded | Data Volume Loaded | Load Latency | Spatial Locality | Memory Pressure  |
 | --------------------------- | -------------------------- | ------------------ | ------------ | ---------------- | ---------------- |
 | (userId, graphId, vertexId) | One row                    | Small              | Low          | None             | Low              |
 | (userId, graphId)           | Multiple adjacent rows     | Medium             | Medium       | Medium           | Medium           |
-| (userId)                    | Multiple adjacent rows     | Large              | High         | High             | High             |
+| (userId)                    | Multiple adjacent rows     | Large              | High         | Strong           | High             |
 
 
 
@@ -265,10 +265,10 @@ During the development phase, it was anticipated that user state queries would b
 
 After the (userId, graphId) scheme was launched, the following metrics were observed:
 
-| Cache Loading Granularity   | Cache Query Volume | Cache Load Volume | Cache Load Time per Request | Amortized Cache Query Time* |
-| --------------------------- | ------------------ | ----------------- | --------------------------- | --------------------------- |
-| (userId, graphId, vertexId) | 68,000/s           | 68,000/s          | 1 ms/request                | 1 ms/request                |
-| (userId, graphId)           | 68,000/s           | 16,000/s          | 1.5 ms/request              | 0.35 ms/request             |
+| Cache Loading Granularity   | Cache Query Volume | Cache Load Volume | Average Cache Load Time | Amortized Cache Query Time* |
+| --------------------------- | ------------------ | ----------------- | ----------------------- | --------------------------- |
+| (userId, graphId, vertexId) | 68,000/s           | 68,000/s          | 1 ms/request            | 1 ms/request                |
+| (userId, graphId)           | 68,000/s           | 16,000/s          | 1.5 ms/request          | 0.35 ms/request             |
 
 *Amortized Cache Query Time*: This refers to distributing the total cache load time across the total cache query volume. In other words: Cache Load Time per Request × Cache Load Volume ÷ Cache Query Volume.
 
@@ -290,11 +290,11 @@ After the (userId, graphId) scheme had been running for some time, we observed t
 
 Thus, we decided to push the scheme to its limit—by setting the cache loading granularity to (userId)!
 
-| Cache Loading Granularity   | Cache Query Volume | Cache Load Volume | Cache Load Time per Request | Amortized Cache Query Time |
-| --------------------------- | ------------------ | ----------------- | --------------------------- | -------------------------- |
-| (userId, graphId, vertexId) | 68,000/s           | 68,000/s          | 1 ms/request                | 1 ms/request               |
-| (userId, graphId)           | 68,000/s           | 16,000/s          | 1.5 ms/request              | 0.35 ms/request            |
-| (userId)                    | 68,000/s           | 2,800/s           | 3.9 ms/request              | 0.16 ms/request            |
+| Cache Loading Granularity   | Cache Query Volume | Cache Load Volume | Average Cache Load Time | Amortized Cache Query Time |
+| --------------------------- | ------------------ | ----------------- | ----------------------- | -------------------------- |
+| (userId, graphId, vertexId) | 68,000/s           | 68,000/s          | 1 ms/request            | 1 ms/request               |
+| (userId, graphId)           | 68,000/s           | 16,000/s          | 1.5 ms/request          | 0.35 ms/request            |
+| (userId)                    | 68,000/s           | 2,800/s           | 3.9 ms/request          | 0.16 ms/request            |
 
 
 
@@ -310,10 +310,10 @@ As we pushed spatial locality to its extreme, the following observations were ma
 
 After a longer period of platform development, the query volume for state cache queries increased significantly. At the same time, thanks to optimizations such as data pruning on the write side, the latest metrics are as follows:
 
-| Time Point | Cache Loading Granularity | Cache Query Volume | Cache Load Volume | Cache Load Time per Request | Amortized Cache Query Time* |
-| ---------- | ------------------------- | ------------------ | ----------------- | --------------------------- | --------------------------- |
-| Launch     | (userId)                  | 68,000/s           | 2,800/s           | 3.9 ms/request              | 0.16 ms/request             |
-| Current    | (userId)                  | 717,000/s          | 14,000/s          | 1.17 ms/request             | 0.02 ms/request             |
+| Time Point | Cache Loading Granularity | Cache Query Volume | Cache Load Volume | Average Cache Load Time | Amortized Cache Query Time* |
+| ---------- | ------------------------- | ------------------ | ----------------- | ----------------------- | --------------------------- |
+| Launch     | (userId)                  | 68,000/s           | 2,800/s           | 3.9 ms/request          | 0.16 ms/request             |
+| Current    | (userId)                  | 717,000/s          | 14,000/s          | 1.17 ms/request         | 0.02 ms/request             |
 
 
 
