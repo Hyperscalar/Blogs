@@ -45,7 +45,7 @@ A classic example of cache-friendliness is heapsort, which has a theoretically o
 
 
 
-Quicksort
+**Quicksort**
 
 {% asset_img Quicksort-Animation.gif Quicksort Animation, From Wikipedia %}
 
@@ -53,7 +53,7 @@ Quicksort's divide-and-conquer algorithm limits memory access to a localized ran
 
 
 
-Heapsort
+**Heapsort**
 
 {% asset_img Heapsort-Animation.gif Heapsort Animation, From Wikipedia %}
 
@@ -115,7 +115,7 @@ Key characteristics:
 
 Let us explore how to apply the above strategies to distributed system clusters:
 
-1. **Separation of code instructions and program data**: Separate configuration data caches, user data caches, and even caches for different scenarios or purposes as much as possible.
+1. **Separation of code instructions and program data**: Separate configuration data caches from user data caches. Additionally, ensure that caches for different scenarios or purposes are kept as distinct as possible.
 1. **Multi-level caching strategy**: Employ a hierarchical caching approach, incorporating both single-machine caches and distributed caches.
 1. **Combination of exclusivity and sharing**: Use exclusive local caches on single machines and shared distributed caches across clusters.
 
@@ -188,22 +188,22 @@ In addition to utilizing the complex directed acyclic graph model, another key f
 
 However, there is no such thing as a free lunch. Storing, writing, and querying these user state data present several challenges:
 
--  The volume of data to be stored is enormous, with an estimated scale of over 1 billion records. This will continue to grow as the platform’s usage and business scale increase.
--  The volume of data to be written is similarly vast, with an estimated write throughput (TPS) exceeding 10,000. This will also increase with the platform’s usage and business scale.
--  The volume of data to be queried is even larger, with an estimated query throughput (QPS) exceeding 100,000. This will continue to grow with the platform’s usage and business scale
+-  **The volume of data to be stored is enormous**, with an estimated scale of over 1 billion records. This will continue to grow as the platform’s usage and business scale increase.
+-  **The volume of data to be written is similarly vast**, with an estimated write throughput (TPS) exceeding 10,000. This will also increase with the platform’s usage and business scale.
+-  **The volume of data to be queried is even larger**, with an estimated query throughput (QPS) exceeding 100,000. This will continue to grow with the platform’s usage and business scale
 
 
 
 ### Mitigation Measures
 
-Addressing the Issue of Large Data Volumes:
+**Addressing the Issue of Large Data Volumes**:
 
 - During the database selection phase, Lindorm (a modified version of HBase by Alibaba Cloud) was chosen to support massive data volumes. Additionally, its table-level and row-level TTL (Time to Live) mechanisms allow for easy automatic cleanup of historical data.
 - To reduce costs, a shared cluster was selected, which charges based on actual storage, write, and query usage. However, shared clusters can face "noisy neighbor" issues, which may lead to occasional performance fluctuations. Therefore, fault tolerance measures are necessary.
 
 
 
-Addressing the Issue of High Write Volumes:
+**Addressing the Issue of High Write Volumes**:
 
 - Lindorm (HBase) is based on the LSM Tree data structure, and all write operations are sequential. Whether using SSDs or HDDs, sequential writes are several times faster than random writes, thus offering significant write performance.
 - State data is written in batches after undergoing some merging. This reduces the Write Transactions Per Second (TPS) and increases throughput.
@@ -211,6 +211,8 @@ Addressing the Issue of High Write Volumes:
 - To address occasional performance fluctuations in the shared cluster, fault tolerance during database writes is achieved by retrying through message queue. Additionally, the timestamp-based multi-version feature in Lindorm is used to handle data consistency issues that may arise from retry-induced write reordering.
 
 
+
+**Addressing the Biggest Challenge of High Query Volumes**:
 
 The most significant challenge, without a doubt, is handling a large volume of query requests. Relying solely on common caching strategies that focus on temporal locality is not very effective for this problem, for the following reasons:
 
@@ -226,11 +228,11 @@ As a result, a different approach must be taken, focusing on two ideas:
 
 > If Idea 1 goes off course, it could result in a strategy where a single data query request is first blocked, waiting to accumulate a certain number of requests or until a specific time threshold is reached before issuing a batch query. While this could indeed achieve batching, it will undoubtedly increase request latency deterministically, and it’s uncertain how many requests can be accumulated, meaning the cost is guaranteed but the effectiveness is not assured. Additionally, requests aggregated in this way are usually for different users, meaning that their physical distribution in the database will be relatively dispersed. Whether batching these requests for a query improves or harms the query performance is uncertain… at least the indexing overhead probably won’t be significantly reduced compared to querying a batch of adjacent data.
 
-
-
 Ultimately, both approaches lead to the same conclusion: **the granularity of cache data loading should be greater than the granularity of cache data querying**. This mirrors the concept of cache line design in CPU caches, aiming to exploit the spatial locality of state data query requests.
 
 
+
+**Table Key Structure and Cache Loading Strategies**
 
 In the Lindorm database, the primary key for the state table (equivalent to the Rowkey in HBase) is composed of: (userId, graphId, vertexId). Additionally, like HBase, Lindorm supports range queries with leftmost prefix matching.
 
@@ -249,11 +251,11 @@ The cache query granularity depends on the use case, but the (userId, graphId, v
 
 Here’s a comparison of the various cache loading strategies:
 
-| Cache Loading Granularity   | Number of Data Rows Loaded | Data Volume Loaded | Load Latency | Spatial Locality | Memory Pressure  |
-| --------------------------- | -------------------------- | ------------------ | ------------ | ---------------- | ---------------- |
-| (userId, graphId, vertexId) | One row                    | Small              | Low          | None             | Low              |
-| (userId, graphId)           | Multiple adjacent rows     | Medium             | Medium       | Medium           | Medium           |
-| (userId)                    | Multiple adjacent rows     | Large              | High         | Strong           | High             |
+| Cache Loading Granularity   | Data Rows Loaded       | Data Volume Loaded | Load Latency | Spatial Locality | Memory Pressure |
+| --------------------------- | ---------------------- | ------------------ | ------------ | ---------------- | --------------- |
+| (userId, graphId, vertexId) | One row                | Small              | Low          | None             | Low             |
+| (userId, graphId)           | Multiple adjacent rows | Medium             | Medium       | Medium           | Medium          |
+| (userId)                    | Multiple adjacent rows | Large              | High         | Strong           | High            |
 
 
 
@@ -267,8 +269,8 @@ After the (userId, graphId) scheme was launched, the following metrics were obse
 
 | Cache Loading Granularity   | Cache Query Volume | Cache Load Volume | Average Cache Load Time | Amortized Cache Query Time* |
 | --------------------------- | ------------------ | ----------------- | ----------------------- | --------------------------- |
-| (userId, graphId, vertexId) | 68,000/s           | 68,000/s          | 1 ms/request            | 1 ms/request                |
-| (userId, graphId)           | 68,000/s           | 16,000/s          | 1.5 ms/request          | 0.35 ms/request             |
+| (userId, graphId, vertexId) | 68,000/s           | 68,000/s          | 1 ms                    | 1 ms                        |
+| (userId, graphId)           | 68,000/s           | 16,000/s          | 1.5 ms                  | 0.35 ms                     |
 
 *Amortized Cache Query Time*: This refers to distributing the total cache load time across the total cache query volume. In other words: Cache Load Time per Request × Cache Load Volume ÷ Cache Query Volume.
 
@@ -292,9 +294,9 @@ Thus, we decided to push the scheme to its limit—by setting the cache loading 
 
 | Cache Loading Granularity   | Cache Query Volume | Cache Load Volume | Average Cache Load Time | Amortized Cache Query Time |
 | --------------------------- | ------------------ | ----------------- | ----------------------- | -------------------------- |
-| (userId, graphId, vertexId) | 68,000/s           | 68,000/s          | 1 ms/request            | 1 ms/request               |
-| (userId, graphId)           | 68,000/s           | 16,000/s          | 1.5 ms/request          | 0.35 ms/request            |
-| (userId)                    | 68,000/s           | 2,800/s           | 3.9 ms/request          | 0.16 ms/request            |
+| (userId, graphId, vertexId) | 68,000/s           | 68,000/s          | 1 ms                    | 1 ms                       |
+| (userId, graphId)           | 68,000/s           | 16,000/s          | 1.5 ms                  | 0.35 ms                    |
+| (userId)                    | 68,000/s           | 2,800/s           | 3.9 ms                  | 0.16 ms                    |
 
 
 
@@ -312,8 +314,8 @@ After a longer period of platform development, the query volume for state cache 
 
 | Time Point | Cache Loading Granularity | Cache Query Volume | Cache Load Volume | Average Cache Load Time | Amortized Cache Query Time* |
 | ---------- | ------------------------- | ------------------ | ----------------- | ----------------------- | --------------------------- |
-| Launch     | (userId)                  | 68,000/s           | 2,800/s           | 3.9 ms/request          | 0.16 ms/request             |
-| Current    | (userId)                  | 717,000/s          | 14,000/s          | 1.17 ms/request         | 0.02 ms/request             |
+| Launch     | (userId)                  | 68,000/s           | 2,800/s           | 3.9 ms                  | 0.16 ms                     |
+| Current    | (userId)                  | 717,000/s          | 14,000/s          | 1.17 ms                 | 0.02 ms                     |
 
 
 
@@ -359,9 +361,9 @@ It is important to note:
 From the monitoring metrics, we can observe:
 
 - The peak utilization of the state cache on a single machine is around 600 items, which is not large and is well below the maximum of 2048 items;
-- From the batch query monitoring of the state database table, we can observe that the maximum batch query data volume is around 12 items per batch, and it remains stable over time without any significant spikes. Additionally, considering the scenario on the strategy platform, it is highly unlikely that a single user would have an excessively large amount of data;
+- From the batch query monitoring of the state database table, we can observe that the maximum batch query data volume is around 12 items per batch, and it remains stable over time without any spikes. Additionally, considering the scenario on the strategy platform, it is highly unlikely that a single user would have an excessively large amount of data;
 - JVM GC performance on a single machine, using JDK 21 and G1 GC, shows a GC frequency of 2-5 times per minute, with a cumulative GC time of 40-130 milliseconds per minute (not per GC cycle), all of which are Young GC events;
-- On a single machine with 4 GiB heap memory, after Young GC, the heap usage can drop to below 1 GiB.
+- On a single machine with 4 GiB heap memory, after Young GC, the heap usage can drop to around 20%.
 
 
 
