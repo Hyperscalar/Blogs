@@ -65,6 +65,9 @@ jobs:
           cp -r source public/
           cd public
           sed -i 's|https://hyperscalar.github.io|https://hyperscalar.pages.dev|g' robots.txt README.md
+          sed -i 's|G-YWP460XJG2|G-JQKEN3QFD6|g' index.html
+          sed -i 's|4e14621546db499aa0130cd3f9f308d7|e454ebd4f90d429da0846b70835091da|g' index.html
+          sed -i 's|plm26dh6lw|plm2juu09c|g' index.html
           cd ..
           cd ..
 
