@@ -196,23 +196,23 @@ However, there is no such thing as a free lunch. Storing, writing, and querying 
 
 ### Mitigation Measures
 
-**Addressing the Issue of Large Data Volumes**:
+**Addressing the Issue of Large Data Volumes**
 
 - During the database selection phase, Lindorm (a modified version of HBase by Alibaba Cloud) was chosen to support massive data volumes. Additionally, its table-level and row-level TTL (Time to Live) mechanisms allow for easy automatic cleanup of historical data.
 - To reduce costs, a shared cluster was selected, which charges based on actual storage, write, and query usage. However, shared clusters can face "noisy neighbor" issues, which may lead to occasional performance fluctuations. Therefore, fault tolerance measures are necessary.
 
 
 
-**Addressing the Issue of High Write Volumes**:
+**Addressing the Issue of High Write Volumes**
 
 - Lindorm (HBase) is based on the LSM Tree data structure, and all write operations are sequential. Whether using SSDs or HDDs, sequential writes are several times faster than random writes, thus offering significant write performance.
 - State data is written in batches after undergoing some merging. This reduces the Write Transactions Per Second (TPS) and increases throughput.
-- State data pruning: Before writing, the state data is filtered to retain only the states of vertices in the directed acyclic graph that are relied upon by other vertices, rather than storing the state of all vertices involved in the execution. This approach has been proven to significantly reduce the data volume for storage, writing, and querying.
+- State data pruning: Before writing, the state data is filtered to retain only the states of vertices in the directed acyclic graph that are relied upon by other vertices, rather than storing the states of all vertices involved in the execution. This approach has been proven to significantly reduce the data volume for storage, writing, and querying.
 - To address occasional performance fluctuations in the shared cluster, fault tolerance during database writes is achieved by retrying through message queue. Additionally, the timestamp-based multi-version feature in Lindorm is used to handle data consistency issues that may arise from retry-induced write reordering.
 
 
 
-**Addressing the Biggest Challenge of High Query Volumes**:
+**Addressing the Biggest Challenge of High Query Volumes**
 
 The most significant challenge, without a doubt, is handling a large volume of query requests. Relying solely on common caching strategies that focus on temporal locality is not very effective for this problem, for the following reasons:
 
@@ -226,7 +226,7 @@ As a result, a different approach must be taken, focusing on two ideas:
 1. During data writes, we adopt a batching strategy to combine multiple individual write requests into a single batch to reduce TPS and improve throughput. What corresponding strategy can be applied during query processing?
 1. Queries are usually user-specific, meaning each request typically involves multiple graph executions, and each graph execution involves several vertices. This creates a clear amplification effect: the query load for the state database = request volume × average number of graphs per request × average number of vertices per graph.
 
-> If Idea 1 goes off course, it could result in a strategy where a single data query request is first blocked, waiting to accumulate a certain number of requests or until a specific time threshold is reached before issuing a batch query. While this could indeed achieve batching, it will undoubtedly increase request latency deterministically, and it’s uncertain how many requests can be accumulated, meaning the cost is guaranteed but the effectiveness is not assured. Additionally, requests aggregated in this way are usually for different users, meaning that their physical distribution in the database will be relatively dispersed. Whether batching these requests for a query improves or harms the query performance is uncertain… at least the indexing overhead probably won’t be significantly reduced compared to querying a batch of adjacent data.
+> If Idea 1 goes off course, it could result in a strategy where a single data query request is first blocked, waiting to accumulate a certain number of requests or until a specific time threshold is reached before issuing a batch query. While this could indeed achieve batching, it will undoubtedly increase request latency deterministically, and it’s uncertain how many requests can be accumulated, meaning the cost is guaranteed but the effectiveness is not assured. Additionally, requests aggregated in this way are usually for different users, meaning that their physical distribution in the database will be relatively dispersed. Whether batching these requests for a query improves or harms the query performance is uncertain… at least the index overhead probably won’t be significantly reduced compared to querying a batch of adjacent data.
 
 Ultimately, both approaches lead to the same conclusion: **the granularity of cache data loading should be greater than the granularity of cache data querying**. This mirrors the concept of cache line design in CPU caches, aiming to exploit the spatial locality of state data query requests.
 
@@ -272,7 +272,7 @@ After the (userId, graphId) scheme was launched, the following metrics were obse
 | (userId, graphId, vertexId) | 68,000/s           | 68,000/s          | 1 ms                    | 1 ms                        |
 | (userId, graphId)           | 68,000/s           | 16,000/s          | 1.5 ms                  | 0.35 ms                     |
 
-*Amortized Cache Query Time*: This refers to distributing the total cache load time across the total cache query volume. In other words: Cache Load Time per Request × Cache Load Volume ÷ Cache Query Volume.
+*Amortized Cache Query Time*: This refers to distributing the total cache load time across the total cache query volume. In other words: Average Cache Load Time × Cache Load Volume ÷ Cache Query Volume.
 
 
 
@@ -337,7 +337,7 @@ After the substantial increase in query volume, combined with optimizations on t
 At this point, you may be wondering: what are the trade-offs?
 
 - Could such an aggressive cache loading strategy cause the memory to overflow?
-- Is there a risk of having massive data under a single user ID?
+- Is there a risk of having massive data under a single user?
 - How is the GC (Garbage Collection) pressure?
 - Will the memory requirements be excessively high?
 
