@@ -14,7 +14,7 @@ date: true
 
 <center>Geek</center>
 
-<center>Perfectionist</center>
+<center>Minimalist</center>
 
 <center>Interest and Curiosity Driven</center>
 

@@ -14,10 +14,10 @@ date: false
 
 <center>极客</center>
 
-<center>完美主义者</center>
+<center>极简主义者</center>
 
 <center>兴趣和好奇心驱动</center>
 
 <br>
 
-<center>保持初心，特立独行。</center>
+<center>不变初心，特立独行。</center>
