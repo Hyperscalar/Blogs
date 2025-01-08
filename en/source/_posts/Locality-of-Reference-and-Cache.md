@@ -1,7 +1,6 @@
 ---
 title: How to Reduce Database Query Load from 717,000 Queries/Second to 14,000 Queries/Second Using Only Local Cache
 date: 2024-12-21
-updated:
 categories:
 - Caching
 tags:
@@ -392,4 +391,3 @@ Of course, this specific case has some unique features. Overall, the distributio
 
 
 Additionally, when loading data into the cache, a placeholder empty object must be set for values that do not exist in the database to prevent cache penetration. This anti-penetration effect is also enhanced as the granularity of cache loading increases.
-

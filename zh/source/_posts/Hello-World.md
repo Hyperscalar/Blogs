@@ -1,7 +1,6 @@
 ---
 title: 你好，世界
 date: 2018-03-20
-updated: 2018-10-10
 categories:
 - 杂项
 tags:

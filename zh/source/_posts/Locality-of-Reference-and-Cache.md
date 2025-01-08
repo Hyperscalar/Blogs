@@ -1,7 +1,6 @@
 ---
 title: 如何仅通过本地缓存就将数据库查询量级从 71.7 万/秒降至 1.4 万/秒
 date: 2024-12-18
-updated:
 categories:
 - 缓存
 tags:

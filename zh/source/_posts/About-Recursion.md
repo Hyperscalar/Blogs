@@ -1,7 +1,6 @@
 ---
 title: 浅谈递归
 date: 2018-08-29
-updated: 2018-10-18
 categories:
 - 编程
 - 递归

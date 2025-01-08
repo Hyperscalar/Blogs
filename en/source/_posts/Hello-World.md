@@ -1,7 +1,6 @@
 ---
 title: Hello World
 date: 2018-03-20
-updated: 2018-09-10
 categories:
 - Miscellaneous
 tags:

@@ -1,7 +1,6 @@
 ---
 title: Paxos Made Simple 翻译及总结
 date: 2018-09-27
-updated: 2018-09-30
 categories:
 - 分布式系统
 tags:
